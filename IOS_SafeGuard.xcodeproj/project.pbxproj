@@ -94,6 +94,10 @@
 		930F498F2AFCD52A0094A97E /* IOS_SafeGuard */ = {
 			isa = PBXGroup;
 			children = (
+				930F49BD2AFCD8140094A97E /* Networking */,
+				930F49BC2AFCD8020094A97E /* ViewModel */,
+				930F49BB2AFCD7FC0094A97E /* View */,
+				930F49BA2AFCD5600094A97E /* Model */,
 				930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */,
 				930F49922AFCD52A0094A97E /* ContentView.swift */,
 				930F49942AFCD52B0094A97E /* Assets.xcassets */,
@@ -125,6 +129,34 @@
 				930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */,
 			);
 			path = IOS_SafeGuardUITests;
+			sourceTree = "<group>";
+		};
+		930F49BA2AFCD5600094A97E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		930F49BB2AFCD7FC0094A97E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		930F49BC2AFCD8020094A97E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		930F49BD2AFCD8140094A97E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

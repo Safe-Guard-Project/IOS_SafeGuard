@@ -14,6 +14,10 @@
 		930F49A22AFCD52B0094A97E /* IOS_SafeGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49A12AFCD52B0094A97E /* IOS_SafeGuardTests.swift */; };
 		930F49AC2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */; };
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
+		930F49BF2AFCD9B50094A97E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49BE2AFCD9B40094A97E /* test.swift */; };
+		930F49C12AFCD9C40094A97E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C02AFCD9C40094A97E /* test.swift */; };
+		930F49C32AFCD9CC0094A97E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* test.swift */; };
+		930F49C52AFCD9D80094A97E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C42AFCD9D80094A97E /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		930F49A72AFCD52B0094A97E /* IOS_SafeGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOS_SafeGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITests.swift; sourceTree = "<group>"; };
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		930F49BE2AFCD9B40094A97E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		930F49C02AFCD9C40094A97E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		930F49C22AFCD9CC0094A97E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		930F49C42AFCD9D80094A97E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,7 @@
 		930F49BA2AFCD5600094A97E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				930F49C42AFCD9D80094A97E /* test.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +150,7 @@
 		930F49BB2AFCD7FC0094A97E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				930F49BE2AFCD9B40094A97E /* test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +158,7 @@
 		930F49BC2AFCD8020094A97E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				930F49C22AFCD9CC0094A97E /* test.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +166,7 @@
 		930F49BD2AFCD8140094A97E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				930F49C02AFCD9C40094A97E /* test.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -290,6 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				930F49932AFCD52A0094A97E /* ContentView.swift in Sources */,
+				930F49C52AFCD9D80094A97E /* test.swift in Sources */,
+				930F49C12AFCD9C40094A97E /* test.swift in Sources */,
+				930F49BF2AFCD9B50094A97E /* test.swift in Sources */,
+				930F49C32AFCD9CC0094A97E /* test.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

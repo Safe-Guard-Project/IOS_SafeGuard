@@ -143,7 +143,7 @@ struct SignUpView: View {
                 Button(action: {
                     // Perform your action for redirecting to the sign-up screen
                 }) {
-                    Text("Sign Up")
+                    Text("Sign In")
                         .foregroundColor(.blue)
                         .padding()
                 }

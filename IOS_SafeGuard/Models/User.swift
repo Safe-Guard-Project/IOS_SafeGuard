@@ -11,7 +11,7 @@ enum UserRole: String, Codable {
     case admin
 }
 
-struct User: Codable {
+struct User: Codable, Identifiable {
     let _id: String
     let UserName: String
     let email: String
@@ -20,5 +20,8 @@ struct User: Codable {
     let latitudeUser: Int
     let longitudeUser: Int
     let numeroTel: String
+    var id: String {
+        return _id
+    }
 }
 

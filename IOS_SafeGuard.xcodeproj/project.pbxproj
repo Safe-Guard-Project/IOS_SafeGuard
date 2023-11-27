@@ -23,6 +23,9 @@
 		93DA55B92B142D040046548B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55B82B142D040046548B /* UserRepository.swift */; };
 		93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */; };
 		93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55BC2B1451380046548B /* WebServiceProvider.swift */; };
+		93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */; };
+		93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF222B15081D007A147E /* SplashScreenView.swift */; };
+		93E9CF262B15103A007A147E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 93E9CF252B15103A007A147E /* Kingfisher */; };
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
@@ -65,6 +68,8 @@
 		93DA55B82B142D040046548B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		93DA55BC2B1451380046548B /* WebServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceProvider.swift; sourceTree = "<group>"; };
+		93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUserProfileView.swift; sourceTree = "<group>"; };
+		93E9CF222B15081D007A147E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E9CF262B15103A007A147E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +175,8 @@
 			children = (
 				93DA559C2B13C6720046548B /* SignInView.swift */,
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
+				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
+				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +227,9 @@
 			dependencies = (
 			);
 			name = IOS_SafeGuard;
+			packageProductDependencies = (
+				93E9CF252B15103A007A147E /* Kingfisher */,
+			);
 			productName = IOS_SafeGuard;
 			productReference = 930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */;
 			productType = "com.apple.product-type.application";
@@ -291,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 930F49842AFCD52A0094A97E;
+			packageReferences = (
+				93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 930F498E2AFCD52A0094A97E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,8 +351,10 @@
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
+				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
+				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
@@ -670,6 +686,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93E9CF252B15103A007A147E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 930F49852AFCD52A0094A97E /* Project object */;
 }

@@ -8,16 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
-		930F49932AFCD52A0094A97E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49922AFCD52A0094A97E /* ContentView.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
 		930F49A22AFCD52B0094A97E /* IOS_SafeGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49A12AFCD52B0094A97E /* IOS_SafeGuardTests.swift */; };
 		930F49AC2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */; };
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
-		930F49BF2AFCD9B50094A97E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49BE2AFCD9B40094A97E /* SignUpViewController.swift */; };
-		930F49C32AFCD9CC0094A97E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* test.swift */; };
-		93F392152B12C72F00A63B62 /* UserLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392142B12C72F00A63B62 /* UserLocalService.swift */; };
-		93F392172B12C7E200A63B62 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392162B12C7E200A63B62 /* APIService.swift */; };
+		930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */; };
+		93DA559D2B13C6720046548B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA559C2B13C6720046548B /* SignInView.swift */; };
+		93DA55A52B1402B30046548B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A42B1402B30046548B /* SignUpView.swift */; };
+		93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A62B1411CB0046548B /* NetworkConstants.swift */; };
+		93DA55A92B14122C0046548B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A82B14122B0046548B /* NetworkError.swift */; };
+		93DA55AD2B1415A00046548B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55AC2B1415A00046548B /* Login.swift */; };
+		93DA55B32B1420D70046548B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55B22B1420D70046548B /* APIService.swift */; };
+		93DA55B92B142D040046548B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55B82B142D040046548B /* UserRepository.swift */; };
+		93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */; };
+		93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55BC2B1451380046548B /* WebServiceProvider.swift */; };
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
@@ -43,7 +48,6 @@
 /* Begin PBXFileReference section */
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
-		930F49922AFCD52A0094A97E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		930F49972AFCD52B0094A97E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		930F499D2AFCD52B0094A97E /* IOS_SafeGuardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOS_SafeGuardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,10 +55,16 @@
 		930F49A72AFCD52B0094A97E /* IOS_SafeGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOS_SafeGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITests.swift; sourceTree = "<group>"; };
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		930F49BE2AFCD9B40094A97E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		930F49C22AFCD9CC0094A97E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		93F392142B12C72F00A63B62 /* UserLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalService.swift; sourceTree = "<group>"; };
-		93F392162B12C7E200A63B62 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		93DA559C2B13C6720046548B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		93DA55A42B1402B30046548B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		93DA55A62B1411CB0046548B /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		93DA55A82B14122B0046548B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		93DA55AC2B1415A00046548B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		93DA55B22B1420D70046548B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		93DA55B82B142D040046548B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		93DA55BC2B1451380046548B /* WebServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceProvider.swift; sourceTree = "<group>"; };
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -108,13 +118,12 @@
 		930F498F2AFCD52A0094A97E /* IOS_SafeGuard */ = {
 			isa = PBXGroup;
 			children = (
-				93F392132B12C6BA00A63B62 /* Services */,
+				93DA55B52B1427CC0046548B /* Services */,
 				930F49BD2AFCD8140094A97E /* Networking */,
 				930F49BC2AFCD8020094A97E /* ViewModels */,
 				930F49BB2AFCD7FC0094A97E /* Views */,
 				930F49BA2AFCD5600094A97E /* Models */,
 				930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */,
-				930F49922AFCD52A0094A97E /* ContentView.swift */,
 				930F49942AFCD52B0094A97E /* Assets.xcassets */,
 				930F49962AFCD52B0094A97E /* Preview Content */,
 			);
@@ -150,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				93F3921D2B12C87E00A63B62 /* User.swift */,
+				93DA55AC2B1415A00046548B /* Login.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,7 +167,8 @@
 		930F49BB2AFCD7FC0094A97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				930F49BE2AFCD9B40094A97E /* SignUpViewController.swift */,
+				93DA559C2B13C6720046548B /* SignInView.swift */,
+				93DA55A42B1402B30046548B /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,7 +176,7 @@
 		930F49BC2AFCD8020094A97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				930F49C22AFCD9CC0094A97E /* test.swift */,
+				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,27 +184,23 @@
 		930F49BD2AFCD8140094A97E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				93F392182B12C81E00A63B62 /* Endpoints */,
+				93F392192B12C83700A63B62 /* UserEndPoint.swift */,
 				93F3921B2B12C85D00A63B62 /* APIManager.swift */,
+				93DA55A62B1411CB0046548B /* NetworkConstants.swift */,
+				93DA55A82B14122B0046548B /* NetworkError.swift */,
+				93DA55B22B1420D70046548B /* APIService.swift */,
+				93DA55BC2B1451380046548B /* WebServiceProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		93F392132B12C6BA00A63B62 /* Services */ = {
+		93DA55B52B1427CC0046548B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				93F392142B12C72F00A63B62 /* UserLocalService.swift */,
-				93F392162B12C7E200A63B62 /* APIService.swift */,
+				93DA55B82B142D040046548B /* UserRepository.swift */,
+				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		93F392182B12C81E00A63B62 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				93F392192B12C83700A63B62 /* UserEndPoint.swift */,
-			);
-			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,14 +333,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				930F49932AFCD52A0094A97E /* ContentView.swift in Sources */,
-				93F392152B12C72F00A63B62 /* UserLocalService.swift in Sources */,
+				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
+				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
+				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
+				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
+				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
+				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
+				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
-				930F49BF2AFCD9B50094A97E /* SignUpViewController.swift in Sources */,
-				930F49C32AFCD9CC0094A97E /* test.swift in Sources */,
+				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
-				93F392172B12C7E200A63B62 /* APIService.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
+				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
+				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

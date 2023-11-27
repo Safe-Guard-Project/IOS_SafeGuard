@@ -7,19 +7,18 @@
 
 import Foundation
 enum UserRole: String, Codable {
-    case CLIENT
-    case ADMIN
+    case client
+    case admin
 }
 
 struct User: Codable {
     let _id: String
-    let userName: String
+    let UserName: String
     let email: String
     let password: String
-    let role: UserRole
+    let Role: UserRole
     let latitudeUser: Int
     let longitudeUser: Int
     let numeroTel: String
-    let token: String
 }
 

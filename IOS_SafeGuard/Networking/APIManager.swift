@@ -1,8 +1,24 @@
-//
-//  APIManager.swift
-//  IOS_SafeGuard
-//
-//  Created by Omar.Djebbi on 26/11/2023.
-//
+// ApiManager.swift
+import Combine
+class ApiManager: APIService {
+    static let shared = ApiManager()
 
-import Foundation
+    private init() {}
+
+    func signUp(user: User) -> AnyPublisher<User?, Error> {
+        let signUpEndpoint = UserEndpoints.signUp.path.description
+        print("URL: \(NetworkConstants.baseURL + signUpEndpoint)")
+
+        let params: [String: Any] = [
+            "UserName": user.UserName,
+            "email": user.email,
+            "password": user.password,
+            "numeroTel": user.numeroTel,
+        ]
+        print("Params: \(params)")
+
+        return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + signUpEndpoint,
+                                                        method: "POST",
+                                                        params: params) as AnyPublisher<User?, Error>
+    }
+}

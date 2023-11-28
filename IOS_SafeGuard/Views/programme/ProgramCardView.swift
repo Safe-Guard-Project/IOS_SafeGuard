@@ -12,21 +12,20 @@ struct ProgramCardView: View {
     var body: some View {
        
         VStack(alignment: .leading, spacing: 8) {
-            // Event image
+           
             Image(program.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 200)
                 .clipped()
 
-            // event details
             VStack(alignment: .leading, spacing: 8) {
-                // Event title
+           
                 Text(program.Titre)
                     .font(.title)
                     .fontWeight(.medium)
 
-                // Event description
+               
                 Text(program.descriptionProgramme)
                     .font(.body)
                     .foregroundColor(.secondary)

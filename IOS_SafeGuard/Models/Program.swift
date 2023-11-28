@@ -13,9 +13,4 @@ struct Program: Identifiable {
     let descriptionProgramme: String
     
 }
-let programs = [
-    Program(image:"Intro",Titre:"Tsunami",descriptionProgramme:"aman ekhdem"),
-    Program(image:"Intro",Titre:"Tsunami",descriptionProgramme:"aman ekhdem"),
-    Program(image:"Intro",Titre:"Tsunami",descriptionProgramme:"aman ekhdem"),
 
-]

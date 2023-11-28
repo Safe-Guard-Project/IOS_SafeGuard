@@ -6,12 +6,12 @@
 //
 
 import Foundation
-struct Cours: Codable {
-   // let _id : String
+struct Cours: Identifiable {
+    let id = UUID()
     let type : String
-    
+    let image: String
    let description : String
-   // let image: String
+   
      
 
 }

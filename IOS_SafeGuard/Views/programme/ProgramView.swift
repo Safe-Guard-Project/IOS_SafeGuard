@@ -20,9 +20,11 @@ struct ProgramView: View {
         
        
         NavigationView {
+           
             List {
              
                 ForEach(programs) { index in
+                    
                
                     ProgramCardView(program: index)
                         .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))

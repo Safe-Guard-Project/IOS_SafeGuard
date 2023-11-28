@@ -1,100 +1,34 @@
+//
+//  CoursView.swift
+//  IOS_SafeGuard
+//
+//  Created by abir on 28/11/2023.
+//
+
 import SwiftUI
 
 struct CoursView: View {
-    @State var isOpenSideMenu: Bool = false
-    @State var text = "Hello, World!"
-    var body: some View {
-        ZStack{
-            NavigationView {
-                Text(text)
-                    .navigationBarTitle("Programme")
-                    .navigationBarItems(leading: (
-                        Button(action: {
-                            self.isOpenSideMenu.toggle()
-                        }) {
-                            Image(systemName: "line.horizontal.3")
-                                .imageScale(.large)
-                    }))
-            }
-
-            SideMenuView(isOpen: $isOpenSideMenu, text: $text)
-                .edgesIgnoringSafeArea(.all)
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoursView()
-    }
-}
-
-struct SideMenuView: View {
-    @Binding var isOpen: Bool
-    @Binding var text: String
-    let width: CGFloat = 270
+   
+    let courses = [
+        Cours(type:"Introduction", image:"Intro",description:"decouvrir le phenomene"),
+        Cours(type:"Causes", image:"Intro",description:"decouvrir le phenomene"), Cours(type:"Conséquences", image:"Intro",description:"decouvrir le phenomene"), Cours(type:"Signes", image:"Intro",description:"decouvrir le phenomene"),
+        
+    ]
 
     var body: some View {
-        ZStack {
-            GeometryReader { geometry in
-                EmptyView()
-            }
-            .background(Color.gray.opacity(0.3))
-            .opacity(self.isOpen ? 1.0 : 0.0)
-            .opacity(1.0)
-            .animation(.easeIn(duration: 0.25))
-            .onTapGesture {
-                self.isOpen = false
-            }
-
-            HStack {
-                VStack() {
-                    SideMenuContentView(topPadding: 100, systemName: "person", text: "Profile", bindText: $text, isOpen: $isOpen)
-                    SideMenuContentView(systemName: "bookmark", text: "Causes", bindText: $text, isOpen: $isOpen)
-                    SideMenuContentView(systemName: "gear", text: "Setting", bindText: $text, isOpen: $isOpen)
-                    Spacer()
+        NavigationView {
+            List {
+                ForEach(courses) { index in
+               
+                    CoursCardView(cours: index)
+                        .listRowInsets(EdgeInsets(top: 4, leading: 2, bottom: 4, trailing: 4))
                 }
-                .frame(width: width)
-                .background(Color(UIColor.systemGray6))
-                .offset(x: self.isOpen ? 0 : -self.width)
-                .animation(.easeIn(duration: 0.25))
-                Spacer()
             }
+            .navigationTitle("Les differents partie de cours").navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
-struct SideMenuContentView: View {
-    let topPadding: CGFloat
-    let systemName: String
-    let text: String
-    @Binding var bindText: String
-    @Binding var isOpen: Bool
-
-    init(topPadding: CGFloat = 30, systemName: String, text: String, bindText: Binding<String>, isOpen: Binding<Bool>) {
-        self.topPadding = topPadding
-        self.systemName = systemName
-        self._bindText = bindText
-        self._isOpen = isOpen
-        self.text = text
-    }
-
-    var body: some View {
-        HStack {
-            Image(systemName: systemName)
-                .foregroundColor(.gray)
-                .imageScale(.large)
-                .frame(width: 32.0)
-            Text(text)
-                .foregroundColor(.gray)
-                .font(.headline)
-            Spacer()
-        }
-        .padding(.top, topPadding)
-        .padding(.leading, 32)
-        .onTapGesture {
-            self.bindText = self.text
-            self.isOpen = false
-        }
-    }
+#Preview {
+    CoursView()
 }

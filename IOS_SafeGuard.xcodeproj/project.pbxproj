@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		887544782B164B0B0027BD33 /* CoursCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887544772B164B0B0027BD33 /* CoursCardView.swift */; };
+		8875447A2B164E930027BD33 /* CoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887544792B164E930027BD33 /* CoursView.swift */; };
+		8875447C2B1657550027BD33 /* ContenuCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875447B2B1657550027BD33 /* ContenuCardView.swift */; };
 		889490CE2B15365F006CF4DB /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490CD2B15365F006CF4DB /* Program.swift */; };
-		889490D22B15411F006CF4DB /* CoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D12B15411F006CF4DB /* CoursView.swift */; };
 		889490D42B154343006CF4DB /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D32B154343006CF4DB /* ProgramView.swift */; };
 		889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D52B1550F7006CF4DB /* ProgramCardView.swift */; };
 		889490D82B155B31006CF4DB /* Cours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D72B155B31006CF4DB /* Cours.swift */; };
@@ -56,8 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		887544772B164B0B0027BD33 /* CoursCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursCardView.swift; sourceTree = "<group>"; };
+		887544792B164E930027BD33 /* CoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursView.swift; sourceTree = "<group>"; };
+		8875447B2B1657550027BD33 /* ContenuCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContenuCardView.swift; sourceTree = "<group>"; };
 		889490CD2B15365F006CF4DB /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		889490D12B15411F006CF4DB /* CoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursView.swift; sourceTree = "<group>"; };
 		889490D32B154343006CF4DB /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		889490D52B1550F7006CF4DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
 		889490D72B155B31006CF4DB /* Cours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cours.swift; sourceTree = "<group>"; };
@@ -118,10 +122,12 @@
 		889490C92B1535CB006CF4DB /* programme */ = {
 			isa = PBXGroup;
 			children = (
-				889490D12B15411F006CF4DB /* CoursView.swift */,
 				889490D32B154343006CF4DB /* ProgramView.swift */,
 				889490D52B1550F7006CF4DB /* ProgramCardView.swift */,
 				889490E52B156AD9006CF4DB /* CommentAreaView.swift */,
+				887544772B164B0B0027BD33 /* CoursCardView.swift */,
+				887544792B164E930027BD33 /* CoursView.swift */,
+				8875447B2B1657550027BD33 /* ContenuCardView.swift */,
 			);
 			path = programme;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
+				8875447A2B164E930027BD33 /* CoursView.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				889490E22B1567FC006CF4DB /* CoursViewModel.swift in Sources */,
@@ -390,15 +397,16 @@
 				889490D42B154343006CF4DB /* ProgramView.swift in Sources */,
 				889490D82B155B31006CF4DB /* Cours.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
-				889490D22B15411F006CF4DB /* CoursView.swift in Sources */,
 				889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
+				8875447C2B1657550027BD33 /* ContenuCardView.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				889490CE2B15365F006CF4DB /* Program.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				889490E62B156AD9006CF4DB /* CommentAreaView.swift in Sources */,
+				887544782B164B0B0027BD33 /* CoursCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

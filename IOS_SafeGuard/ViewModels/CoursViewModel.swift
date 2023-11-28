@@ -7,9 +7,11 @@
 
 import Foundation
 class CoursViewModel : ObservableObject {
+    /*
     @Published var selectedCourse :Cours?
     var courses :[Cours] = [Cours(type: "Tsunamu", description: "ok"),
                             Cours(type: "Tsunamu", description: "ok"),
                             Cours(type: "Tsunamu", description: "ok"),
 ]
+     */
 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct ContentViewCatastrophe: View {
     @StateObject private var viewModel = CatastropheViewModel(repository: <#T##CatastropheRepository#>)
 
@@ -26,3 +26,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentViewCatastrophe()
     }
 }
+ */

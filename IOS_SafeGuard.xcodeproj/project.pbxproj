@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		889490CE2B15365F006CF4DB /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490CD2B15365F006CF4DB /* Program.swift */; };
+		889490D22B15411F006CF4DB /* CoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D12B15411F006CF4DB /* CoursView.swift */; };
+		889490D42B154343006CF4DB /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D32B154343006CF4DB /* ProgramView.swift */; };
+		889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D52B1550F7006CF4DB /* ProgramCardView.swift */; };
+		889490D82B155B31006CF4DB /* Cours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D72B155B31006CF4DB /* Cours.swift */; };
+		889490E22B1567FC006CF4DB /* CoursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490E12B1567FC006CF4DB /* CoursViewModel.swift */; };
+		889490E62B156AD9006CF4DB /* CommentAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490E52B156AD9006CF4DB /* CommentAreaView.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
@@ -49,6 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		889490CD2B15365F006CF4DB /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		889490D12B15411F006CF4DB /* CoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursView.swift; sourceTree = "<group>"; };
+		889490D32B154343006CF4DB /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
+		889490D52B1550F7006CF4DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
+		889490D72B155B31006CF4DB /* Cours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cours.swift; sourceTree = "<group>"; };
+		889490E12B1567FC006CF4DB /* CoursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursViewModel.swift; sourceTree = "<group>"; };
+		889490E52B156AD9006CF4DB /* CommentAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAreaView.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		889490C92B1535CB006CF4DB /* programme */ = {
+			isa = PBXGroup;
+			children = (
+				889490D12B15411F006CF4DB /* CoursView.swift */,
+				889490D32B154343006CF4DB /* ProgramView.swift */,
+				889490D52B1550F7006CF4DB /* ProgramCardView.swift */,
+				889490E52B156AD9006CF4DB /* CommentAreaView.swift */,
+			);
+			path = programme;
+			sourceTree = "<group>";
+		};
 		930F49842AFCD52A0094A97E = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +191,8 @@
 			children = (
 				93F3921D2B12C87E00A63B62 /* User.swift */,
 				93DA55AC2B1415A00046548B /* Login.swift */,
+				889490CD2B15365F006CF4DB /* Program.swift */,
+				889490D72B155B31006CF4DB /* Cours.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +200,7 @@
 		930F49BB2AFCD7FC0094A97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				889490C92B1535CB006CF4DB /* programme */,
 				93DA559C2B13C6720046548B /* SignInView.swift */,
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
@@ -185,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
+				889490E12B1567FC006CF4DB /* CoursViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -350,6 +379,7 @@
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
+				889490E22B1567FC006CF4DB /* CoursViewModel.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
@@ -357,12 +387,18 @@
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
+				889490D42B154343006CF4DB /* ProgramView.swift in Sources */,
+				889490D82B155B31006CF4DB /* Cours.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
+				889490D22B15411F006CF4DB /* CoursView.swift in Sources */,
+				889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
+				889490CE2B15365F006CF4DB /* Program.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
+				889490E62B156AD9006CF4DB /* CommentAreaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

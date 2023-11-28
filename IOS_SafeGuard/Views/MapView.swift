@@ -34,45 +34,60 @@ struct MapView: View {
             }
         }
         .overlay(alignment: .top) {
-            TextField("Search for a location...", text: $searchText)
-                .font(.subheadline)
-                .padding (12)
-                .background(.white)
-                .padding()
-                . shadow(radius: 10)
-        }.onSubmit(of: .text){
-            Task {await searchPlaces() }
-        
-        }
-        .onChange (of: mapSelection, { oldValue, newValue in
-            showDetails = newValue != nil
-        })
-        .sheet(isPresented: $showDetails, content: {
-            LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
-                .presentationDetents ([.height (340)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
-                .presentationCornerRadius (12)
-
-            })
-            .mapControls {
-                MapCompass()
-                MapPitchToggle()
-                MapUserLocationButton()
-            }
-    }
-}
+               HStack {
+                   TextField("Search for a location...", text: $searchText)
+                       .font(.subheadline)
+                       .padding (12)
+                       .background(.white)
+                       .padding()
+                       .shadow(radius: 10)
+                       
+                   Button(action: searchPlaces) {
+                       Image(systemName: "magnifyingglass")
+                           .padding(.leading, 8)
+                   }
+                   .padding(.leading, -8)
+               }
+           }
+           .onChange (of: mapSelection, { oldValue, newValue in
+               showDetails = newValue != nil
+           })
+           .sheet(isPresented: $showDetails, content: {
+               LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
+                   .presentationDetents ([.height (340)])
+                   .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                   .presentationCornerRadius (12)
+   
+               })
+               .mapControls {
+                   MapCompass()
+                   MapPitchToggle()
+                   MapUserLocationButton()
+               }
+       }
+   }
 
 
 extension MapView {
-    func searchPlaces() async {
+    func searchPlaces() {
         let request = MKLocalSearch.Request ()
         request.naturalLanguageQuery = searchText
         request.region = .userRegion
-        let results = try? await MKLocalSearch(request: request).start()
-        self.results = results?.mapItems ?? []
-        
+        let search = MKLocalSearch(request: request)
+        search.start { response, _ in
+            guard let response = response else { return }
+            self.results = response.mapItems
+
+            // Navigate to the first search result
+            if let firstResult = response.mapItems.first {
+                self.mapSelection = firstResult
+                self.cameraPosition = .region(.init(center: firstResult.placemark.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000))
+            }
+        }
     }
 }
+
+
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
         return .init(latitude: 36.901000, longitude: 10.190120)

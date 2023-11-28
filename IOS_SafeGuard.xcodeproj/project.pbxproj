@@ -30,6 +30,8 @@
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
 		E52CCF762B163B850068E96A /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF752B163B850068E96A /* Information.swift */; };
+		E52CCF7A2B1648F60068E96A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF792B1648F60068E96A /* InformationView.swift */; };
+		E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF7B2B16493E0068E96A /* InformationCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E52CCF752B163B850068E96A /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
+		E52CCF792B1648F60068E96A /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		E52CCF7B2B16493E0068E96A /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
+				E52CCF792B1648F60068E96A /* InformationView.swift */,
+				E52CCF7B2B16493E0068E96A /* InformationCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
+				E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
@@ -365,6 +372,7 @@
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				E52CCF762B163B850068E96A /* Information.swift in Sources */,
+				E52CCF7A2B1648F60068E96A /* InformationView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 			);

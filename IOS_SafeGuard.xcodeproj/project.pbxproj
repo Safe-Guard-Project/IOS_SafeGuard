@@ -29,6 +29,7 @@
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
+		E02BB62A2B162CA500566355 /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6292B162CA500566355 /* Catastrophe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E02BB6292B162CA500566355 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			children = (
 				93F3921D2B12C87E00A63B62 /* User.swift */,
 				93DA55AC2B1415A00046548B /* Login.swift */,
+				E02BB6292B162CA500566355 /* Catastrophe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
+				E02BB62A2B162CA500566355 /* Catastrophe.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,

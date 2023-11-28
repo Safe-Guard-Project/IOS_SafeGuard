@@ -11,7 +11,7 @@ import SwiftUI
 struct IOS_SafeGuardApp: App {
     var body: some Scene {
         WindowGroup {
-            SignUpView()
+            MapView()
         }
     }
 }

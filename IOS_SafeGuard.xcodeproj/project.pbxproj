@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */; };
+		52DF069F2B14B31800606AE4 /* .netrc in Resources */ = {isa = PBXBuildFile; fileRef = 52DF069E2B14B31800606AE4 /* .netrc */; };
+		52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF06A12B14BAA100606AE4 /* MapView.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
@@ -46,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
+		52DF069D2B14B24900606AE4 /* IOS-SafeGuard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IOS-SafeGuard-Info.plist"; sourceTree = SOURCE_ROOT; };
+		52DF069E2B14B31800606AE4 /* .netrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = .netrc; sourceTree = "<group>"; };
+		52DF06A12B14BAA100606AE4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +105,7 @@
 		930F49842AFCD52A0094A97E = {
 			isa = PBXGroup;
 			children = (
+				52DF069E2B14B31800606AE4 /* .netrc */,
 				930F498F2AFCD52A0094A97E /* IOS_SafeGuard */,
 				930F49A02AFCD52B0094A97E /* IOS_SafeGuardTests */,
 				930F49AA2AFCD52B0094A97E /* IOS_SafeGuardUITests */,
@@ -118,6 +126,7 @@
 		930F498F2AFCD52A0094A97E /* IOS_SafeGuard */ = {
 			isa = PBXGroup;
 			children = (
+				52DF069D2B14B24900606AE4 /* IOS-SafeGuard-Info.plist */,
 				93DA55B52B1427CC0046548B /* Services */,
 				930F49BD2AFCD8140094A97E /* Networking */,
 				930F49BC2AFCD8020094A97E /* ViewModels */,
@@ -169,6 +178,8 @@
 			children = (
 				93DA559C2B13C6720046548B /* SignInView.swift */,
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
+				52DF06A12B14BAA100606AE4 /* MapView.swift */,
+				5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 930F49842AFCD52A0094A97E;
+			packageReferences = (
+				52DF06A02B14B58000606AE4 /* XCLocalSwiftPackageReference "../../Downloads/mapbox-maps-ios-10.16.2" */,
+			);
 			productRefGroup = 930F498E2AFCD52A0094A97E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +323,7 @@
 			files = (
 				930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */,
 				930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */,
+				52DF069F2B14B31800606AE4 /* .netrc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,12 +355,14 @@
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
+				52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
+				5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +529,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IOS_SafeGuard/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IOS-SafeGuard-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -540,6 +559,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IOS_SafeGuard/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IOS-SafeGuard-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -670,6 +691,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		52DF06A02B14B58000606AE4 /* XCLocalSwiftPackageReference "../../Downloads/mapbox-maps-ios-10.16.2" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/mapbox-maps-ios-10.16.2";
+		};
+/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = 930F49852AFCD52A0094A97E /* Project object */;
 }

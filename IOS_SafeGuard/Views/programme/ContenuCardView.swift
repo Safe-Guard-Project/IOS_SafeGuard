@@ -28,10 +28,7 @@ struct ContenuCardView: View {
                 
             .padding(16)
         }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding(10)
+
     }
 }
 

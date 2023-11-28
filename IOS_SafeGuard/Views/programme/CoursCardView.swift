@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct CoursCardView: View {
-    var cours : Cours
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-                Text(cours.type)
-                    .font(.title)
-                    .fontWeight(.medium)
-        }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding(15)
-       
-    }
+    var cours: Cours
+
+       var body: some View {
+           VStack {
+               Text(cours.type)
+                   .font(.title)
+                   .fontWeight(.medium)
+                   .foregroundColor(.white)
+                   .padding(10)
+                   .background(Color.blue)
+                   .cornerRadius(10)
+           }
+           .frame(maxWidth: .infinity, alignment: .center)
+           .background(Color.blue)
+           .cornerRadius(10)
+           .padding(15)
+       }
 }
 
 #Preview {

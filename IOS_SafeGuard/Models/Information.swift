@@ -6,17 +6,23 @@
 //
 
 import Foundation
-struct Information: Codable {
+struct Information: Identifiable {
+    let id = UUID()
     let titre: String
     let typeCatastrophe: String
 
     let pays: String
     let region: String
     let descriptionInformation: String
-    let dateDePrevention: Date
+    let dateDePrevention: String
     let image: String
     let pourcentageFiabilite: Double
     let etat: String
     
     
 }
+let informations = [
+    Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50 , etat: "Coming" ),
+        Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50 , etat: "Coming" )
+
+]

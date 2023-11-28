@@ -48,6 +48,6 @@ struct InformationCardView: View {
 }
 
 #Preview {
-    InformationCardView(information: Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: <#T##String#>, pays: <#T##String#>, region: <#T##String#>, descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: <#T##Date#>, image: "intro", pourcentageFiabilite: <#T##Double#>, etat: <#T##String#>))
+    InformationCardView(information: Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50 , etat: "Coming" ))
 
 }

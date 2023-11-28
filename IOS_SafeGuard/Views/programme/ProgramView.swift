@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ProgramView: View {
+    let programs = [
+        Program(image:"Intro",Titre:"Tsunami",descriptionProgramme:"decouvrir le phenomene"),
+        Program(image:"Intro",Titre:"Tsunami",descriptionProgramme:"decouvrir le phenomene"),
+       
+
+    ]
+
     
     var body: some View {
         
@@ -15,9 +22,9 @@ struct ProgramView: View {
         NavigationView {
             List {
              
-                ForEach(0..<2) { index in
+                ForEach(programs) { index in
                
-                    ProgramCardView()
+                    ProgramCardView(program: index)
                         .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
                 }
             }

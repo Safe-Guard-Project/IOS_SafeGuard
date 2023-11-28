@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ProgramCardView: View {
+    var program : Program
     var body: some View {
        
         VStack(alignment: .leading, spacing: 8) {
             // Event image
-            Image("Intro")
+            Image(program.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 200)
@@ -21,12 +22,12 @@ struct ProgramCardView: View {
             // event details
             VStack(alignment: .leading, spacing: 8) {
                 // Event title
-                Text("Tsunami")
+                Text(program.Titre)
                     .font(.title)
                     .fontWeight(.medium)
 
                 // Event description
-                Text("Decourvir le phenomene de Tsunami.")
+                Text(program.descriptionProgramme)
                     .font(.body)
                     .foregroundColor(.secondary)
 
@@ -43,5 +44,5 @@ struct ProgramCardView: View {
 
 
 #Preview {
-    ProgramCardView()
+    ProgramCardView(program: Program(image: "Intro", Titre: "Tsunami", descriptionProgramme: "Decouvrir le phenomene"))
 }

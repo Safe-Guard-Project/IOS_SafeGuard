@@ -6,7 +6,8 @@
 //
 
 import Foundation
-struct Catastrophe: Decodable {
+struct Catastrophe: Codable, Identifiable {
+    
     let _id: String
     let titre: String
     let type: String
@@ -19,4 +20,7 @@ struct Catastrophe: Decodable {
     let longitudeDeCatastrophe: Double
     let createdAt: Date
     let updatedAt: Date
+    var id: String {
+        return _id
+    }
 }

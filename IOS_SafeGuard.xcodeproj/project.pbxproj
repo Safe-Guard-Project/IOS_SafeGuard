@@ -39,6 +39,7 @@
 		E02BB6452B164CDA00566355 /* CatastropheApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6442B164CDA00566355 /* CatastropheApiService.swift */; };
 		E02BB6492B16502200566355 /* ContentViewCatastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */; };
 		E02BB64D2B16539100566355 /* CatastropheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB64C2B16539100566355 /* CatastropheRow.swift */; };
+		E02BB64F2B16574900566355 /* CatastropheListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB64E2B16574900566355 /* CatastropheListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E02BB6442B164CDA00566355 /* CatastropheApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheApiService.swift; sourceTree = "<group>"; };
 		E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCatastrophe.swift; sourceTree = "<group>"; };
 		E02BB64C2B16539100566355 /* CatastropheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRow.swift; sourceTree = "<group>"; };
+		E02BB64E2B16574900566355 /* CatastropheListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
 				E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */,
 				E02BB64C2B16539100566355 /* CatastropheRow.swift */,
+				E02BB64E2B16574900566355 /* CatastropheListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
+				E02BB64F2B16574900566355 /* CatastropheListView.swift in Sources */,
 				E02BB6432B164BFD00566355 /* CatastropheViewModel.swift in Sources */,
 				E02BB64D2B16539100566355 /* CatastropheRow.swift in Sources */,
 				E02BB6412B164B1700566355 /* CatastropheRepository.swift in Sources */,

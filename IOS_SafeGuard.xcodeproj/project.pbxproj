@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */; };
-		52DF069F2B14B31800606AE4 /* .netrc in Resources */ = {isa = PBXBuildFile; fileRef = 52DF069E2B14B31800606AE4 /* .netrc */; };
 		52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF06A12B14BAA100606AE4 /* MapView.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 /* Begin PBXFileReference section */
 		5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		52DF069D2B14B24900606AE4 /* IOS-SafeGuard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IOS-SafeGuard-Info.plist"; sourceTree = SOURCE_ROOT; };
-		52DF069E2B14B31800606AE4 /* .netrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = .netrc; sourceTree = "<group>"; };
 		52DF06A12B14BAA100606AE4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		930F49842AFCD52A0094A97E = {
 			isa = PBXGroup;
 			children = (
-				52DF069E2B14B31800606AE4 /* .netrc */,
 				930F498F2AFCD52A0094A97E /* IOS_SafeGuard */,
 				930F49A02AFCD52B0094A97E /* IOS_SafeGuardTests */,
 				930F49AA2AFCD52B0094A97E /* IOS_SafeGuardUITests */,
@@ -323,7 +320,6 @@
 			files = (
 				930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */,
 				930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */,
-				52DF069F2B14B31800606AE4 /* .netrc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

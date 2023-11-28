@@ -37,6 +37,7 @@
 		E02BB6412B164B1700566355 /* CatastropheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6402B164B1700566355 /* CatastropheRepository.swift */; };
 		E02BB6432B164BFD00566355 /* CatastropheViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6422B164BFD00566355 /* CatastropheViewModel.swift */; };
 		E02BB6452B164CDA00566355 /* CatastropheApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6442B164CDA00566355 /* CatastropheApiService.swift */; };
+		E02BB6492B16502200566355 /* ContentViewCatastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E02BB6402B164B1700566355 /* CatastropheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepository.swift; sourceTree = "<group>"; };
 		E02BB6422B164BFD00566355 /* CatastropheViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheViewModel.swift; sourceTree = "<group>"; };
 		E02BB6442B164CDA00566355 /* CatastropheApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheApiService.swift; sourceTree = "<group>"; };
+		E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCatastrophe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
+				E02BB6482B16502200566355 /* ContentViewCatastrophe.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				E02BB62A2B162CA500566355 /* Catastrophe.swift in Sources */,
 				E02BB63F2B164A4E00566355 /* AlamofireCatastropheApi.swift in Sources */,
+				E02BB6492B16502200566355 /* ContentViewCatastrophe.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,

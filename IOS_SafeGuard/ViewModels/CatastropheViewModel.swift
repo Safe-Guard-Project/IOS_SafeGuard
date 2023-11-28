@@ -3,33 +3,55 @@ import Foundation
 import Combine
 
 class CatastropheViewModel: ObservableObject {
-    private var repository: CatastropheRepository
-    private var cancellables: Set<AnyCancellable> = []
-
-    @Published var catastrophes: [Catastrophe] = []
-    @Published var isLoading: Bool = false
-
-    init(repository: CatastropheRepository) {
-        self.repository = repository
-    }
+    // Replace this with your actual data
+    @Published var catastrophes: [Catastrophe] = [
+        Catastrophe(
+            _id: "1",
+            titre: "Earthquake",
+            type: "Earthquake",
+            tsunami: 0,
+            description: "Major earthquake in a populated area",
+            date: Date(),
+            radius: 0.0,
+            magnitude: 7.5,
+            latitudeDeCatastrophe: 0.0,
+            longitudeDeCatastrophe: 0.0,
+            createdAt: Date(),
+            updatedAt: Date()
+        ),
+        Catastrophe(
+            _id: "2",
+            titre: "Flood",
+            type: "Flood",
+            tsunami: 0,
+            description: "Flash flood in a coastal region",
+            date: Date(),
+            radius: 0.0,
+            magnitude: 5.8,
+            latitudeDeCatastrophe: 0.0,
+            longitudeDeCatastrophe: 0.0,
+            createdAt: Date(),
+            updatedAt: Date()
+        ),
+        Catastrophe(
+            _id: "3",
+            titre: "Wildfire",
+            type: "Wildfire",
+            tsunami: 0,
+            description: "Large-scale wildfire in a forested area",
+            date: Date(),
+            radius: 0.0,
+            magnitude: 6.2,
+            latitudeDeCatastrophe: 0.0,
+            longitudeDeCatastrophe: 0.0,
+            createdAt: Date(),
+            updatedAt: Date()
+        ),
+        // Add more static data as needed
+    ]
 
     func getCatastrophes() {
-        isLoading = true
-
-        repository.getCatastrophes()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    self?.isLoading = false
-                case .failure(let error):
-                    // Handle error, e.g., show an alert
-                    print("Error fetching catastrophes: \(error)")
-                    self?.isLoading = false
-                }
-            } receiveValue: { [weak self] catastrophes in
-                self?.catastrophes = catastrophes
-            }
-            .store(in: &cancellables)
+        // You can leave this empty since you are using static data
     }
 }
+

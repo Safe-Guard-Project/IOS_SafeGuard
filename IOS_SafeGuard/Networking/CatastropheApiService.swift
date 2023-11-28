@@ -4,12 +4,12 @@
 //
 //  Created by dhiasaibi on 28/11/2023.
 //
-
+/*
 import Foundation
 import Alamofire
 
 class CatastropheApiService {
-    private let baseURL = "http://192.168.1.105:9090/"  // Update with your actual server URL
+    private let baseURL = "http://172.20.10.13:9090/"  // Update with your actual server URL
 
     static let shared = CatastropheApiService()
 
@@ -29,3 +29,4 @@ class CatastropheApiService {
     }
 }
 
+ */

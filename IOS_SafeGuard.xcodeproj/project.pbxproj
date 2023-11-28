@@ -33,6 +33,8 @@
 		E02BB6382B16474600566355 /* CatastropheApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6372B16474600566355 /* CatastropheApi.swift */; };
 		E02BB63B2B1648F100566355 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E02BB63A2B1648F100566355 /* Alamofire */; };
 		E02BB63D2B16498F00566355 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB63C2B16498F00566355 /* NetworkManager.swift */; };
+		E02BB63F2B164A4E00566355 /* AlamofireCatastropheApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB63E2B164A4E00566355 /* AlamofireCatastropheApi.swift */; };
+		E02BB6412B164B1700566355 /* CatastropheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB6402B164B1700566355 /* CatastropheRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		E02BB6292B162CA500566355 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
 		E02BB6372B16474600566355 /* CatastropheApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheApi.swift; sourceTree = "<group>"; };
 		E02BB63C2B16498F00566355 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E02BB63E2B164A4E00566355 /* AlamofireCatastropheApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireCatastropheApi.swift; sourceTree = "<group>"; };
+		E02BB6402B164B1700566355 /* CatastropheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 				93DA55BC2B1451380046548B /* WebServiceProvider.swift */,
 				E02BB6372B16474600566355 /* CatastropheApi.swift */,
 				E02BB63C2B16498F00566355 /* NetworkManager.swift */,
+				E02BB63E2B164A4E00566355 /* AlamofireCatastropheApi.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			children = (
 				93DA55B82B142D040046548B /* UserRepository.swift */,
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
+				E02BB6402B164B1700566355 /* CatastropheRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
+				E02BB6412B164B1700566355 /* CatastropheRepository.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
@@ -376,6 +383,7 @@
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				E02BB62A2B162CA500566355 /* Catastrophe.swift in Sources */,
+				E02BB63F2B164A4E00566355 /* AlamofireCatastropheApi.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,

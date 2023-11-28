@@ -6,3 +6,17 @@
 //
 
 import Foundation
+struct Catastrophe: Decodable {
+    let _id: String
+    let titre: String
+    let type: String
+    let tsunami: Int
+    let description: String
+    let date: Date
+    let radius: Double
+    let magnitude: Double
+    let latitudeDeCatastrophe: Double
+    let longitudeDeCatastrophe: Double
+    let createdAt: Date
+    let updatedAt: Date
+}

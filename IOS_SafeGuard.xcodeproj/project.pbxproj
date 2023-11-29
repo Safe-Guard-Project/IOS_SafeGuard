@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5219DC492B175CCC0020D3C2 /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219DC482B175CCC0020D3C2 /* Catastrophe.swift */; };
+		5219DC4B2B1768BC0020D3C2 /* CatastropheEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219DC4A2B1768BC0020D3C2 /* CatastropheEndPoint.swift */; };
+		5219DC4D2B176DCE0020D3C2 /* CatastropheViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219DC4C2B176DCE0020D3C2 /* CatastropheViewModel.swift */; };
+		5219DC4F2B176E250020D3C2 /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219DC4E2B176E250020D3C2 /* CatastropheRepositoryImpl.swift */; };
 		5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */; };
 		52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF06A12B14BAA100606AE4 /* MapView.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5219DC482B175CCC0020D3C2 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
+		5219DC4A2B1768BC0020D3C2 /* CatastropheEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheEndPoint.swift; sourceTree = "<group>"; };
+		5219DC4C2B176DCE0020D3C2 /* CatastropheViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheViewModel.swift; sourceTree = "<group>"; };
+		5219DC4E2B176E250020D3C2 /* CatastropheRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepositoryImpl.swift; sourceTree = "<group>"; };
 		5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		52DF069D2B14B24900606AE4 /* IOS-SafeGuard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IOS-SafeGuard-Info.plist"; sourceTree = SOURCE_ROOT; };
 		52DF06A12B14BAA100606AE4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 			children = (
 				93F3921D2B12C87E00A63B62 /* User.swift */,
 				93DA55AC2B1415A00046548B /* Login.swift */,
+				5219DC482B175CCC0020D3C2 /* Catastrophe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
+				5219DC4C2B176DCE0020D3C2 /* CatastropheViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 				93DA55A82B14122B0046548B /* NetworkError.swift */,
 				93DA55B22B1420D70046548B /* APIService.swift */,
 				93DA55BC2B1451380046548B /* WebServiceProvider.swift */,
+				5219DC4A2B1768BC0020D3C2 /* CatastropheEndPoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 			children = (
 				93DA55B82B142D040046548B /* UserRepository.swift */,
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
+				5219DC4E2B176E250020D3C2 /* CatastropheRepositoryImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -345,10 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
+				5219DC4B2B1768BC0020D3C2 /* CatastropheEndPoint.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
+				5219DC4F2B176E250020D3C2 /* CatastropheRepositoryImpl.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */,
@@ -357,6 +371,8 @@
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
+				5219DC492B175CCC0020D3C2 /* Catastrophe.swift in Sources */,
+				5219DC4D2B176DCE0020D3C2 /* CatastropheViewModel.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,

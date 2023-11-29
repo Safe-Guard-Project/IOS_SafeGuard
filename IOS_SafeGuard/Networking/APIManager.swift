@@ -21,4 +21,12 @@ class ApiManager: APIService {
                                                         method: "POST",
                                                         params: params) as AnyPublisher<User?, Error>
     }
+        
+    
+    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error> {
+           return CatastropheRepositoryImpl().getCatastrophes()
+       }
+    
+    
+    
 }

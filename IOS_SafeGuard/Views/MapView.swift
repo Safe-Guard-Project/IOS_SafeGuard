@@ -10,6 +10,8 @@ struct MapView: View {
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var showDetails =  false
+    @State private var viewModel = CatastropheViewModel()
+
     var body: some View {
         Map(position: $cameraPosition, selection: $mapSelection){
             //      Marker("My location",systemImage: "paperplane", coordinate: .userLocation)
@@ -31,6 +33,19 @@ struct MapView: View {
             ForEach(results, id: \.self) { item in
                 let placemark = item.placemark
                 Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+            }
+            ForEach(viewModel.catastrophes, id: \.self) { catastrophe in
+             
+                Annotation(catastrophe.titre, coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
+                   
+                    ZStack {
+                 
+                        Circle()
+                            .frame(width: CGFloat(catastrophe.radius * 2), height: CGFloat(catastrophe.radius * 2))
+                            .foregroundColor(.red.opacity(0.5))
+                        
+                    }
+                }
             }
         }
         .overlay(alignment: .top) {
@@ -63,11 +78,10 @@ struct MapView: View {
                                   }
                     
                            
-                           
                            .padding(.trailing, 70)
                        }
                    }
-                   .onChange (of: mapSelection, { oldValue, newValue in
+                   .onChange(of: mapSelection, { oldValue, newValue in
                        showDetails = newValue != nil
                    })
                    .sheet(isPresented: $showDetails, content: {
@@ -84,6 +98,9 @@ struct MapView: View {
 
                    
                    }
+                   .onAppear {
+                          viewModel.fetchCatastrophes()
+                      }
      
        }
 

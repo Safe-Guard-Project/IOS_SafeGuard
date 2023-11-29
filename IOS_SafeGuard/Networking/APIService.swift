@@ -7,8 +7,7 @@ import Combine
 protocol APIService {
 
     func signUp(user: User) -> AnyPublisher<User?, Error>
-
-
+    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error>
 }
 
 

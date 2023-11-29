@@ -22,36 +22,12 @@ struct DetailsInfoView: View {
                         .padding(.horizontal)
                 }
 
-                HStack {
-                    Text("Type of Catastrophe:")
-                        .bold()
-                    Text(information.typeCatastrophe)
-                }
-                HStack {
-                    Text("Country:")
-                        .bold()
-                    Text(information.pays)
-                }
-                HStack {
-                    Text("Region:")
-                        .bold()
-                    Text(information.region)
-                }
-                HStack {
-                    Text("Statement:")
-                        .bold()
-                    Text(information.etat)
-                }
-                HStack {
-                    Text("Prevention Date:")
-                        .bold()
-                    Text(formatDate(information.dateDePrevention))
-                }
-                HStack {
-                    Text("Liabilities Percent:")
-                        .bold()
-                    Text("\(information.pourcentageFiabilite)%")
-                }
+                titleValueRow(title: "Type of Catastrophe", value: information.typeCatastrophe)
+                titleValueRow(title: "Country", value: information.pays)
+                titleValueRow(title: "Region", value: information.region)
+                titleValueRow(title: "Statement", value: information.etat)
+                titleValueRow(title: "Prevention Date", value: formatDate(information.dateDePrevention))
+                titleValueRow(title: "Liabilities Percent", value: "\(information.pourcentageFiabilite)%")
 
                 Text("Description of Catastrophe:")
                     .font(.headline)
@@ -66,9 +42,12 @@ struct DetailsInfoView: View {
                         .padding(.leading)
 
                     ForEach(comments, id: \.self) { comment in
-                        Text(comment)
-                            .padding(.leading)
-                            .foregroundColor(.blue)
+                        HStack {
+                            Text(comment)
+                                .foregroundColor(.blue)
+                                .padding(.leading)
+                            Spacer()
+                        }
                     }
                 }
 
@@ -128,6 +107,16 @@ struct DetailsInfoView: View {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter.string(from: date)
+    }
+
+    private func titleValueRow(title: String, value: String) -> some View {
+        HStack {
+            Text(title)
+                .bold()
+            Spacer()
+            Text(value)
+        }
+        .padding(.horizontal)
     }
 }
 

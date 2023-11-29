@@ -17,7 +17,7 @@ struct CommentCardView: View {
                         .padding(10)
                         .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
                 }
-        .frame(maxWidth: .infinity, alignment: .center)
+    
         .cornerRadius(10)
         .padding(15)
     }

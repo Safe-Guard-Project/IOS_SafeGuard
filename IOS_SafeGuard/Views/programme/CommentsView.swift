@@ -18,36 +18,36 @@ struct CommentsView: View {
            Commentaire(textComment: "Thank you!"),
        ]
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(comments) { comment in
-                    CommentCardView(commentaire: comment)
-                        .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
-                        .swipeActions {
-                            Button("Modify") {
-                                // Add code for modifying the comment
-                            }
-                            .tint(.blue)
-                            
-                            Button("Delete") {
-                                // Add code for deleting the comment
-                                if let index = comments.firstIndex(where: { $0.id == comment.id }) {
-                                    comments.remove(at: index)
+            NavigationView {
+                List {
+                    ForEach(comments) { comment in
+                        CommentCardView(commentaire: comment)
+                            .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
+                            .swipeActions {
+                                Button("Modify") {
+                                    // Add code for modifying the comment
                                 }
+                                .tint(.blue)
+
+                                Button("Delete") {
+                                    // Add code for deleting the comment
+                                    if let index = comments.firstIndex(where: { $0.id == comment.id }) {
+                                        comments.remove(at: index)
+                                    }
+                                }
+                                .tint(.red)
                             }
-                            .tint(.red)
-                        }
+                    }
+                    .onDelete(perform: deleteComment)
                 }
-                .onDelete(perform: deleteComment)
+                .navigationTitle("Votre avis")
+                .navigationBarTitleDisplayMode(.large)
             }
-            .navigationTitle("Votre avis")
-            .navigationBarTitleDisplayMode(.large)
         }
-    }
-    
-    private func deleteComment(at indexSet: IndexSet) {
-        comments.remove(atOffsets: indexSet)
-    }
+
+        private func deleteComment(at indexSet: IndexSet) {
+            comments.remove(atOffsets: indexSet)
+        }
 }
 
 #Preview {

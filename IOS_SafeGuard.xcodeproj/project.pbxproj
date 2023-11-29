@@ -19,7 +19,6 @@
 		889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D52B1550F7006CF4DB /* ProgramCardView.swift */; };
 		889490D82B155B31006CF4DB /* Cours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D72B155B31006CF4DB /* Cours.swift */; };
 		889490E22B1567FC006CF4DB /* CoursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490E12B1567FC006CF4DB /* CoursViewModel.swift */; };
-		889490E62B156AD9006CF4DB /* CommentAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490E52B156AD9006CF4DB /* CommentAreaView.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
@@ -74,7 +73,6 @@
 		889490D52B1550F7006CF4DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
 		889490D72B155B31006CF4DB /* Cours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cours.swift; sourceTree = "<group>"; };
 		889490E12B1567FC006CF4DB /* CoursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursViewModel.swift; sourceTree = "<group>"; };
-		889490E52B156AD9006CF4DB /* CommentAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAreaView.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				889490D32B154343006CF4DB /* ProgramView.swift */,
 				889490D52B1550F7006CF4DB /* ProgramCardView.swift */,
-				889490E52B156AD9006CF4DB /* CommentAreaView.swift */,
 				887544772B164B0B0027BD33 /* CoursCardView.swift */,
 				887544792B164E930027BD33 /* CoursView.swift */,
 				8875447B2B1657550027BD33 /* ContenuCardView.swift */,
@@ -421,7 +418,6 @@
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
-				889490E62B156AD9006CF4DB /* CommentAreaView.swift in Sources */,
 				887544782B164B0B0027BD33 /* CoursCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

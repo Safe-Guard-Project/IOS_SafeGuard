@@ -34,10 +34,10 @@ struct ContenuView: View {
                         .padding(10)
                         .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
                         .padding([.leading, .bottom], 10)
-                        .frame(height: 50) // Set a fixed height for the text field
+                        .frame(height: 50)
 
                     Button(action: {
-                        // Action to perform when the send button is tapped
+                        
                     }) {
                         Image(systemName: "arrow.right.circle.fill")
                             .resizable()

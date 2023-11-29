@@ -26,7 +26,7 @@ struct ContenuView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .navigationTitle("Type")
+            
                 .navigationBarTitleDisplayMode(.large)
 
                 HStack {

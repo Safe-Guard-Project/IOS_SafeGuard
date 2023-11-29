@@ -1,38 +1,20 @@
 //
-//  ContenuCardView.swift
+//  FavoriCardView.swift
 //  IOS_SafeGuard
 //
-//  Created by abir on 28/11/2023.
+//  Created by abir on 29/11/2023.
 //
 
 import SwiftUI
 
-struct ContenuCardView: View {
+struct FavoriCardView: View {
+    
     var cours: Cours
      @State private var isFavorite: Bool = false
 
      var body: some View {
          VStack(alignment: .leading, spacing: 8) {
-             HStack {
-                 Spacer()
-                 Button(action: {
-                     isFavorite.toggle()
-
-                     if isFavorite {
-                        
-                     } else {
-                         
-                     }
-                 }) {
-                     Image(systemName: isFavorite ? "heart.fill" : "heart")
-                         .foregroundColor(isFavorite ? Color.blue : Color.gray)
-                         .padding(.top, 8)
-                 }
-                 .padding(.trailing, 8)
-                 .font(.title)
-             }
-
-             // Image
+             
              GeometryReader { geometry in
                  Image(cours.image)
                      .resizable()
@@ -52,8 +34,9 @@ struct ContenuCardView: View {
         
          .padding(10)
      }
+
 }
 
 #Preview {
-    ContenuCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
+    FavoriCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
 }

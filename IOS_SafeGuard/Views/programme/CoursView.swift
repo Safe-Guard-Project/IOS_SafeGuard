@@ -29,7 +29,7 @@ struct CoursView: View {
                 
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .background(Color.white)
-                .navigationBarTitle("Les differents partie de cours")
+                .navigationBarTitle("Plan de cours")
                 .navigationBarTitleDisplayMode(.inline)
                 .padding(.top, 40 * geometry.size.height / 667)
             }

@@ -13,6 +13,7 @@ struct IOS_SafeGuardApp: App {
         WindowGroup {
            // SplashScreenView()
             ProgramView()
+            //CommentsView()
         }
     }
 }

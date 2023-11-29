@@ -10,35 +10,34 @@ import SwiftUI
 struct ProgramCardView: View {
     var program : Program
     var body: some View {
-       
-        VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading) {
+                Image(program.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 300, height: 200) 
+                    .clipped()
            
-            Image(program.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 200)
-                .clipped()
 
-            VStack(alignment: .leading, spacing: 8) {
-           
-                Text(program.Titre)
-                    .font(.title)
-                    .fontWeight(.medium)
+                VStack(alignment: .leading) {
+                    Text(program.Titre)
+                       
+                        .font(.system(size: 20))
+                        .fontWeight(.medium)
+                   
 
-               
-                Text(program.descriptionProgramme)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-
-               
+                    Text(program.descriptionProgramme)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                       
+                }
+                .padding(16)
             }
-            .padding(16)
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+           
+           
         }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding(10)
-    }
 }
 
 

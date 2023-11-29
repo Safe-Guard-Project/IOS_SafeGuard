@@ -22,18 +22,36 @@ struct DetailsInfoView: View {
                         .padding(.horizontal)
                 }
 
-                Text("Type of Catastrophe: \(information.typeCatastrophe)")
-                    .padding(.horizontal)
-                Text("Country: \(information.pays)")
-                    .padding(.horizontal)
-                Text("Region: \(information.region)")
-                    .padding(.horizontal)
-                Text("Statement: \(information.etat)")
-                    .padding(.horizontal)
-                Text("Prevention Date: \(formatDate(information.dateDePrevention))")
-                    .padding(.horizontal)
-                Text("Liabilities Percent: \(information.pourcentageFiabilite)%")
-                    .padding(.horizontal)
+                HStack {
+                    Text("Type of Catastrophe:")
+                        .bold()
+                    Text(information.typeCatastrophe)
+                }
+                HStack {
+                    Text("Country:")
+                        .bold()
+                    Text(information.pays)
+                }
+                HStack {
+                    Text("Region:")
+                        .bold()
+                    Text(information.region)
+                }
+                HStack {
+                    Text("Statement:")
+                        .bold()
+                    Text(information.etat)
+                }
+                HStack {
+                    Text("Prevention Date:")
+                        .bold()
+                    Text(formatDate(information.dateDePrevention))
+                }
+                HStack {
+                    Text("Liabilities Percent:")
+                        .bold()
+                    Text("\(information.pourcentageFiabilite)%")
+                }
 
                 Text("Description of Catastrophe:")
                     .font(.headline)
@@ -41,37 +59,34 @@ struct DetailsInfoView: View {
                 Text(information.descriptionInformation)
                     .padding(.horizontal)
 
-                // Display comments if available
                 if !comments.isEmpty {
                     Divider()
                     Text("Comments:")
                         .font(.headline)
-                        .padding(.horizontal)
+                        .padding(.leading)
 
                     ForEach(comments, id: \.self) { comment in
                         Text(comment)
-                            .padding(.horizontal)
+                            .padding(.leading)
+                            .foregroundColor(.blue)
                     }
                 }
 
-                // Add a new case for comments
-                if information.typeCatastrophe.lowercased() == "comments" {
-                    Divider()
-                    Text("Add a Comment:")
-                        .font(.headline)
-                        .padding(.horizontal)
+                Divider()
+                HStack {
                     TextField("Type your comment here", text: $commentText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
 
                     Button(action: {
-                        // Add logic to submit the comment
                         comments.append(commentText)
                         commentText = ""
                     }) {
-                        Text("Submit Comment")
-                            .padding()
+                        Image(systemName: "arrow.right.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
                             .foregroundColor(.white)
+                            .padding()
                             .background(Color.blue)
                             .cornerRadius(10)
                     }
@@ -98,31 +113,6 @@ struct DetailsInfoView: View {
                     .resizable()
                     .frame(width: 30, height: 30)
                     .foregroundColor(.blue)
-            }
-        )
-        .background(
-            VStack {
-                Spacer()
-                HStack {
-                    TextField("Add a Comment", text: $commentText)
-                        .padding(10)
-                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
-                        .padding([.leading, .bottom], 10)
-                        .frame(height: 50)
-
-                    Button(action: {
-                        comments.append(commentText)
-                        commentText = ""
-                    }) {
-                        Image(systemName: "arrow.right.circle.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(Color.blue)
-                            .padding(.trailing, 10)
-                    }
-                }
-                .padding(.horizontal) // Adjusted for spacing
-                .background(Color(UIColor.systemBackground))
             }
         )
     }

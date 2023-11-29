@@ -25,6 +25,8 @@ struct InformationCardView: View {
                 Text(information.titre)
                     .font(.title)
                     .fontWeight(.medium)
+                    .multilineTextAlignment(.center) // Center the title
+
                 
                 //event description
                //

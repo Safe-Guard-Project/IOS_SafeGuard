@@ -2,8 +2,10 @@ import SwiftUI
 
 struct InformationView: View {
     let informations = [
-        Information(titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation", pays: "France", region: "Nice", descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50, etat: "Coming"),
-        Information(titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation", pays: "France", region: "Nice", descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50, etat: "Coming")
+        Information(titre: "Les forêts de Ain drahem en danger !!! ", typeCatastrophe: "Incendie", pays: "Tunisie", region: "Ain Drahem", descriptionInformation: "Une Incendie a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "thumbnail-incendie-herve-dermoune", pourcentageFiabilite: 100, etat: "On going"),
+        Information(titre: "Tsunami menace l'europe !!! ", typeCatastrophe: "Tsunami", pays: "France", region: "Nice", descriptionInformation: "Une alerte de Tsunami a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "doc2", pourcentageFiabilite: 70, etat: "Coming")
+        
+        
     ]
 
     @State private var isActionButtonVisible = false

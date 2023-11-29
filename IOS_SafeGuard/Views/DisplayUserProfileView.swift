@@ -1,36 +1,68 @@
+import Combine
 import SwiftUI
 
-struct ContentView: View {
-    let users: [User]
+struct DisplayUserProfileView: View {
+    @StateObject private var displayProfileViewModel: DisplayUserProfileViewModel
+
+    init(userId: String) {
+        // Initialize the view model here
+        self._displayProfileViewModel = StateObject(wrappedValue: DisplayUserProfileViewModel(userId: userId))
+    }
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(users) { user in
-                    VStack(alignment: .leading) {
-                        Text(user.UserName)  // Use the updated property name
-                            .font(.headline)
-                        HStack {
-                            Text(user.email)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            Spacer()
-                            Text(user.numeroTel)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                VStack(alignment: .leading, spacing: 8) {
+                    VStack {
+                        GeometryReader { geometry in
+                            Image("Person")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width, height: 100)
+                                .padding(.bottom, 8)
                         }
+                        Spacer()
+                    }
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+
+                    HStack {
+                        Text(displayProfileViewModel.userName)
+                            .font(.headline)
+                            .padding(.leading, 100)
+                    }
+
+                    HStack {
+                        Text(displayProfileViewModel.userEmail)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 100)
+                    }
+
+                    HStack {
+                        Text(displayProfileViewModel.userPhoneNumber)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 100)
                     }
                 }
+                .padding(8)
             }
-            .navigationBarTitle("Users")
+            .onAppear {
+                // Fetch user information when the view appears
+                displayProfileViewModel.fetchUserInformation(userId: displayProfileViewModel.userId)
+            }
+            .navigationBarTitle("My Profile")
         }
     }
 }
 
-struct DiplayView_Previews: PreviewProvider {
+struct DisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(users: [
-            User(_id: "1", UserName: "omardjo", email: "mr.djebbi@gmail.com", password: "password", Role: .client, latitudeUser: 0, longitudeUser: 0, numeroTel: "53115231"),
-        ])
+        // You need to pass a userId when creating the instance
+        DisplayUserProfileView(userId: "exampleUserId")
     }
 }

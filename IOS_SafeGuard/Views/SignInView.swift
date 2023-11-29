@@ -1,142 +1,101 @@
-import Foundation
 import SwiftUI
 
 struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isLoginFailed = false
-    @State private var agreeTerms: Bool = false
-    
+    @State var isSigningIn: Bool = false
+    @State var isSignedIn: Bool = false
+
+    @StateObject private var signInViewModel = SignInViewModel()
+
     var body: some View {
-  
-        VStack(alignment: .leading, spacing: 20) {
-            HStack {
-                            Image("Image1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 100)
-                                .padding(.leading, 280)
-                            
+        NavigationView {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack {
+                    Spacer()
+                    Image("Image1")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .padding(.leading, 280)
+                }
+                Text("Sign In")
+                    .font(.largeTitle)
+                    .padding(.leading, 40)
+
+                TextField("Email", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        signInViewModel.email = email
+                        signInViewModel.password = password
+                        signInViewModel.signIn { completion in
+                            // Perform your sign-in logic here
+
+                            // Call the completion handler when sign-in is complete
+                            completion()
+                                                    
                         }
-            Text("Sign In")
-                .font(.largeTitle)
-                .padding(.leading, 40)
-            
-            VStack(alignment: .leading, spacing: 10) {
 
-                
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 51)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .inset(by: 1)
-                            .stroke(.black, lineWidth: 2)
-                    )
-                    .overlay(
-                        TextField("Email", text: $email)
-                            .padding()
-                    )
-            }
-            
-            
-            VStack(alignment: .leading, spacing: 10) {
-   
-                
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 51)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .inset(by: 1)
-                            .stroke(.black, lineWidth: 2)
-                    )
-                    .overlay(
-                        TextField("Password", text: $password)
-                            .padding()
-                    )
-                VStack {
-                        Spacer()
-                          .frame(height: 2)
-                           .background(Color.red)
-                   }
-                .frame(height: 10)
-            }
-            
-     
-            
-            HStack {
-                Spacer()
-
-                
-
-                Button(action: {
-                    // Perform your action for signing in
-                }) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 243, height: 51)
-                        .background(Color(red: 0, green: 0.28, blue: 1))
-                        .cornerRadius(50)
-                        .overlay(
-                            Text("Sign in")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        )
-                }
-                .onTapGesture {
-                    print("Sign In button tapped.")
+                    }) {
+                        Text("Sign in")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 243, height: 51)
+                            .background(Color(red: 0, green: 0.28, blue: 1))
+                            .cornerRadius(50)
+                    }
+                    .buttonStyle(PlainButtonStyle()) // Use PlainButtonStyle to remove the default button style
+                    .disabled($signInViewModel.isSigningIn.wrappedValue)
+                    Spacer()
                 }
 
-                    .disabled(!agreeTerms)
-
-                Spacer()
-            }
-            
-            if isLoginFailed {
-                Text("Incorrect email or password. Please try again.")
-                    .foregroundColor(.red)
-                    .padding()
-            }
-            
-            Button(action: {
-                // Perform your action for redirecting to sign up screen
-            }) {
-                Text("Don't have an account?")
-                    .foregroundColor(.black)
-                    .padding()
-                Button(action: {
-                    // Perform your action for redirecting to sign up screen
-                }) {
-                    Text("Sign Up")
-                        .foregroundColor(.blue)
+                if isLoginFailed {
+                    Text("Incorrect email or password. Please try again.")
+                        .foregroundColor(.red)
                         .padding()
                 }
+
+                HStack {
+                    Text("Don't have an account?")
+                        .foregroundColor(.black)
+                        .padding()
+
+                    NavigationLink(
+                        destination: SignUpView(),
+                        label: {
+                            Text("Sign Up")
+                                .padding()
+                        }
+                    )
+                }
+
+                Spacer(minLength: 200)
+
+                Image("Image2")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .padding(.trailing, 280)
             }
-            
-            Spacer(minLength: 200)
-         
-            Image("Image2")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 100, height: 100)
-            .padding(.trailing, 280) // Adjust the leading padding
-           
-        }
-        
-        .padding()
-        .background(Color("BlueBackground"))
-    }
-    struct SignInView_Previews: PreviewProvider {
-        static var previews: some View {
-            SignInView()
+            .padding()
+            .background(Color("BlueBackground"))
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+            .onChange(of: signInViewModel.isSignedIn) { newValue in
+                if newValue {
+                    isSignedIn = true
+                }
+            }
         }
     }
-}
-
-
-#Preview {
-  SignInView()
 }

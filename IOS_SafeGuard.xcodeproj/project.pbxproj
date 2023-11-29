@@ -26,6 +26,12 @@
 		93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */; };
 		93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF222B15081D007A147E /* SplashScreenView.swift */; };
 		93E9CF262B15103A007A147E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 93E9CF252B15103A007A147E /* Kingfisher */; };
+		93E9CF282B152138007A147E /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF272B152138007A147E /* ForgetPasswordView.swift */; };
+		93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF292B1531F0007A147E /* SignInViewModel.swift */; };
+		93E9CF2C2B155E4C007A147E /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF2B2B155E4B007A147E /* AppViewModel.swift */; };
+		93E9CF2E2B1584E4007A147E /* DisplayUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */; };
+		93E9CF312B15A9F2007A147E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF302B15A9F2007A147E /* PersistenceController.swift */; };
+		93E9CF342B15AE45007A147E /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF332B15AE45007A147E /* UserEntity.swift */; };
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
@@ -70,6 +76,12 @@
 		93DA55BC2B1451380046548B /* WebServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceProvider.swift; sourceTree = "<group>"; };
 		93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUserProfileView.swift; sourceTree = "<group>"; };
 		93E9CF222B15081D007A147E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		93E9CF272B152138007A147E /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		93E9CF292B1531F0007A147E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		93E9CF2B2B155E4B007A147E /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUserProfileViewModel.swift; sourceTree = "<group>"; };
+		93E9CF302B15A9F2007A147E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		93E9CF332B15AE45007A147E /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -124,6 +136,7 @@
 		930F498F2AFCD52A0094A97E /* IOS_SafeGuard */ = {
 			isa = PBXGroup;
 			children = (
+				93E9CF2F2B15A9C7007A147E /* Persistence */,
 				93DA55B52B1427CC0046548B /* Services */,
 				930F49BD2AFCD8140094A97E /* Networking */,
 				930F49BC2AFCD8020094A97E /* ViewModels */,
@@ -177,6 +190,7 @@
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
+				93E9CF272B152138007A147E /* ForgetPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +199,9 @@
 			isa = PBXGroup;
 			children = (
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
+				93E9CF292B1531F0007A147E /* SignInViewModel.swift */,
+				93E9CF2B2B155E4B007A147E /* AppViewModel.swift */,
+				93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -209,6 +226,15 @@
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		93E9CF2F2B15A9C7007A147E /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				93E9CF302B15A9F2007A147E /* PersistenceController.swift */,
+				93E9CF332B15AE45007A147E /* UserEntity.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,18 +375,24 @@
 			files = (
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
+				93E9CF2C2B155E4C007A147E /* AppViewModel.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
+				93E9CF2E2B1584E4007A147E /* DisplayUserProfileViewModel.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
+				93E9CF342B15AE45007A147E /* UserEntity.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
+				93E9CF312B15A9F2007A147E /* PersistenceController.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
+				93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */,
+				93E9CF282B152138007A147E /* ForgetPasswordView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 			);

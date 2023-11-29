@@ -1,16 +1,16 @@
 import Combine
 import Foundation
-struct VoidWSResponse: Codable {
-    // Your implementation here, if needed
-}
-
+import CoreData
 class UserRepositoryImpl: UserRepository {
     private let apiService: APIService
     private let webServiceProvider: WebServiceProvider
+    
 
-    init(apiService: APIService, webServiceProvider: WebServiceProvider) {
+
+    init(apiService: APIService , webServiceProvider: WebServiceProvider) {
         self.apiService = apiService
         self.webServiceProvider = webServiceProvider
+
     }
 
     func signUp(user: User) -> AnyPublisher<User?, Error> {
@@ -21,13 +21,53 @@ class UserRepositoryImpl: UserRepository {
             "password": user.password,
             "numeroTel": user.numeroTel,
         ]
+
         return webServiceProvider.callWebService(
-                    url: NetworkConstants.baseURL + signUpEndpoint,
-                    method: "POST",
-                    params: params
-                )
-     
+            url: NetworkConstants.baseURL + signUpEndpoint,
+            method: "POST",
+            params: params
+        )
+        .map { (user: User?) -> User? in
+            // Save user information after successful sign-up
+            if let user = user {
+            }
+            return user
+        }
+        .eraseToAnyPublisher()
     }
 
-    // Implement other methods as needed
+    func signIn(user: Login) -> AnyPublisher<User?, Error> {
+        let signInEndpoint = UserEndpoints.signIn.path.description
+        let params: [String: Any] = [
+            "email": user.email,
+            "password": user.password
+        ]
+
+        return webServiceProvider.callWebService(
+            url: NetworkConstants.baseURL + signInEndpoint,
+            method: "POST",
+            params: params
+        )
+        .map { (user: User?) -> User? in
+            // Save user information after successful sign-in
+            if let user = user {
+            }
+            return user
+        }
+        .eraseToAnyPublisher()
+    }
+
+    func displayUserProfile(userId: String) -> AnyPublisher<User?, Error> {
+            let displayUserProfileEndpoint = UserEndpoints.displayUserProfile(userId: userId).path.description
+
+            return webServiceProvider.callWebService(
+                url: NetworkConstants.baseURL + displayUserProfileEndpoint,
+                method: "GET",
+                params: [:]
+            )
+            .eraseToAnyPublisher()
+        }
+  
+
+
 }

@@ -12,20 +12,24 @@ struct SignUpView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var numeroTel: String = ""
-
+    @State private var temporaryIsActive: Bool? = nil
     @State private var agreeTerms: Bool = false
     @StateObject private var signUpViewModel = SignUpViewModel()
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Spacer() // Move images to the top
+        
+        @State private var isSendSMSEnabled = false
 
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+           
             HStack {
                             Image("Image1")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
                                 .padding(.leading, 280)
+                                Spacer()
                             
                         }
             
@@ -84,7 +88,7 @@ struct SignUpView: View {
                     .stroke(Color.black, lineWidth: 2)
                     .frame(width: 353, height: 51)
                     .overlay(
-                        TextField("Password", text: $password)
+                        SecureField("Password", text: $password)
                             .padding()
                     )
             }
@@ -135,29 +139,37 @@ struct SignUpView: View {
             
             HStack {
                 Spacer() // Center the text horizontally
-
+                
                 Text("Already got an account then")
                     .font(.headline)
-                    .padding(.leading, 40)
-
-                Button(action: {
-                    // Perform your action for redirecting to the sign-up screen
-                }) {
-                    Text("Sign In")
-                        .foregroundColor(.blue)
-                        .padding()
-                }
+                    .padding(.leading, 30)
+                
+                NavigationLink(
+                    destination: SignInView(),
+                    label: {
+                        Text("Sign In")
+                            .foregroundColor(.blue)
+                            .padding()
+                    }
+                )
+                
+                
             }
             Image("Image2")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 100, height: 100)
-            .padding(.trailing, 280) // Adjust the leading padding
+            .padding(.trailing, 40) // Adjust the leading padding
            
         }
-
-
-        .padding()
+        NavigationLink(
+            destination: SignInView(),
+            tag: true,
+            selection: $temporaryIsActive,
+            label: {
+                EmptyView()
+            }
+        )
         .background(Color("BlueBackground"))
 
    
@@ -173,4 +185,3 @@ struct SignUpView: View {
 #Preview {
     SignUpView()
 }
-

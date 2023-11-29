@@ -3,6 +3,7 @@ import SwiftUI
 import Combine
 
 class SignUpViewModel: ObservableObject {
+    
     private let userRepository: UserRepository
 
     // Input properties
@@ -11,6 +12,9 @@ class SignUpViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var phoneNumber: String = ""
     @Published var signUpResult: Result<User?, Error>? = nil
+
+
+    
 
     // Inject the repository dependency
     init(userRepository: UserRepository) {

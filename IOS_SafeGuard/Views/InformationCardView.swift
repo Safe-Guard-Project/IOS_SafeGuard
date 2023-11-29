@@ -13,7 +13,6 @@ struct InformationCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             //info image
-            Image("Intro")
             Image(information.image)
                 .resizable()
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
@@ -23,13 +22,12 @@ struct InformationCardView: View {
             //info details
             VStack(alignment: .leading, spacing:8 ) {
                 //event title
-                Text("Une inondation Dans 3 heures !!!")
                 Text(information.titre)
                     .font(.title)
                     .fontWeight(.medium)
                 
                 //event description
-                Text("Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures")
+               //
                 Text(information.descriptionInformation)
                     .font(.body)
                     .foregroundColor(.secondary)
@@ -48,6 +46,6 @@ struct InformationCardView: View {
 }
 
 #Preview {
-    InformationCardView(information: Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50 , etat: "Coming" ))
+    InformationCardView(information: Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 50 , etat: "Coming" ))
 
 }

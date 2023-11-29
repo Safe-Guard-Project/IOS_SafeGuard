@@ -1,26 +1,10 @@
 import SwiftUI
 
-struct DetailRow: View {
-    var title: String
-    var value: String
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.gray)
-                .padding(.horizontal)
-            Spacer()
-            Text(value)
-                .padding(.horizontal)
-        }
-    }
-}
-
 struct DetailsInfoView: View {
     var information: Information
     @State private var commentText: String = ""
     @State private var comments: [String] = []
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ScrollView {
@@ -38,12 +22,18 @@ struct DetailsInfoView: View {
                         .padding(.horizontal)
                 }
 
-                DetailRow(title: "Type of Catastrophe", value: information.typeCatastrophe)
-                DetailRow(title: "Country", value: information.pays)
-                DetailRow(title: "Region", value: information.region)
-                DetailRow(title: "Statement", value: information.etat)
-                DetailRow(title: "Prevention Date", value: formatDate(information.dateDePrevention))
-                DetailRow(title: "Liabilities Percent", value: "\(information.pourcentageFiabilite)%")
+                Text("Type of Catastrophe: \(information.typeCatastrophe)")
+                    .padding(.horizontal)
+                Text("Country: \(information.pays)")
+                    .padding(.horizontal)
+                Text("Region: \(information.region)")
+                    .padding(.horizontal)
+                Text("Statement: \(information.etat)")
+                    .padding(.horizontal)
+                Text("Prevention Date: \(formatDate(information.dateDePrevention))")
+                    .padding(.horizontal)
+                Text("Liabilities Percent: \(information.pourcentageFiabilite)%")
+                    .padding(.horizontal)
 
                 Text("Description of Catastrophe:")
                     .font(.headline)
@@ -89,28 +79,58 @@ struct DetailsInfoView: View {
             }
             .padding()
         }
-        .navigationTitle("Information Detail")
-        
-        
-        HStack {
-                            TextField("Ajouter un commentaire", text: $commentText)
-                                .padding(10)
-                                .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
-                                .padding([.leading, .bottom], 10)
-                                .frame(height: 50)
+        .navigationBarTitle("Information Detail", displayMode: .inline)
+        .navigationBarHidden(false)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "arrow.left.circle")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.blue)
+            },
+            trailing: Button(action: {
+                shareInformation()
+            }) {
+                Image(systemName: "square.and.arrow.up")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.blue)
+            }
+        )
+        .background(
+            VStack {
+                Spacer()
+                HStack {
+                    TextField("Add a Comment", text: $commentText)
+                        .padding(10)
+                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
+                        .padding([.leading, .bottom], 10)
+                        .frame(height: 50)
 
-                            Button(action: {
-                                
-                            }) {
-                                Image(systemName: "arrow.right.circle.fill")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(Color.blue)
-                                    .padding(.trailing, 10)
-                            }
-                        }
-                        .background(Color(UIColor.systemBackground))
+                    Button(action: {
+                        comments.append(commentText)
+                        commentText = ""
+                    }) {
+                        Image(systemName: "arrow.right.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color.blue)
+                            .padding(.trailing, 10)
                     }
+                }
+                .padding(.horizontal) // Adjusted for spacing
+                .background(Color(UIColor.systemBackground))
+            }
+        )
+    }
+
+    private func shareInformation() {
+        let shareMessage = "Check out this information: \(information.titre)"
+        let activityViewController = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
 
     private func formatDate(_ date: Date) -> String {
@@ -119,12 +139,10 @@ struct DetailsInfoView: View {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }
-
+}
 
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "", pourcentageFiabilite: 0, etat: ""))
+        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
     }
 }
-
-

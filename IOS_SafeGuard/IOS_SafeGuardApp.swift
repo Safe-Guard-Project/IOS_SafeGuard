@@ -14,7 +14,22 @@ struct IOS_SafeGuardApp: App {
           // SplashScreenView()
     //ProgramView()
             //CommentsView()
-            FavoriView()
-        }
+          //  FavoriView()
+            NavigationView {
+                       VStack(spacing: 20) {
+                           NavigationLink(destination: ProgramView()) {
+                               Text("Go to Program")
+                           }
+
+                           NavigationLink(destination: CommentsView()) {
+                               Text("Go to Comment")
+                           }
+
+                           NavigationLink(destination:FavoriView()) {
+                               Text("Go to List Favoris")
+                           }
+                       }
+                       
+                   }}
     }
 }

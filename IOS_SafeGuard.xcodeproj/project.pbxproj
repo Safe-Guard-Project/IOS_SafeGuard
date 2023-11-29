@@ -33,6 +33,7 @@
 		E52CCF7A2B1648F60068E96A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF792B1648F60068E96A /* InformationView.swift */; };
 		E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF7B2B16493E0068E96A /* InformationCardView.swift */; };
 		E5756D4C2B16818100A5BAFC /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4B2B16818100A5BAFC /* AddInfoView.swift */; };
+		E5756D4E2B16AA3A00A5BAFC /* DetailsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		E52CCF792B1648F60068E96A /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		E52CCF7B2B16493E0068E96A /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 		E5756D4B2B16818100A5BAFC /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
+		E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				E52CCF792B1648F60068E96A /* InformationView.swift */,
 				E52CCF7B2B16493E0068E96A /* InformationCardView.swift */,
 				E5756D4B2B16818100A5BAFC /* AddInfoView.swift */,
+				E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
+				E5756D4E2B16AA3A00A5BAFC /* DetailsInfoView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				E5756D4C2B16818100A5BAFC /* AddInfoView.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,

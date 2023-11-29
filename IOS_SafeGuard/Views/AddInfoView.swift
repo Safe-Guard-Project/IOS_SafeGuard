@@ -4,7 +4,7 @@ struct AddInfoView: View {
     var information: Information
 
     @State private var title = ""
-    @State private var typeOfCatastrophe = "Earthquake" // Valeur par défaut
+    @State private var typeOfCatastrophe = "Earthquake" // Default value
     @State private var country = ""
     @State private var region = ""
     @State private var selectedDate = Date()
@@ -12,6 +12,8 @@ struct AddInfoView: View {
     @State private var liabilityPercentage = ""
     @State private var selectedImage: Image?
     @State private var descriptionCatastrophe = ""
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
 
     enum Statement: String {
         case ongoing = "Ongoing"
@@ -33,61 +35,59 @@ struct AddInfoView: View {
                     TextField("Country", text: $country)
                     TextField("Region", text: $region)
                     DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                    
-                    
-                    
+
                     VStack(alignment: .leading) {
                         Text("Statement")
                         HStack {
                             RadioGroup(selectedOption: $statement, options: [.ongoing, .notYet])
                         }
                     }
-                    
+
                     TextField("Liability Percentage", text: $liabilityPercentage)
-                        .keyboardType(.decimalPad) // Autoriser uniquement les caractères numériques
+                        .keyboardType(.decimalPad) // Allow only numeric input
                     VStack(alignment: .leading) {
-                        TextField("Description of Catastrophe", text:$descriptionCatastrophe)
+                        TextField("Description of Catastrophe", text: $descriptionCatastrophe)
                             .frame(height: 100)
                     }
-                    
-                    
-                    Section {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                // Add logic to select or capture an image
-                                // You can use ImagePicker or Camera capture logic here
-                            }) {
-                                Image(systemName: "camera")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                            }
-                            Spacer()
-                        }
-                    }
-                    
                 }
 
                 Section {
                     HStack {
                         Spacer()
                         Button(action: {
-                            // Ajouter la logique pour envoyer les données du formulaire
+                            self.showingImagePicker = true
+                        }) {
+                            Image(systemName: "camera")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+                            ImagePicker(image: self.$inputImage)
+                        }
+                        Spacer()
+                    }
+                }
+
+                Section {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            // Add logic to send the form data
                             print("Send button tapped")
-                            // Vous pouvez utiliser les données saisies ici, par exemple, les enregistrer dans votre modèle
+                            // You can use the entered data here, e.g., save it to your model
                             let newInformation = Information(
                                 titre: title,
                                 typeCatastrophe: typeOfCatastrophe,
                                 pays: country,
                                 region: region,
                                 descriptionInformation: descriptionCatastrophe,
-                                dateDePrevention: selectedDate.description,
-                                image: "", // Vous devez gérer la logique de l'image ici
+                                dateDePrevention: selectedDate,
+                                image: "", // You need to handle the image logic here
                                 pourcentageFiabilite: Double(liabilityPercentage) ?? 0,
                                 etat: statement.rawValue
                             )
 
-                            // Vous pouvez maintenant utiliser newInformation selon vos besoins
+                            // You can now use newInformation as needed
                         }) {
                             Text("Send")
                                 .padding()
@@ -101,6 +101,11 @@ struct AddInfoView: View {
             }
             .navigationTitle("New Information")
         }
+    }
+
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        selectedImage = Image(uiImage: inputImage)
     }
 }
 
@@ -135,8 +140,45 @@ struct RadioButton: View {
     }
 }
 
+struct ImagePicker: UIViewControllerRepresentable {
+    @Binding var image: UIImage?
+
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        @Binding var image: UIImage?
+
+        init(image: Binding<UIImage?>) {
+            _image = image
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                image = uiImage
+            }
+
+            picker.dismiss(animated: true, completion: nil)
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(image: $image)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        picker.sourceType = .photoLibrary
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
+}
+
 struct AddInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddInfoView(information: Information(titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation", pays: "France", region: "Nice", descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50, etat: "Coming"))
+        AddInfoView(information: Information(titre: "Sample Information", typeCatastrophe: "Earthquake", pays: "Country", region: "Region", descriptionInformation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 75, etat: "Ongoing"))
     }
 }

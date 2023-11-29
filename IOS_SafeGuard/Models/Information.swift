@@ -14,7 +14,7 @@ struct Information: Identifiable {
     let pays: String
     let region: String
     let descriptionInformation: String
-    let dateDePrevention: String
+    let dateDePrevention: Date
     let image: String
     let pourcentageFiabilite: Double
     let etat: String
@@ -22,7 +22,7 @@ struct Information: Identifiable {
     
 }
 let informations = [
-    Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50 , etat: "Coming" ),
-        Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: "22-5-2023", image: "intro", pourcentageFiabilite: 50 , etat: "Coming" )
+    Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50 , etat: "Coming" ),
+        Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50 , etat: "Coming" )
 
 ]

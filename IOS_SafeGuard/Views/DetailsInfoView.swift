@@ -90,6 +90,27 @@ struct DetailsInfoView: View {
             .padding()
         }
         .navigationTitle("Information Detail")
+        
+        
+        HStack {
+                            TextField("Ajouter un commentaire", text: $commentText)
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
+                                .padding([.leading, .bottom], 10)
+                                .frame(height: 50)
+
+                            Button(action: {
+                                
+                            }) {
+                                Image(systemName: "arrow.right.circle.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.blue)
+                                    .padding(.trailing, 10)
+                            }
+                        }
+                        .background(Color(UIColor.systemBackground))
+                    }
     }
 
     private func formatDate(_ date: Date) -> String {
@@ -98,7 +119,7 @@ struct DetailsInfoView: View {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }
-}
+
 
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {

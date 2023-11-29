@@ -34,38 +34,62 @@ struct MapView: View {
             }
         }
         .overlay(alignment: .top) {
-               HStack {
-                   TextField("Search for a location...", text: $searchText)
-                       .font(.subheadline)
-                       .padding (12)
-                       .background(.white)
-                       .padding()
-                       .shadow(radius: 10)
-                       
-                   Button(action: searchPlaces) {
-                       Image(systemName: "magnifyingglass")
-                           .padding(.leading, 8)
+                       HStack {
+                           HStack {
+                          
+
+                           TextField("Search for a location...", text: $searchText)
+                               .font(.subheadline)
+                               .padding (12)
+                               .background(.white)
+                               .padding()
+                               .shadow(radius: 10)
+                               .onChange(of: searchText) {
+                                   searchPlaces()
+                               }
+                               Button(action: {
+                                          cameraPosition = .region(.userRegion)
+                                      }) {
+                                          Image(systemName: "location")
+                                            
+                                              .foregroundColor(.blue)
+                                              .frame(width: 40, height: 40)
+                                              .background(Color.white)
+                                              .cornerRadius(22)
+                                              .shadow(radius: 5)
+                                      }
+
+                                      .padding(.leading,0)
+                                  }
+                    
+                           
+                           
+                           .padding(.trailing, 70)
+                       }
                    }
-                   .padding(.leading, -8)
-               }
-           }
-           .onChange (of: mapSelection, { oldValue, newValue in
-               showDetails = newValue != nil
-           })
-           .sheet(isPresented: $showDetails, content: {
-               LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
-                   .presentationDetents ([.height (340)])
-                   .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
-                   .presentationCornerRadius (12)
-   
-               })
-               .mapControls {
-                   MapCompass()
-                   MapPitchToggle()
-                   MapUserLocationButton()
-               }
+                   .onChange (of: mapSelection, { oldValue, newValue in
+                       showDetails = newValue != nil
+                   })
+                   .sheet(isPresented: $showDetails, content: {
+                       LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
+                           .presentationDetents ([.height (340)])
+                           .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                           .presentationCornerRadius (12)
+                   })
+                       
+        
+                   .mapControls {
+                       MapCompass()
+                       MapPitchToggle()
+
+                   
+                   }
+     
        }
-   }
+
+    }
+           
+           
 
 
 extension MapView {
@@ -86,6 +110,8 @@ extension MapView {
         }
     }
 }
+
+
 
 
 extension CLLocationCoordinate2D {

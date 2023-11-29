@@ -34,6 +34,7 @@
 		E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF7B2B16493E0068E96A /* InformationCardView.swift */; };
 		E5756D4C2B16818100A5BAFC /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4B2B16818100A5BAFC /* AddInfoView.swift */; };
 		E5756D4E2B16AA3A00A5BAFC /* DetailsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */; };
+		E5756D502B16CAA200A5BAFC /* CommentaireInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4F2B16CAA200A5BAFC /* CommentaireInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		E52CCF7B2B16493E0068E96A /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 		E5756D4B2B16818100A5BAFC /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
 		E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoView.swift; sourceTree = "<group>"; };
+		E5756D4F2B16CAA200A5BAFC /* CommentaireInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaireInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				93F3921D2B12C87E00A63B62 /* User.swift */,
 				93DA55AC2B1415A00046548B /* Login.swift */,
 				E52CCF752B163B850068E96A /* Information.swift */,
+				E5756D4F2B16CAA200A5BAFC /* CommentaireInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
+				E5756D502B16CAA200A5BAFC /* CommentaireInfo.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,

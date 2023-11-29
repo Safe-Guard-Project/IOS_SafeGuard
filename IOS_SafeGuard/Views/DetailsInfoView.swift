@@ -1,7 +1,26 @@
 import SwiftUI
 
+struct DetailRow: View {
+    var title: String
+    var value: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.headline)
+                .foregroundColor(.gray)
+                .padding(.horizontal)
+            Spacer()
+            Text(value)
+                .padding(.horizontal)
+        }
+    }
+}
+
 struct DetailsInfoView: View {
     var information: Information
+    @State private var commentText: String = ""
+    @State private var comments: [String] = []
 
     var body: some View {
         ScrollView {
@@ -12,7 +31,6 @@ struct DetailsInfoView: View {
                     .padding(.horizontal)
 
                 if !information.image.isEmpty {
-                   
                     Image(information.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -32,7 +50,44 @@ struct DetailsInfoView: View {
                     .padding(.horizontal)
                 Text(information.descriptionInformation)
                     .padding(.horizontal)
+
+                // Display comments if available
+                if !comments.isEmpty {
+                    Divider()
+                    Text("Comments:")
+                        .font(.headline)
+                        .padding(.horizontal)
+
+                    ForEach(comments, id: \.self) { comment in
+                        Text(comment)
+                            .padding(.horizontal)
+                    }
+                }
+
+                // Add a new case for comments
+                if information.typeCatastrophe.lowercased() == "comments" {
+                    Divider()
+                    Text("Add a Comment:")
+                        .font(.headline)
+                        .padding(.horizontal)
+                    TextField("Type your comment here", text: $commentText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+
+                    Button(action: {
+                        // Add logic to submit the comment
+                        comments.append(commentText)
+                        commentText = ""
+                    }) {
+                        Text("Submit Comment")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                }
             }
+            .padding()
         }
         .navigationTitle("Information Detail")
     }
@@ -45,25 +100,10 @@ struct DetailsInfoView: View {
     }
 }
 
-struct DetailRow: View {
-    var title: String
-    var value: String
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.gray)
-                .padding(.horizontal)
-            Spacer()
-            Text(value)
-                .padding(.horizontal)
-        }
-    }
-}
-
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsInfoView(information: Information(titre: "Sample Information", typeCatastrophe: "Earthquake", pays: "Country", region: "Region", descriptionInformation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 75, etat: "Ongoing"))
+        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "", pourcentageFiabilite: 0, etat: ""))
     }
 }
+
+

@@ -8,8 +8,8 @@ import SwiftUI
 
 struct ProgramView: View {
     let programs = [
-        Program(image: "Intro", Titre: "Tsunami", descriptionProgramme: "Découvrir le phénomène"),
-        Program(image: "Intro", Titre: "Tsunami", descriptionProgramme: "Découvrir le phénomène"),
+        Program(image: "tsunami", Titre: "Tsunami", descriptionProgramme: "Découvrir le phénomène"),
+        Program(image: "tremblement", Titre: "Tremblement de terre", descriptionProgramme: "Découvrir le phénomène"),
     ]
 
     var body: some View {

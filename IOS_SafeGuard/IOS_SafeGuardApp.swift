@@ -12,7 +12,7 @@ struct IOS_SafeGuardApp: App {
     var body: some Scene {
         WindowGroup {
            // SplashScreenView()
-            
+            ProgramView()
         }
     }
 }

@@ -19,9 +19,9 @@ struct ContenuCardView: View {
                      isFavorite.toggle()
 
                      if isFavorite {
-                         // Add logic for when the card is marked as favorite
+                        
                      } else {
-                         // Add logic for when the card is unmarked as favorite
+                         
                      }
                  }) {
                      Image(systemName: isFavorite ? "heart.fill" : "heart")

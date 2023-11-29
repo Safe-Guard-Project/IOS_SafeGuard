@@ -10,8 +10,8 @@ import SwiftUI
 struct ContenuView: View {
     @State private var comment: String = ""
     let courses = [
-        Cours(type:"Introduction", image:"Intro",description:"decouvrir le phenomene"),
-        Cours(type:"Causes", image:"Intro",description:"decouvrir le phenomene"), 
+        Cours(type:"Cause", image:"cause",description:"Un tsunami est généralement provoqué par un séisme sous-marin, une éruption volcanique ou un glissement de terrain sous-marin, déplaçant brusquement de grandes quantités d eau et générant des vagues dévastatrices."),
+        Cours(type:"Consequence", image:"cons",description:"Les conséquences d'un tremblement de terre peuvent inclure des dégâts matériels étendus, des pertes humaines, des déplacements de population, et des impacts sur les infrastructures, économies et services essentiels."),
         
     ]
 

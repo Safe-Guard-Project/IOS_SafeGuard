@@ -1,7 +1,9 @@
 import Combine
 
 protocol UserRepository {
-    
+    init(apiService: APIService, webServiceProvider: WebServiceProvider)
     func signUp(user: User) -> AnyPublisher<User?, Error>
-    // Add other methods as needed
-}
+    func signIn(user:Login)->AnyPublisher<User?,Error>
+    func getUserInformation(userId: String) -> AnyPublisher<User?, Error>
+
+    }

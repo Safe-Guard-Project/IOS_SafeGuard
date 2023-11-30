@@ -1,36 +1,73 @@
 import SwiftUI
 
-struct ContentView: View {
-    let users: [User]
+struct DisplayUserProfileView: View {
+    @StateObject private var displayProfileViewModel: DisplayUserProfileViewModel
+
+    init() {
+        // Initialize the view model with the userRepository parameter
+        let apiService: APIService = ApiManager.shared // Adjust this based on your implementation
+        let webServiceProvider: WebServiceProvider = WebServiceProvider.shared // Adjust this based on your implementation
+        let userRepository = UserRepositoryImpl(apiService: apiService, webServiceProvider: webServiceProvider)
+        self._displayProfileViewModel = StateObject(wrappedValue: DisplayUserProfileViewModel(userRepository: userRepository))
+    }
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(users) { user in
-                    VStack(alignment: .leading) {
-                        Text(user.UserName)  // Use the updated property name
-                            .font(.headline)
-                        HStack {
-                            Text(user.email)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            Spacer()
-                            Text(user.numeroTel)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                VStack(alignment: .leading, spacing: 8) {
+                    VStack {
+                        GeometryReader { geometry in
+                            Image("Person")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width, height: 100)
+                                .padding(.bottom, 8)
                         }
                     }
+
+                    HStack {
+                        Text(displayProfileViewModel.userName)
+                            .font(.headline)
+                            .padding(.leading, 100)
+                    }
+
+                    HStack {
+                        Text(displayProfileViewModel.userEmail)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 100)
+                    }
+
+                    HStack {
+                        Text(displayProfileViewModel.userPhoneNumber)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 100)
+                    }
+                }
+                .padding(8)
+            }
+            .onAppear {
+                // Fetch user information when the view appears
+                displayProfileViewModel.fetchUserInformation()
+            }
+            .navigationBarTitle("My Profile")
+
+            VStack(spacing: 20) {
+                NavigationLink(destination: CommentsView()) {
+                    Text("Go to Comment")
+                }
+
+                NavigationLink(destination:FavoriView()) {
+                    Text("Go to List Favoris")
                 }
             }
-            .navigationBarTitle("Users")
         }
     }
 }
 
-struct DiplayView_Previews: PreviewProvider {
+struct DisplayUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(users: [
-            User(_id: "1", UserName: "omardjo", email: "mr.djebbi@gmail.com", password: "password", Role: .client, latitudeUser: 0, longitudeUser: 0, numeroTel: "53115231"),
-        ])
+        DisplayUserProfileView()
     }
 }

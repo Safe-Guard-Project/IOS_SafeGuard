@@ -1,8 +1,7 @@
 import SwiftUI
-
+import Combine
 struct SplashScreenView: View {
-    @State private var isActive: Bool = false
-    @State private var temporaryIsActive: Bool? = nil
+    @State private var temporaryIsActive: Bool = false
 
     var body: some View {
         NavigationView {
@@ -18,23 +17,23 @@ struct SplashScreenView: View {
                         }
                     }
 
-                NavigationLink(
-                    destination: SignInView(),
-                    tag: true,
-                    selection: $temporaryIsActive,
-                    label: {
-                        EmptyView()
-                    }
-                )
-                .hidden()
-                .id("SplashScreenViewLink") // Add an identifier to the link
+                if temporaryIsActive {
+                    NavigationLink(
+                        destination: HomePageView(),
+                        isActive: $temporaryIsActive,
+                        label: {
+                            EmptyView()
+                        }
+
+                    )
+
+                    .hidden()
+                    
+                }
             }
         }
     }
 }
-
-struct SplashScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
-    }
+#Preview {
+    SplashScreenView()
 }

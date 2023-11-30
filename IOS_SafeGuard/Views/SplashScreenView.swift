@@ -19,7 +19,7 @@ struct SplashScreenView: View {
 
                 if temporaryIsActive {
                     NavigationLink(
-                        destination: SignInView(),
+                        destination: HomePageView(),
                         isActive: $temporaryIsActive,
                         label: {
                             EmptyView()

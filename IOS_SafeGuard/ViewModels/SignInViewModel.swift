@@ -29,8 +29,7 @@ class SignInViewModel: ObservableObject {
     }
 
     // Function to perform sign-in
-    // Function to perform sign-in
-    func signIn(completion: @escaping(() -> Void) -> Void) {
+    func signIn(completion: @escaping(String) -> Void) {
         print("function is called")
         // Ensure that email and password are provided
         guard !email.isEmpty, !password.isEmpty else {
@@ -65,11 +64,15 @@ class SignInViewModel: ObservableObject {
                     print("User ID: \(user._id), UserName: \(user.UserName), Email: \(user.email), PhoneNumber: \(user.numeroTel)")
 
                     UserDefaults.standard.set(user._id, forKey: "UserID")
-
+                    // Pass the userId to the completion handler
+                    completion(user._id)
                     print("User ID: \(user._id), UserName: \(user.UserName), Email: \(user.email), PhoneNumber: \(user.numeroTel)")
                     // Update the state to indicate successful sign-in
                     self.isSignedIn = true
                     self.userId = response?._id ?? ""
+                    completion("DisplayUserProfileView")
+
+
                 }
             }
             .store(in: &cancellables)

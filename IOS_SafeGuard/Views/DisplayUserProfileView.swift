@@ -1,12 +1,14 @@
-import Combine
 import SwiftUI
 
 struct DisplayUserProfileView: View {
     @StateObject private var displayProfileViewModel: DisplayUserProfileViewModel
 
-    init(userId: String) {
-        // Initialize the view model here
-        self._displayProfileViewModel = StateObject(wrappedValue: DisplayUserProfileViewModel(userId: userId))
+    init() {
+        // Initialize the view model with the userRepository parameter
+        let apiService: APIService = ApiManager.shared // Adjust this based on your implementation
+        let webServiceProvider: WebServiceProvider = WebServiceProvider.shared // Adjust this based on your implementation
+        let userRepository = UserRepositoryImpl(apiService: apiService, webServiceProvider: webServiceProvider)
+        self._displayProfileViewModel = StateObject(wrappedValue: DisplayUserProfileViewModel(userRepository: userRepository))
     }
 
     var body: some View {
@@ -21,13 +23,7 @@ struct DisplayUserProfileView: View {
                                 .frame(width: geometry.size.width, height: 100)
                                 .padding(.bottom, 8)
                         }
-                        Spacer()
                     }
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
 
                     HStack {
                         Text(displayProfileViewModel.userName)
@@ -53,16 +49,25 @@ struct DisplayUserProfileView: View {
             }
             .onAppear {
                 // Fetch user information when the view appears
-                displayProfileViewModel.fetchUserInformation(userId: displayProfileViewModel.userId)
+                displayProfileViewModel.fetchUserInformation()
             }
             .navigationBarTitle("My Profile")
+
+            VStack(spacing: 20) {
+                NavigationLink(destination: CommentsView()) {
+                    Text("Go to Comment")
+                }
+
+                NavigationLink(destination:FavoriView()) {
+                    Text("Go to List Favoris")
+                }
+            }
         }
     }
 }
 
-struct DisplayView_Previews: PreviewProvider {
+struct DisplayUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        // You need to pass a userId when creating the instance
-        DisplayUserProfileView(userId: "exampleUserId")
+        DisplayUserProfileView()
     }
 }

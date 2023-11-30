@@ -2,39 +2,37 @@ import Foundation
 import Combine
 
 class DisplayUserProfileViewModel: ObservableObject {
-    @Published var userId: String = ""
     @Published var userName: String = ""
     @Published var userEmail: String = ""
     @Published var userPhoneNumber: String = ""
-
+    private let userRepository: UserRepository
     private var cancellables: Set<AnyCancellable> = []
+    @Published var userId: String = ""
 
-    init(userId: String) {
-        fetchUserInformation(userId: userId)
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+        self.userId = UserDefaults.standard.string(forKey: "UserID") ?? ""
     }
 
-    func fetchUserInformation(userId: String) {
-        print("Fetching user information for userID: \(userId)...")
-        
-        let apiService: APIService = ApiManager.shared
-        let webServiceProvider: WebServiceProvider = WebServiceProvider.shared
+    func fetchUserInformation() {
+        guard !userId.isEmpty else {
+            // Handle the case where userId is empty or not available
+            return
+        }
 
-        let userRepository: UserRepository = UserRepositoryImpl(apiService: apiService, webServiceProvider: webServiceProvider)
-
-        userRepository.displayUserProfile(userId: userId)
-            .sink(receiveCompletion: { completion in
+        userRepository.getUserInformation(userId: userId)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
                 // Handle completion if needed
-            }, receiveValue: { user in
+            } receiveValue: { user in
                 if let user = user {
-                    self.userId = user._id
-                    self.userName = user.UserName
-                    self.userEmail = user.email
-                    self.userPhoneNumber = user.numeroTel
-
-                    // Print or log the fetched data for debugging
-                    print("User ID: \(self.userId), UserName: \(self.userName), Email: \(self.userEmail), PhoneNumber: \(self.userPhoneNumber)")
+                    self.userName = user.UserName ?? "DefaultUserName"
+                    self.userEmail = user.email ?? "DefaultEmail"
+                    self.userPhoneNumber = user.numeroTel ?? "DefaultPhoneNumber"
+                } else {
+                    // Handle the case where user is nil
                 }
-            })
+            }
             .store(in: &cancellables)
     }
 }

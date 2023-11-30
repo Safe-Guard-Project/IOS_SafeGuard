@@ -3,14 +3,14 @@ import SwiftUI
 struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var isLoginFailed = false
-    @State var isSigningIn: Bool = false
-    @State var isSignedIn: Bool = false
-
+    @State private var isActive: Bool = false // Track navigation state
+    @State private var isLoginFailed: Bool = false // Track navigation state
+    @State private var isDisplayActive: Bool = false
     @StateObject private var signInViewModel = SignInViewModel()
 
     var body: some View {
         NavigationView {
+            
             VStack(alignment: .leading, spacing: 20) {
                 HStack {
                     Spacer()
@@ -35,24 +35,19 @@ struct SignInView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        signInViewModel.email = email
-                        signInViewModel.password = password
-                        signInViewModel.signIn { completion in
-                            // Perform your sign-in logic here
-
-                            // Call the completion handler when sign-in is complete
-                            completion()
-                                                    
-                        }
-
+                        
+                        isDisplayActive.toggle()
+            
                     }) {
-                        Text("Sign in")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 243, height: 51)
-                            .background(Color(red: 0, green: 0.28, blue: 1))
-                            .cornerRadius(50)
-                    }
+                        NavigationLink(destination:DisplayUserProfileView(),isActive:$isDisplayActive,label:{
+                            Text("Sign in")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(width: 243, height: 51)
+                                .background(Color(red: 0, green: 0.28, blue: 1))
+                                .cornerRadius(50)
+                        }
+                    )}
                     .buttonStyle(PlainButtonStyle()) // Use PlainButtonStyle to remove the default button style
                     .disabled($signInViewModel.isSigningIn.wrappedValue)
                     Spacer()
@@ -69,13 +64,33 @@ struct SignInView: View {
                         .foregroundColor(.black)
                         .padding()
 
+                    // Use the navigationDestination modifier to navigate to the next view
                     NavigationLink(
                         destination: SignUpView(),
+                        isActive: $isActive,
                         label: {
                             Text("Sign Up")
                                 .padding()
                         }
                     )
+                    VStack(spacing: 20) {
+                                        NavigationLink(destination: CommentsView()) {
+                                            Text("Go to Comment")
+                                        }
+
+                                        NavigationLink(destination:FavoriView()) {
+                                            Text("Go to List Favoris")
+                                        }
+                                         NavigationLink(destination: InformationView()) {
+                                           Text("Go to Information ")
+                                       }
+                                       .padding()
+
+                                       NavigationLink(destination: ProfileView()) {
+                                           Text("Go to Profile ")
+                                       }
+                                       .padding()
+                                    }
                 }
 
                 Spacer(minLength: 200)
@@ -91,11 +106,16 @@ struct SignInView: View {
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
-            .onChange(of: signInViewModel.isSignedIn) { newValue in
-                if newValue {
-                    isSignedIn = true
-                }
-            }
+         
+            
+            
+    
         }
+        
     }
+    
+   
+}
+#Preview {
+   SignInView()
 }

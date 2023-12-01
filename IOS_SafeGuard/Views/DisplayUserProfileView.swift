@@ -1,14 +1,19 @@
 import SwiftUI
 
 struct DisplayUserProfileView: View {
-    @StateObject private var displayProfileViewModel: DisplayUserProfileViewModel
-
-    init() {
-        // Initialize the view model with the userRepository parameter
-        let apiService: APIService = ApiManager.shared // Adjust this based on your implementation
-        let webServiceProvider: WebServiceProvider = WebServiceProvider.shared // Adjust this based on your implementation
-        let userRepository = UserRepositoryImpl(apiService: apiService, webServiceProvider: webServiceProvider)
-        self._displayProfileViewModel = StateObject(wrappedValue: DisplayUserProfileViewModel(userRepository: userRepository))
+    
+    let defaults = UserDefaults.standard
+    
+    private var username: String {
+        UserDefaults.standard.string(forKey: "UserName") ?? ""
+    }
+    
+    private var email: String {
+        UserDefaults.standard.string(forKey: "email") ?? ""
+    }
+    
+    private var phoneNumber: String {
+        UserDefaults.standard.string(forKey: "numeroTel") ?? ""
     }
 
     var body: some View {
@@ -21,47 +26,42 @@ struct DisplayUserProfileView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: geometry.size.width, height: 100)
-                                .padding(.bottom, 8)
+                                .padding(.bottom, 50)
                         }
                     }
 
-                    HStack {
-                        Text(displayProfileViewModel.userName)
-                            .font(.headline)
-                            .padding(.leading, 100)
-                    }
+                    Text("Username:")
+                        .font(.headline)
+                        .padding(.leading, 16)
+                    Text(username)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 16)
 
-                    HStack {
-                        Text(displayProfileViewModel.userEmail)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .padding(.leading, 100)
-                    }
+                    Text("Email:")
+                        .font(.headline)
+                        .padding(.leading, 16)
+                    Text(email)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 16)
 
-                    HStack {
-                        Text(displayProfileViewModel.userPhoneNumber)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .padding(.leading, 100)
-                    }
+                    Text("Phone Number:")
+                        .font(.headline)
+                        .padding(.leading, 16)
+                    Text(phoneNumber)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 16)
                 }
                 .padding(8)
             }
             .onAppear {
                 // Fetch user information when the view appears
-                displayProfileViewModel.fetchUserInformation()
             }
             .navigationBarTitle("My Profile")
-
-            VStack(spacing: 20) {
-                NavigationLink(destination: CommentsView()) {
-                    Text("Go to Comment")
-                }
-
-                NavigationLink(destination:FavoriView()) {
-                    Text("Go to List Favoris")
-                }
-            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
 }

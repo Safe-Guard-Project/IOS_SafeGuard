@@ -3,14 +3,13 @@ import SwiftUI
 struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var isActive: Bool = false // Track navigation state
-    @State private var isLoginFailed: Bool = false // Track navigation state
-    @State private var isDisplayActive: Bool = false
+    @State private var isLogin: Bool = false // Track login state
+    
     @StateObject private var signInViewModel = SignInViewModel()
+    @State private var user: User? = nil
 
     var body: some View {
         NavigationView {
-            
             VStack(alignment: .leading, spacing: 20) {
                 HStack {
                     Spacer()
@@ -35,62 +34,63 @@ struct SignInView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        
-                        isDisplayActive.toggle()
-            
-                    }) {
-                        NavigationLink(destination:DisplayUserProfileView(),isActive:$isDisplayActive,label:{
-                            Text("Sign in")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .frame(width: 243, height: 51)
-                                .background(Color(red: 0, green: 0.28, blue: 1))
-                                .cornerRadius(50)
+                        signInViewModel.email = email
+                        signInViewModel.password = password
+                        signInViewModel.signIn(email: email, password: password) { result in
+                            switch result {
+                            case .success(let user):
+                                self.user = user
+                                // Save user data to UserDefaults
+                                UserDefaults.standard.set(user._id, forKey: "UserID")
+                                UserDefaults.standard.set(user.UserName, forKey: "UserName")
+                                UserDefaults.standard.set(user.email, forKey: "email")
+                                UserDefaults.standard.set(user.numeroTel, forKey: "numeroTel")
+                                // Navigate to DisplayUserProfileView
+                                self.isLogin = true
+
+                                //Navigation().navigateToProfile()
+                            case .failure(let error):
+                                print("Sign-in failed: \(error)")
+                                self.isLogin = false
+                            }
                         }
-                    )}
-                    .buttonStyle(PlainButtonStyle()) // Use PlainButtonStyle to remove the default button style
+                    }) {
+                        Text("Sign in")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 243, height: 51)
+                            .background(Color(red: 0, green: 0.28, blue: 1))
+                            .cornerRadius(50)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                     .disabled($signInViewModel.isSigningIn.wrappedValue)
                     Spacer()
                 }
 
-                if isLoginFailed {
-                    Text("Incorrect email or password. Please try again.")
+                if isLogin {
+                    Text("you've entered correct email and password ")
+                        .foregroundColor(.green)
+                        .padding()
+                }
+                else {
+                    Text("Enter your email and/or password or check the validaty of them ")
                         .foregroundColor(.red)
                         .padding()
                 }
+            
 
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.black)
                         .padding()
 
-                    // Use the navigationDestination modifier to navigate to the next view
                     NavigationLink(
                         destination: SignUpView(),
-                        isActive: $isActive,
                         label: {
                             Text("Sign Up")
                                 .padding()
                         }
                     )
-                    VStack(spacing: 20) {
-                                        NavigationLink(destination: CommentsView()) {
-                                            Text("Go to Comment")
-                                        }
-
-                                        NavigationLink(destination:FavoriView()) {
-                                            Text("Go to List Favoris")
-                                        }
-                                         NavigationLink(destination: InformationView()) {
-                                           Text("Go to Information ")
-                                       }
-                                       .padding()
-
-                                       NavigationLink(destination: ProfileView()) {
-                                           Text("Go to Profile ")
-                                       }
-                                       .padding()
-                                    }
                 }
 
                 Spacer(minLength: 200)
@@ -106,16 +106,13 @@ struct SignInView: View {
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
-         
-            
-            
-    
+            .background(
+            NavigationLink(
+                destination: DisplayUserProfileView(),
+                isActive: $isLogin,
+                label: EmptyView.init
+            )
+            )
         }
-        
     }
-    
-   
-}
-#Preview {
-   SignInView()
 }

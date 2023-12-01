@@ -1,10 +1,9 @@
 import Foundation
-import SwiftUI
 import Combine
 
 class SignInViewModel: ObservableObject {
-
     private let userRepository: UserRepository
+    private var cancellables: Set<AnyCancellable> = []
 
     // Input properties
     @Published var email: String = ""
@@ -29,12 +28,13 @@ class SignInViewModel: ObservableObject {
     }
 
     // Function to perform sign-in
-    func signIn(completion: @escaping(String) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         print("function is called")
+
         // Ensure that email and password are provided
         guard !email.isEmpty, !password.isEmpty else {
             print("Email and password cannot be empty")
-            signInResult = .failure(NetworkError.invalidData)
+            completion(.failure(NetworkError.invalidData))
             return
         }
 
@@ -46,43 +46,28 @@ class SignInViewModel: ObservableObject {
         // Call the signIn function in the repository
         userRepository.signIn(user: login)
             .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
-            .sink { completion in
+            .sink(receiveCompletion: { status in
                 // Handle completion (success or failure)
-                switch completion {
+                switch status {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.signInResult = .failure(error)
+                    completion(.failure(error))
+                    print(error)
                 }
-            } receiveValue: { response in
+            }, receiveValue: { response in
                 // Handle the response if needed
                 print("Sign in response: \(String(describing: response))")
 
                 // Check if the response contains user information
                 if let user = response {
                     // Save user information to UserDefaults
-                    print("User ID: \(user._id), UserName: \(user.UserName), Email: \(user.email), PhoneNumber: \(user.numeroTel)")
+                    completion(.success(user))
 
-                    UserDefaults.standard.set(user._id, forKey: "UserID")
-                    // Pass the userId to the completion handler
-                    completion(user._id)
-                    print("User ID: \(user._id), UserName: \(user.UserName), Email: \(user.email), PhoneNumber: \(user.numeroTel)")
                     // Update the state to indicate successful sign-in
                     self.isSignedIn = true
-                    self.userId = response?._id ?? ""
-                    completion("DisplayUserProfileView")
-
-
                 }
-            }
+            })
             .store(in: &cancellables)
     }
-
-
-
-        // You can add more user information as needed
-    }
-
-
-    private var cancellables: Set<AnyCancellable> = []
-
+}

@@ -11,13 +11,13 @@ struct HomePageView: View {
     var body: some View {
         TabView {
             Group {
-                ForgetPasswordView()
+                SignInView()
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                             .foregroundColor(.black) // Set foreground color explicitly
                     }
                 
-                SignInView()
+                ForgetPasswordView()
                     .tabItem {
                         Label("Blog", systemImage: "magnifyingglass")
                             .foregroundColor(.black) // Set foreground color explicitly

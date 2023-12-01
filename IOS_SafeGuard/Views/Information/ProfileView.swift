@@ -42,6 +42,8 @@ struct ProfileView: View {
                 }
             }
             .navigationTitle("Profile")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 withAnimation {

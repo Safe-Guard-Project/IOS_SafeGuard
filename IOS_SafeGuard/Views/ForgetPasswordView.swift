@@ -76,6 +76,8 @@ struct ForgetPasswordView: View {
             }
         }
         .padding()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

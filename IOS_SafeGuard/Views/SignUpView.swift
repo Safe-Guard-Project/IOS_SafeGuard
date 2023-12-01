@@ -171,6 +171,8 @@ struct SignUpView: View {
             }
         )
         .background(Color("BlueBackground"))
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
 
    
     }

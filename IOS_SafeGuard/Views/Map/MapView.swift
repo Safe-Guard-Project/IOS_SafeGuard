@@ -102,6 +102,9 @@ struct MapView: View {
                    .onAppear {
                           viewModel.fetchCatastrophes()
                       }
+                   .navigationBarBackButtonHidden(true)
+                   .navigationBarHidden(true)
+        
      
        }
 

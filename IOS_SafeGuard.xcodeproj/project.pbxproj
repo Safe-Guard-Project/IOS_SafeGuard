@@ -41,6 +41,7 @@
 		E02BB64D2B16539100566355 /* CatastropheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB64C2B16539100566355 /* CatastropheRow.swift */; };
 		E02BB64F2B16574900566355 /* CatastropheListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02BB64E2B16574900566355 /* CatastropheListView.swift */; };
 		E08CAB742B1A09EE007FC52B /* CatastropheEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08CAB732B1A09EE007FC52B /* CatastropheEndpoint.swift */; };
+		E08CAB762B1A12D6007FC52B /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08CAB752B1A12D6007FC52B /* CatastropheRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		E02BB64C2B16539100566355 /* CatastropheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRow.swift; sourceTree = "<group>"; };
 		E02BB64E2B16574900566355 /* CatastropheListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheListView.swift; sourceTree = "<group>"; };
 		E08CAB732B1A09EE007FC52B /* CatastropheEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheEndpoint.swift; sourceTree = "<group>"; };
+		E08CAB752B1A12D6007FC52B /* CatastropheRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				93DA55B82B142D040046548B /* UserRepository.swift */,
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
 				E02BB6402B164B1700566355 /* CatastropheRepository.swift */,
+				E08CAB752B1A12D6007FC52B /* CatastropheRepositoryImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				E02BB6382B16474600566355 /* CatastropheApi.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
+				E08CAB762B1A12D6007FC52B /* CatastropheRepositoryImpl.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,

@@ -12,9 +12,9 @@ enum CatastropheEndpoint {
     var path: String {
         switch self {
         case .getCatastrophe:
-            return "catastrophe" // Adjust the actual path accordingly
+            return "catastrophe/" // Adjust the actual path accordingly
         case .path:
-            return "catastrophe" // Adjust the actual path accordingly
+            return "catastrophe/" // Adjust the actual path accordingly
         }
     }
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AddInfoView: View {
-    var information: Information
+    var information: Information?
 
     @State private var title = ""
     @State private var typeOfCatastrophe = "Earthquake" // Default value
@@ -34,7 +34,7 @@ struct AddInfoView: View {
                     }
                     TextField("Country", text: $country)
                     TextField("Region", text: $region)
-                    DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                    DatePicker("Select Date and Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
 
                     VStack(alignment: .leading) {
                         Text("Statement")
@@ -76,8 +76,10 @@ struct AddInfoView: View {
                             print("Send button tapped")
                             // You can use the entered data here, e.g., save it to your model
                             let newInformation = Information(
+                                id: UUID().uuidString, // Generate a unique ID
                                 titre: title,
                                 typeCatastrophe: typeOfCatastrophe,
+                                idUser: "", // You need to handle user ID
                                 pays: country,
                                 region: region,
                                 descriptionInformation: descriptionCatastrophe,
@@ -179,6 +181,6 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct AddInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddInfoView(information: Information(titre: "Sample Information", typeCatastrophe: "Earthquake", pays: "Country", region: "Region", descriptionInformation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 75, etat: "Ongoing"))
+        AddInfoView(information: nil)
     }
 }

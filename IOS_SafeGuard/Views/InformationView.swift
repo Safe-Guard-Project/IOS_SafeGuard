@@ -1,15 +1,11 @@
 import SwiftUI
-
 struct InformationView: View {
     let informations = [
-        Information(titre: "Les forêts de Ain drahem en danger !!! ", typeCatastrophe: "Incendie", pays: "Tunisie", region: "Ain Drahem", descriptionInformation: "Une Incendie a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "thumbnail-incendie-herve-dermoune", pourcentageFiabilite: 100, etat: "On going"),
-        Information(titre: "Tsunami menace l'europe !!! ", typeCatastrophe: "Tsunami", pays: "France", region: "Nice", descriptionInformation: "Une alerte de Tsunami a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "doc2", pourcentageFiabilite: 70, etat: "Coming")
-        
-        
+        Information(id: "1", titre: "Les forêts de Ain drahem en danger !!! ", typeCatastrophe: "Incendie", idUser: "userID1", pays: "Tunisie", region: "Ain Drahem", descriptionInformation: "Une Incendie a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "thumbnail-incendie-herve-dermoune", pourcentageFiabilite: 100, etat: "On going"),
+        Information(id: "2", titre: "Tsunami menace l'europe !!! ", typeCatastrophe: "Tsunami", idUser: "userID2", pays: "France", region: "Nice", descriptionInformation: "Une alerte de Tsunami a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "doc2", pourcentageFiabilite: 70, etat: "Coming")
     ]
 
     @State private var isActionButtonVisible = false
-    @State private var isAddInfoViewActive = false
 
     var body: some View {
         NavigationView {
@@ -28,7 +24,7 @@ struct InformationView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        NavigationLink(destination: AddInfoView(information: Information(titre: "jjj", typeCatastrophe: "gggg", pays: "ggg", region: "ggg", descriptionInformation: "fff", dateDePrevention: Date(), image: "intro", pourcentageFiabilite: 50, etat: "NOT YET"))) {
+                        NavigationLink(destination: AddInfoView(information: Information(id: "", titre: "", typeCatastrophe: "", idUser: "", pays: "", region: "", descriptionInformation: "", dateDePrevention: Date(), image: "", pourcentageFiabilite: 0, etat: ""))) {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .frame(width: 60, height: 60)

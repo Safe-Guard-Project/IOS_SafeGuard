@@ -36,6 +36,7 @@ struct ProfileCardView: View {
                     .foregroundColor(.blue)
                     .onTapGesture {
                         // Handle edit action
+                        print("Edit tapped")
                     }
 
                 // Delete icon
@@ -45,6 +46,7 @@ struct ProfileCardView: View {
                     .foregroundColor(.red)
                     .onTapGesture {
                         // Handle delete action
+                        print("Delete tapped")
                     }
 
                 Spacer()
@@ -61,6 +63,6 @@ struct ProfileCardView: View {
 
 struct ProfileCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileCardView(information: Information(titre: "Sample Title", typeCatastrophe: "Sample Type", pays: "Sample Country", region: "Sample Region", descriptionInformation: "Sample Description", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 50, etat: "Sample State"))
+        ProfileCardView(information: Information(id: "gg", titre: "Sample Title", typeCatastrophe: "Sample Type", idUser: "", pays: "Sample Country", region: "Sample Region", descriptionInformation: "Sample Description", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 50, etat: "Sample State"))
     }
 }

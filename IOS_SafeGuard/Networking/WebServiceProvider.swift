@@ -42,6 +42,9 @@ class WebServiceProvider {
                     .eraseToAnyPublisher()
             }
         }
+        
+        let timeoutInterval: TimeInterval = 3000
+        request.timeoutInterval = timeoutInterval
 
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response in

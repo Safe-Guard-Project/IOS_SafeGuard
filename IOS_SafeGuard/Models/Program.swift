@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Program: Identifiable {
+struct Program: Codable ,Identifiable {
     let id = UUID()
     let image: String
     let Titre: String

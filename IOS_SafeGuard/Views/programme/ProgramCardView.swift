@@ -41,6 +41,3 @@ struct ProgramCardView: View {
 }
 
 
-#Preview {
-    ProgramCardView(program: Program(image: "tsunami", Titre: "Tsunami", descriptionProgramme: "Decouvrir le phenomene"))
-}

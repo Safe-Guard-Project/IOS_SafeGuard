@@ -16,6 +16,7 @@
 		887544782B164B0B0027BD33 /* CoursCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887544772B164B0B0027BD33 /* CoursCardView.swift */; };
 		8875447A2B164E930027BD33 /* CoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887544792B164E930027BD33 /* CoursView.swift */; };
 		8875447C2B1657550027BD33 /* ContenuCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875447B2B1657550027BD33 /* ContenuCardView.swift */; };
+		888C97F12B1A40D2000CE560 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C97F02B1A40D2000CE560 /* ProgramViewModel.swift */; };
 		889490CE2B15365F006CF4DB /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490CD2B15365F006CF4DB /* Program.swift */; };
 		889490D42B154343006CF4DB /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D32B154343006CF4DB /* ProgramView.swift */; };
 		889490D62B1550F7006CF4DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889490D52B1550F7006CF4DB /* ProgramCardView.swift */; };
@@ -72,6 +73,7 @@
 		887544772B164B0B0027BD33 /* CoursCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursCardView.swift; sourceTree = "<group>"; };
 		887544792B164E930027BD33 /* CoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursView.swift; sourceTree = "<group>"; };
 		8875447B2B1657550027BD33 /* ContenuCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContenuCardView.swift; sourceTree = "<group>"; };
+		888C97F02B1A40D2000CE560 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
 		889490CD2B15365F006CF4DB /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		889490D32B154343006CF4DB /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		889490D52B1550F7006CF4DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
 				889490E12B1567FC006CF4DB /* CoursViewModel.swift */,
+				888C97F02B1A40D2000CE560 /* ProgramViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				8875447A2B164E930027BD33 /* CoursView.swift in Sources */,
 				882738DA2B16A6D1003EA597 /* CommentsView.swift in Sources */,
+				888C97F12B1A40D2000CE560 /* ProgramViewModel.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				882738DC2B16A7B7003EA597 /* Commentaire.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,

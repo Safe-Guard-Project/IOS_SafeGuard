@@ -23,6 +23,7 @@ struct CatastropheListView: View {
     }
 }
 
+
 struct CatastropheListView_Previews: PreviewProvider {
     static var previews: some View {
         CatastropheListView(catastrophes: [

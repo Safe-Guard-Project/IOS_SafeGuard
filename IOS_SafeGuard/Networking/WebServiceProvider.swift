@@ -1,5 +1,3 @@
-// WebServiceProvider.swift
-
 import Combine
 import Foundation
 
@@ -9,8 +7,23 @@ class WebServiceProvider {
         return instance
     }()
 
-    func callWebService<T: Codable>(url: String, method: String, params: [String: Any]?) -> AnyPublisher<T?, Error> {
-        guard let fullURL = URL(string: url) else {
+    func callWebService<T: Codable>(
+        url: String,
+        method: String,
+        params: [String: Any]?,
+        queryParams: [String: Any]? = nil // Provide a default value for queryParams
+    ) -> AnyPublisher<T?, Error> {
+        guard var urlComponents = URLComponents(string: url) else {
+            return Fail<T?, Error>(error: NetworkError.invalidURL)
+                .eraseToAnyPublisher()
+        }
+
+        // Check if it's a GET request and append query parameters
+        if method.uppercased() == "GET", let queryParams = queryParams {
+            urlComponents.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+        }
+
+        guard let fullURL = urlComponents.url else {
             return Fail<T?, Error>(error: NetworkError.invalidURL)
                 .eraseToAnyPublisher()
         }
@@ -19,7 +32,7 @@ class WebServiceProvider {
         request.httpMethod = method
 
         // Set the HTTP body if needed
-        if let params = params {
+        if method.uppercased() == "POST", let params = params {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params)
                 // Set the content type to JSON

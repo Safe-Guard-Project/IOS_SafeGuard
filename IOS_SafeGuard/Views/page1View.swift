@@ -11,10 +11,10 @@ struct Page1View: View {
                 }
                 .padding()
 
-                NavigationLink(destination: ProfileView()) {
+                /*NavigationLink(destination: ProfileView()) {
                     Text("Go to Profile ")
                 }
-                .padding()
+                .padding()*/
             }
             .navigationTitle("Page 1")
         }

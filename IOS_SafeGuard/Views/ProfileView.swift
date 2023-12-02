@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct ProfileView: View {
     @State private var informations = [
@@ -56,4 +56,4 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
     }
-}
+}*/

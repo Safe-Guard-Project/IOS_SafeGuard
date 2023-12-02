@@ -52,10 +52,12 @@ struct DetailsInfoView: View {
                 }
 
                 Divider()
+
                 HStack {
                     TextField("Type your comment here", text: $commentText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
+                        .padding()
 
                     Button(action: {
                         comments.append(commentText)
@@ -70,6 +72,7 @@ struct DetailsInfoView: View {
                             .cornerRadius(10)
                     }
                 }
+                .padding(.horizontal)
             }
             .padding()
         }
@@ -122,6 +125,6 @@ struct DetailsInfoView: View {
 
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsInfoView(information: Information(id: "gg", titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
+        DetailsInfoView(information: Information(id: "String", titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
     }
 }

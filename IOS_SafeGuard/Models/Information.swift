@@ -11,7 +11,8 @@ struct Information: Identifiable, Codable {
     let id: String?
     let titre: String
     let typeCatastrophe: String
-    let idUser: String // Assuming you have a String representation for ObjectId
+    // Ajoutez cette ligne pour faire correspondre la clé 'idUser' dans les données JSON
+    let idUser: String
     let pays: String
     let region: String
     let descriptionInformation: String
@@ -19,6 +20,9 @@ struct Information: Identifiable, Codable {
     let image: String
     let pourcentageFiabilite: Double
     let etat: String
+
+ 
+
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

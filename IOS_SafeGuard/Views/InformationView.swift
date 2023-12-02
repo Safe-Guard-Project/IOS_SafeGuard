@@ -1,21 +1,21 @@
+// InformationView.swift
 import SwiftUI
-struct InformationView: View {
-    let informations = [
-        Information(id: "1", titre: "Les forêts de Ain drahem en danger !!! ", typeCatastrophe: "Incendie", idUser: "userID1", pays: "Tunisie", region: "Ain Drahem", descriptionInformation: "Une Incendie a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "thumbnail-incendie-herve-dermoune", pourcentageFiabilite: 100, etat: "On going"),
-        Information(id: "2", titre: "Tsunami menace l'europe !!! ", typeCatastrophe: "Tsunami", idUser: "userID2", pays: "France", region: "Nice", descriptionInformation: "Une alerte de Tsunami a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "doc2", pourcentageFiabilite: 70, etat: "Coming")
-    ]
 
-    @State private var isActionButtonVisible = false
+struct InformationView: View {
+    @ObservedObject var viewModel = InformationViewModel()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(informations) { information in
+                ForEach(viewModel.informations) { information in
                     NavigationLink(destination: DetailsInfoView(information: information)) {
                         InformationCardView(information: information)
                             .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
                     }
                 }
+            }
+            .onAppear {
+                viewModel.fetchInformations()
             }
             .navigationTitle("Informations")
             .navigationBarTitleDisplayMode(.large)
@@ -24,7 +24,7 @@ struct InformationView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        NavigationLink(destination: AddInfoView(information: Information(id: "", titre: "", typeCatastrophe: "", idUser: "", pays: "", region: "", descriptionInformation: "", dateDePrevention: Date(), image: "", pourcentageFiabilite: 0, etat: ""))) {
+                        NavigationLink(destination: AddInfoView(information: nil)) {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .frame(width: 60, height: 60)
@@ -38,20 +38,7 @@ struct InformationView: View {
                     }
                 }
                 .padding()
-                .opacity(isActionButtonVisible ? 1 : 0)
-                , alignment: .bottomTrailing
-            )
-            .onAppear {
-                withAnimation {
-                    isActionButtonVisible = true
-                }
-            }
+            , alignment: .bottomTrailing)
         }
-    }
-}
-
-struct InformationView_Previews: PreviewProvider {
-    static var previews: some View {
-        InformationView()
     }
 }

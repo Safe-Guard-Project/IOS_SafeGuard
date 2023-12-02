@@ -35,20 +35,4 @@ struct InformationCardView: View {
     }
 }
 
-struct InformationCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        InformationCardView(information: Information(
-            id: "1",
-            titre: "Une inondation au bout de 3 heures !!! ",
-            typeCatastrophe: "inondation",
-            idUser: "userID",
-            pays: "France",
-            region: "Nice",
-            descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures",
-            dateDePrevention: Date(),
-            image: "Intro",
-            pourcentageFiabilite: 50,
-            etat: "Coming"
-        ))
-    }
-}
+

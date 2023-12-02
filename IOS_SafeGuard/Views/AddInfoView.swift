@@ -1,3 +1,4 @@
+// AddInfoView.swift
 import SwiftUI
 
 struct AddInfoView: View {
@@ -62,7 +63,7 @@ struct AddInfoView: View {
                                 .frame(width: 20, height: 20)
                         }
                         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-                            ImagePicker(image: self.$inputImage)
+                            ImagePicker(image: self.$inputImage, isPresented: self.$showingImagePicker)
                         }
                         Spacer()
                     }
@@ -74,9 +75,10 @@ struct AddInfoView: View {
                         Button(action: {
                             // Add logic to send the form data
                             print("Send button tapped")
+
                             // You can use the entered data here, e.g., save it to your model
                             let newInformation = Information(
-                                id: UUID().uuidString, // Generate a unique ID
+                                id: UUID().uuidString,
                                 titre: title,
                                 typeCatastrophe: typeOfCatastrophe,
                                 idUser: "", // You need to handle user ID
@@ -88,6 +90,9 @@ struct AddInfoView: View {
                                 pourcentageFiabilite: Double(liabilityPercentage) ?? 0,
                                 etat: statement.rawValue
                             )
+
+                            // Make a network request to send the new information
+                            sendInformationToServer(newInformation)
 
                             // You can now use newInformation as needed
                         }) {
@@ -108,6 +113,42 @@ struct AddInfoView: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         selectedImage = Image(uiImage: inputImage)
+    }
+
+    // Function to send the information to the server
+    func sendInformationToServer(_ information: Information) {
+        guard let url = URL(string: "http://127.0.0.1:9090/information") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        do {
+            // Convert information object to JSON data
+            var jsonData = try JSONEncoder().encode(information)
+            
+            // If an image is selected, convert it to base64 and add it to the JSON data
+            if let inputImage = inputImage, let imageData = inputImage.jpegData(compressionQuality: 0.9) {
+                let base64Image = imageData.base64EncodedString()
+                let imageJSON = ["image": base64Image]
+                let imageJSONData = try JSONSerialization.data(withJSONObject: imageJSON, options: [])
+                jsonData += imageJSONData
+            }
+
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding information data: \(error.localizedDescription)")
+            return
+        }
+
+        // Perform the network request
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // Handle the response and data as needed
+            // ...
+        }.resume()
     }
 }
 
@@ -144,43 +185,47 @@ struct RadioButton: View {
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
-
+    @Binding var isPresented: Bool
+    
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         @Binding var image: UIImage?
-
-        init(image: Binding<UIImage?>) {
+        @Binding var isPresented: Bool
+        
+        init(image: Binding<UIImage?>, isPresented: Binding<Bool>) {
             _image = image
+            _isPresented = isPresented
         }
-
+        
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
                 image = uiImage
             }
-
-            picker.dismiss(animated: true, completion: nil)
+            
+            isPresented = false
         }
-
+        
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true, completion: nil)
+            isPresented = false
         }
     }
-
+    
     func makeCoordinator() -> Coordinator {
-        return Coordinator(image: $image)
+        return Coordinator(image: $image, isPresented: $isPresented)
     }
-
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
-        return picker
-    }
+           let picker = UIImagePickerController()
+           picker.delegate = context.coordinator
+           picker.sourceType = .photoLibrary
+           return picker
+       }
 
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
-}
+       func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
 
-struct AddInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddInfoView(information: nil)
-    }
-}
+   }
+
+   struct AddInfoView_Previews: PreviewProvider {
+       static var previews: some View {
+           AddInfoView(information: nil)
+       }
+   }

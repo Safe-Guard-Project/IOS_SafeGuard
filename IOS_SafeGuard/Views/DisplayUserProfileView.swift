@@ -53,16 +53,22 @@ struct DisplayUserProfileView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .padding(.leading, 16)
+                    
                 }
                 .padding(8)
             }
             .onAppear {
                 // Fetch user information when the view appears
             }
+            
+            
             .navigationBarTitle("My Profile")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
+            .background(Color("BlueBackground"))
+
         }
+        
     }
 }
 

@@ -17,7 +17,6 @@ struct HomePageView: View {
                             .foregroundColor(.black) // Set foreground color explicitly
                     }
                 
-                ForgetPasswordView()
                     .tabItem {
                         Label("Blog", systemImage: "magnifyingglass")
                             .foregroundColor(.black) // Set foreground color explicitly

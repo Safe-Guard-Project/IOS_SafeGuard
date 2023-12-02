@@ -9,5 +9,6 @@ enum NetworkError: Error {
     case unknownError
     case invalidResponse
     case statusCode(Int)
+    case decodingError(DecodingError)
     // Add more error cases as needed
 }

@@ -27,9 +27,19 @@ struct SignInView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                HStack {
+                        SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                       .padding()
+
+                        NavigationLink(
+                                       destination: ForgotPasswordView(), // Replace with your Forgot Password view
+                                       label: {
+                                           Text("Forgot Password")
+                                               .foregroundColor(.blue)
+                                       })
+                               }
+
 
                 HStack {
                     Spacer()

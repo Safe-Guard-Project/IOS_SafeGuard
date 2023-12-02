@@ -59,21 +59,73 @@ class UserRepositoryImpl: UserRepository {
 
 
     func getUserInformation(userId: String) -> AnyPublisher<User?, Error> {
-         // Retrieve the _id from UserDefaults
-         guard let storedUserId = UserDefaults.standard.string(forKey: "UserID") else {
-             return Fail(error: NetworkError.invalidData).eraseToAnyPublisher()
-         }
-
-         // Use the retrieved _id
+        // Retrieve the _id from UserDefaults
+        guard let storedUserId = UserDefaults.standard.string(forKey: "UserID") else {
+            return Fail(error: NetworkError.invalidData).eraseToAnyPublisher()
+        }
+        
+        // Use the retrieved _id
         let getUserInformationEndpoint = UserEndpoints.displayUserProfile(userId: storedUserId).path.description
+        
+        return webServiceProvider.callWebService(
+            url: NetworkConstants.baseURL + getUserInformationEndpoint,
+            method: "GET",
+            params: [:]
+        )
+        .eraseToAnyPublisher()
+    }
+    func recoverPasswordByEmail(email: String) -> AnyPublisher<String?, Error> {
+            let endpoint = UserEndpoints.recoverPasswordByEmail
+            let params: [String: Any] = ["email": email]
 
-         return webServiceProvider.callWebService(
-             url: NetworkConstants.baseURL + getUserInformationEndpoint,
-             method: "GET",
-             params: [:]
-         )
-         .eraseToAnyPublisher()
-     }
+            return webServiceProvider.callWebService(
+                url: NetworkConstants.baseURL + endpoint.path,
+                method: "POST",
+                params: params
+            )
+            .flatMap { (data: Data?) -> Result<String?, Error>.Publisher in
+                guard let data = data else {
+                    return Result.Publisher(.failure(NetworkError.invalidResponse))
+                }
+
+                let decoder = JSONDecoder()
+                do {
+                    let response = try decoder.decode([String: String].self, from: data)
+                    let resetCode = response["resetCode"]
+                    return Result.Publisher(.success(resetCode))
+                } catch {
+                    return Result.Publisher(.failure(NetworkError.invalidResponse))
+                }
+            }
+            .eraseToAnyPublisher()
+        }
+
+    func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<String?, Error> {
+            let endpoint = UserEndpoints.recoverPasswordByPhone
+            let params: [String: Any] = ["numeroTel": numeroTel]
+
+            return webServiceProvider.callWebService(
+                url: NetworkConstants.baseURL + endpoint.path,
+                method: "POST",
+                params: params
+            )
+            .flatMap { (data: Data?) -> Result<String?, Error>.Publisher in
+                guard let data = data else {
+                    return Result.Publisher(.failure(NetworkError.invalidResponse))
+                }
+
+                let decoder = JSONDecoder()
+                do {
+                    let response = try decoder.decode([String: String].self, from: data)
+                    let resetCode = response["otpCode"]
+                    return Result.Publisher(.success(resetCode))
+                } catch {
+                    return Result.Publisher(.failure(NetworkError.invalidResponse))
+                }
+            }
+            .eraseToAnyPublisher()
+        }
+ 
   
 
 

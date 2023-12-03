@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-/*
+
 struct CommentCardView: View {
     var commentaire : Commentaire
     var body: some View {
@@ -22,9 +22,9 @@ struct CommentCardView: View {
         .padding(15)
     }
 }
-
+/*
 #Preview {
     CommentCardView(commentaire: Commentaire(textComment: "J'ai trop aimé "))
 }
-
 */
+

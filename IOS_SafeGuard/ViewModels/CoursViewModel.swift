@@ -13,6 +13,7 @@ class CoursViewModel: ObservableObject {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: [Cours].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main) // zedtha bch k naamil modification f design may9ala9nich
             .sink { completion in
                 switch completion {
                 case .finished:

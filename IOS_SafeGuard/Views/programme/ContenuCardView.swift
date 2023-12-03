@@ -35,7 +35,6 @@ struct ContenuCardView: View {
                  .font(.title)
              }
 
-             // Image
              GeometryReader { geometry in
                  Image(cours.image)
                      .resizable()

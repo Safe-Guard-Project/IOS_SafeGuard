@@ -22,9 +22,4 @@ struct CommentCardView: View {
         .padding(15)
     }
 }
-/*
-#Preview {
-    CommentCardView(commentaire: Commentaire(textComment: "J'ai trop aimé "))
-}
-*/
 

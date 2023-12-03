@@ -1,49 +1,37 @@
 import SwiftUI
-/*
 struct CommentsView: View {
-   
-    @State private var comments: [Commentaire] = [
-           Commentaire(textComment: "Great information!"),
-           Commentaire(textComment: "I have a question"),
-           Commentaire(textComment: "Nice explanation!"),
-           Commentaire(textComment: "Thank you!"),
-       ]
+    @StateObject private var commentViewModel = CommentViewModel()
+
     var body: some View {
-            NavigationView {
-                List {
-                    ForEach(comments) { comment in
-                        CommentCardView(commentaire: comment)
-                            .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
-                            .swipeActions {
-                                Button("Modify") {
-                                    // Add code for modifying the comment
-                                }
-                                .tint(.blue)
-
-                                Button("Delete") {
-                                    // Add code for deleting the comment
-                                    if let index = comments.firstIndex(where: { $0.id == comment.id }) {
-                                        comments.remove(at: index)
-                                    }
-                                }
-                                .tint(.red)
+        NavigationView {
+            List {
+                ForEach(commentViewModel.comments) { comment in
+                    CommentCardView(commentaire: comment)
+                        .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
+                        .swipeActions {
+                            Button("Modify") {
+                               
                             }
-                    }
-                    .onDelete(perform: deleteComment)
+                            .tint(.blue)
+
+                            Button("Delete") {
+                             
+                                commentViewModel.deleteComment(comment: comment)
+                            }
+                            .tint(.red)
+                        }
                 }
-                .navigationTitle("Votre avis")
-                .navigationBarTitleDisplayMode(.large)
+                .onDelete(perform: deleteComment)
             }
+            .navigationTitle("Votre avis")
+            .navigationBarTitleDisplayMode(.large)
         }
-
-        private func deleteComment(at indexSet: IndexSet) {
-            comments.remove(atOffsets: indexSet)
+        .onAppear {
+            commentViewModel.getAllComments()
         }
+    }
+
+    private func deleteComment(at indexSet: IndexSet) {
+        commentViewModel.comments.remove(atOffsets: indexSet)
+    }
 }
-
-#Preview {
-    CommentsView()
-}
- */
-
-

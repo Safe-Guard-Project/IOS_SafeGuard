@@ -11,7 +11,7 @@ import Combine
 class ProgramViewModel: ObservableObject {
     @Published var programs: [Program] = []
 
-    private var cancellables: Set<AnyCancellable> = [] // This line should now be recognized
+    private var cancellables: Set<AnyCancellable> = [] 
 
     func getAllPrograms() {
         guard let url = URL(string: "http://localhost:9090/programme/") else {

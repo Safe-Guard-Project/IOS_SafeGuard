@@ -14,11 +14,15 @@
 		930F49AC2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */; };
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
 		930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */; };
+		931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1622B1C362E006EA625 /* Navigation2.swift */; };
 		932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFCC2B1A85E700FB62EF /* Navigation.swift */; };
 		932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */; };
 		932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */; };
-		932EFFD52B1AD78200FB62EF /* RecoverPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD42B1AD78200FB62EF /* RecoverPasswordModel.swift */; };
-		932EFFD72B1AE79600FB62EF /* RecoverPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD62B1AE79600FB62EF /* RecoverPasswordRequest.swift */; };
+		932EFFD52B1AD78200FB62EF /* RecEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */; };
+		932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */; };
+		932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */; };
+		932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */; };
+		932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */; };
 		933A309D2B17EE7E006D69DB /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A309C2B17EE7E006D69DB /* HomePageView.swift */; };
 		933A30A02B1801E2006D69DB /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A309F2B1801E2006D69DB /* ProgramView.swift */; };
 		933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30A12B180201006D69DB /* ProgramCardView.swift */; };
@@ -97,11 +101,15 @@
 		930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITests.swift; sourceTree = "<group>"; };
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		931BE1622B1C362E006EA625 /* Navigation2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
 		932EFFCC2B1A85E700FB62EF /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpValidationView.swift; sourceTree = "<group>"; };
 		932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpResponse.swift; sourceTree = "<group>"; };
-		932EFFD42B1AD78200FB62EF /* RecoverPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModel.swift; sourceTree = "<group>"; };
-		932EFFD62B1AE79600FB62EF /* RecoverPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordRequest.swift; sourceTree = "<group>"; };
+		932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecEmailViewModel.swift; sourceTree = "<group>"; };
+		932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpCode.swift; sourceTree = "<group>"; };
+		932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRec.swift; sourceTree = "<group>"; };
+		932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumTelRec.swift; sourceTree = "<group>"; };
+		932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecNumTelViewModel.swift; sourceTree = "<group>"; };
 		933A309C2B17EE7E006D69DB /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		933A309F2B1801E2006D69DB /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		933A30A12B180201006D69DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
@@ -249,7 +257,9 @@
 				933A30BB2B180F26006D69DB /* Information.swift */,
 				933A30CA2B1811B0006D69DB /* Catastrophe.swift */,
 				932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */,
-				932EFFD62B1AE79600FB62EF /* RecoverPasswordRequest.swift */,
+				932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */,
+				932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */,
+				932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,7 +290,9 @@
 				93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */,
 				933A30D02B181296006D69DB /* CatastropheViewModel.swift */,
 				932EFFCC2B1A85E700FB62EF /* Navigation.swift */,
-				932EFFD42B1AD78200FB62EF /* RecoverPasswordModel.swift */,
+				932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */,
+				932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */,
+				931BE1622B1C362E006EA625 /* Navigation2.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -510,17 +522,20 @@
 				933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */,
 				933A30B02B180293006D69DB /* FavoriView.swift in Sources */,
 				933A30B82B1802D2006D69DB /* Commentaire.swift in Sources */,
+				932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */,
 				933A30BC2B180F26006D69DB /* Information.swift in Sources */,
 				932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */,
 				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
+				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
 				932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */,
 				933A30AE2B180282006D69DB /* CommentCardView.swift in Sources */,
+				932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				933A30CD2B18121A006D69DB /* CatastropheRepository.swift in Sources */,
 				933A30CB2B1811B0006D69DB /* Catastrophe.swift in Sources */,
-				932EFFD72B1AE79600FB62EF /* RecoverPasswordRequest.swift in Sources */,
+				931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				933A30C12B180F85006D69DB /* InformationCardView.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
@@ -533,11 +548,12 @@
 				933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */,
 				93E9CF282B152138007A147E /* ForgotPasswordView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
-				932EFFD52B1AD78200FB62EF /* RecoverPasswordModel.swift in Sources */,
+				932EFFD52B1AD78200FB62EF /* RecEmailViewModel.swift in Sources */,
 				933A309D2B17EE7E006D69DB /* HomePageView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				933A30A62B180221006D69DB /* CoursView.swift in Sources */,
 				933A30A42B180217006D69DB /* CoursCardView.swift in Sources */,
+				932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */,
 				933A30B62B1802C8006D69DB /* Cours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -60,7 +60,7 @@ class ApiManager: APIService {
                                                         queryParams: nil)
             .eraseToAnyPublisher()
     }
-    func recoverPasswordByEmail(email: String) -> AnyPublisher<String?, Error> {
+    func recoverPasswordByEmail(email: String) -> AnyPublisher<OtpResponse?, Error> {
             let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByEmail.path
             print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")
 
@@ -78,7 +78,7 @@ class ApiManager: APIService {
                 }
                 .eraseToAnyPublisher()
         }
-          func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<String?, Error> {
+          func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error> {
             let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByPhone.path
             print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")
 

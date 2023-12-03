@@ -1,11 +1,15 @@
 import SwiftUI
 
-struct ContentView: View {
+struct OtpValidationView: View {
     @State private var block1: String = ""
     @State private var block2: String = ""
     @State private var block3: String = ""
     @State private var block4: String = ""
     @State private var isVerified: Bool? = nil
+
+    // Use @AppStorage to retrieve values stored in AppStorage
+    @AppStorage("OtpCodeKey") private var storedOtpCode: String = ""
+    @AppStorage("OtpResponseKey") private var storedOtpResponse: String = ""
 
     var body: some View {
         VStack {
@@ -14,15 +18,30 @@ struct ContentView: View {
                 .padding(.bottom, 10)
 
             HStack(spacing: 10) {
-                PasswordBlockField("Block 1", text: $block1)
-                PasswordBlockField("Block 2", text: $block2)
-                PasswordBlockField("Block 3", text: $block3)
-                PasswordBlockField("Block 4", text: $block4)
+                SecureField("Block 1", text: $block1)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .frame(maxWidth: .infinity)
+
+                SecureField("Block 2", text: $block2)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .frame(maxWidth: .infinity)
+
+                SecureField("Block 3", text: $block3)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .frame(maxWidth: .infinity)
+
+                SecureField("Block 4", text: $block4)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .frame(maxWidth: .infinity)
             }
             .padding()
 
             Button(action: {
-                verifyOTP()
+                self.isVerified = self.verifyOTP(enteredOTP: self.block1 + self.block2 + self.block3 + self.block4)
             }) {
                 Text("Verify")
                     .font(.headline)
@@ -38,38 +57,14 @@ struct ContentView: View {
                     .padding()
             }
         }
-        .padding()
     }
 
-    func verifyOTP() {
-        let otp = block1 + block2 + block3 + block4
+    func verifyOTP(enteredOTP: String) -> Bool {
+        // Use the @AppStorage values directly
+        let storedOtpCode = self.storedOtpCode
+        let storedOtpResponse = self.storedOtpResponse
+
         // Add your OTP verification logic here
-        // For example, check if the OTP meets your criteria
-
-        // For testing purposes, let's assume any OTP with a specific value is valid
-        self.isVerified = otp == "1234"
-    }
-}
-
-struct PasswordBlockField: View {
-    let placeholder: String
-    @Binding var text: String
-
-    var body: some View {
-        TextField(placeholder, text: $text)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-            .frame(maxWidth: .infinity)
-    }
-
-    init(_ placeholder: String, text: Binding<String>) {
-        self.placeholder = placeholder
-        self._text = text
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        return enteredOTP == storedOtpCode || enteredOTP == storedOtpResponse
     }
 }

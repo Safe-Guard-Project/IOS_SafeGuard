@@ -6,7 +6,9 @@
 //
 
 import Foundation
-struct Commentaire: Identifiable {
+struct Commentaire:Identifiable {
     let id = UUID()
     let textComment: String
+    //let idCoursProgramme :String
+    //let idUser : String
 }

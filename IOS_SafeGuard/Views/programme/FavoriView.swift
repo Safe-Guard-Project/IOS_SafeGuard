@@ -1,9 +1,9 @@
 
 import SwiftUI
-
+/*
 struct FavoriView: View {
     let courses = [
-        Cours(type:"Cause", image:"cause",description:"Un tsunami est généralement provoqué par un séisme sous-marin, une éruption volcanique ou un glissement de terrain sous-marin, déplaçant brusquement de grandes quantités d eau et générant des vagues dévastatrices."),
+        Cours(type:"cause" ,image:"cause",description:"Un tsunami est généralement provoqué par un séisme sous-marin, une éruption volcanique ou un glissement de terrain sous-marin, déplaçant brusquement de grandes quantités d eau et générant des vagues dévastatrices."),
         
         
     ]
@@ -60,3 +60,5 @@ struct FavoriView: View {
 #Preview {
     FavoriView()
 }
+
+*/

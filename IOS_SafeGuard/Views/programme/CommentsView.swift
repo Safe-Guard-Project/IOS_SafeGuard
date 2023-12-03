@@ -1,16 +1,7 @@
 import SwiftUI
-
+/*
 struct CommentsView: View {
-    /*
-     let comments = [
-     "Great information!",
-     "Very helpful.",
-     "I have a question...",
-     "Nice explanation!",
-     "Thank you!"
-     // Add more comments as needed
-     ]
-     */
+   
     @State private var comments: [Commentaire] = [
            Commentaire(textComment: "Great information!"),
            Commentaire(textComment: "I have a question"),
@@ -53,3 +44,5 @@ struct CommentsView: View {
 #Preview {
     CommentsView()
 }
+
+*/

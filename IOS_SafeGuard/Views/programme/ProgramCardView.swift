@@ -14,7 +14,7 @@ struct ProgramCardView: View {
                 Image(program.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 300, height: 200) 
+                    .frame(width: 300, height: 200)
                     .clipped()
            
 

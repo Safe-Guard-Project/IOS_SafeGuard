@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct FavoriCardView: View {
     
     var cours: Cours
@@ -38,5 +38,6 @@ struct FavoriCardView: View {
 }
 
 #Preview {
-    FavoriCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
+    FavoriCardView(cours: Cours(type: "CAUSE", image: "Intro", description: "ok"))
 }
+*/

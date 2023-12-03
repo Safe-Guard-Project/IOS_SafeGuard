@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-
+/*
 struct CoursView: View {
    
     let courses = [
         Cours(type:"Introduction", image:"Intro",description:"decouvrir le phenomene"),
-        Cours(type:"Causes", image:"Intro",description:"decouvrir le phenomene"), Cours(type:"Conséquences", image:"Intro",description:"decouvrir le phenomene"), Cours(type:"Signes", image:"Intro",description:"decouvrir le phenomene"),Cours(type:"Mesures de prespectives", image:"Intro",description:"decouvrir le phenomene"),
+       
         
     ]
 
@@ -40,4 +40,4 @@ struct CoursView: View {
 #Preview {
     CoursView()
 }
-
+*/

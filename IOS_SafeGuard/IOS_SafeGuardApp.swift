@@ -11,25 +11,26 @@ import SwiftUI
 struct IOS_SafeGuardApp: App {
     var body: some Scene {
         WindowGroup {
-          // SplashScreenView()
-    //ProgramView()
+            // SplashScreenView()
+            //ProgramView()
             //CommentsView()
-          //  FavoriView()
+            //  FavoriView()
             NavigationView {
-                       VStack(spacing: 20) {
-                           NavigationLink(destination: ProgramView()) {
-                               Text("Go to Program")
-                           }
-
-                           NavigationLink(destination: CommentsView()) {
-                               Text("Go to Comment")
-                           }
-
-                           NavigationLink(destination:FavoriView()) {
-                               Text("Go to List Favoris")
-                           }
-                       }
-                       
-                   }}
-    }
-}
+                VStack(spacing: 20) {
+                    NavigationLink(destination: ProgramView()) {
+                        Text("Go to Program")
+                    }
+                    
+                  /*  NavigationLink(destination: CommentsView()) {
+                        Text("Go to Comment")
+                    }
+                    
+                    NavigationLink(destination:FavoriView()) {
+                        Text("Go to List Favoris")
+                        
+                    }
+                   */
+                    
+                }}
+        }
+    }}

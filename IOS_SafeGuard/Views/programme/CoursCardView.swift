@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct CoursCardView: View {
     var cours: Cours
 
@@ -30,3 +30,4 @@ struct CoursCardView: View {
 #Preview {
     CoursCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
 }
+*/

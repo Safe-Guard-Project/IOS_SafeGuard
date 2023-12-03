@@ -6,9 +6,11 @@
 //
 
 import Foundation
+/*
 
 class ProgramViewModel: ObservableObject {
     @Published var programs: [Program] = []
+
     func getPrograms() {
         guard let url = URL(string: "http://localhost:9090/programme/cours") else {
             return
@@ -27,5 +29,34 @@ class ProgramViewModel: ObservableObject {
             }
         }.resume()
     }
-   
+}
+ */
+import Combine // Add this line to import Combine
+
+class ProgramViewModel: ObservableObject {
+    @Published var programs: [Program] = []
+
+    private var cancellables: Set<AnyCancellable> = [] // This line should now be recognized
+
+    func getAllPrograms() {
+        guard let url = URL(string: "http://localhost:9090/programme/cours") else {
+            return
+        }
+
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: [Program].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            } receiveValue: { [weak self] programs in
+                self?.programs = programs
+            }
+            .store(in: &cancellables)
+    }
 }

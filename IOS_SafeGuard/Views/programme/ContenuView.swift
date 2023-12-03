@@ -3,6 +3,7 @@ import SwiftUI
 struct ContenuView: View {
     @State private var comment: String = ""
     @StateObject private var viewModel = CoursViewModel()
+    var type: Cours.CoursType
 
     var body: some View {
         NavigationView {
@@ -13,7 +14,7 @@ struct ContenuView: View {
                         .background(Color(UIColor.systemBackground))
                 }
                 .listStyle(PlainListStyle())
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitle(type.rawValue)
 
                 HStack {
                     TextField("Ajouter un commentaire", text: $comment)
@@ -36,14 +37,8 @@ struct ContenuView: View {
             }
             .onAppear {
                 // Fetch courses when the view appears
-                viewModel.fetchCoursesByType(type: .CAUSE)
+                viewModel.fetchCoursesByType(type: type)
             }
         }
-    }
-}
-
-struct ContenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContenuView()
     }
 }

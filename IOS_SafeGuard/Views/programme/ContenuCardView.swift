@@ -56,7 +56,8 @@ struct ContenuCardView: View {
 #Preview {
     ContenuCardView(cours: Cours(type: .CAUSE, image: "Intro", description: "ok"))
  } */
-/*
+
+
 import SwiftUI
 
 struct ContenuCardView: View {
@@ -106,7 +107,3 @@ struct ContenuCardView: View {
      }
 }
 
-#Preview {
-    ContenuCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
-}
-*/

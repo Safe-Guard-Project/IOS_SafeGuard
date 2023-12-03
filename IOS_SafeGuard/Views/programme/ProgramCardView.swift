@@ -8,36 +8,34 @@
 import SwiftUI
 
 struct ProgramCardView: View {
-    var program : Program
+    var program: Program
+
     var body: some View {
-            VStack(alignment: .leading) {
-                Image(program.image)
+        VStack(alignment: .leading) {
+            AsyncImage(url: URL(string: program.image)) { image in
+                image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 300, height: 200)
                     .clipped()
-           
-
-                VStack(alignment: .leading) {
-                    Text(program.Titre)
-                       
-                        .font(.system(size: 20))
-                        .fontWeight(.medium)
-                   
-
-                    Text(program.descriptionProgramme)
-                        .font(.body)
-                        .foregroundColor(.secondary)
-                       
-                }
-                .padding(16)
+            } placeholder: {
+                // Placeholder view while the image is loading
+                ProgressView()
             }
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-           
-           
+
+            VStack(alignment: .leading) {
+                Text(program.Titre)
+                    .font(.system(size: 20))
+                    .fontWeight(.medium)
+
+                Text(program.descriptionProgramme)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+            }
+            .padding(16)
         }
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5)
+    }
 }
-
-

@@ -6,38 +6,39 @@
 //
 
 import SwiftUI
-/*
-struct CoursView: View {
-   
-    let courses = [
-        Cours(type:"Introduction", image:"Intro",description:"decouvrir le phenomene"),
-       
-        
-    ]
 
+struct CoursView: View {
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                List {
-                    ForEach(courses) { cours in
-                        NavigationLink(destination: ContenuView()) {
-                            CoursCardView(cours: cours)
-                        }
-                    }
+        NavigationView {
+            VStack(spacing: 20) {
+               /* CoursCardView(buttonText: "Introduction")
+                CoursCardView(buttonText: "Cause")
+                CoursCardView(buttonText: "Consequence")
+                CoursCardView(buttonText: "Agir")
+                CoursCardView(buttonText: "Signe")
+                */
+                NavigationLink(destination: ContenuView())  {
+                    CoursCardView(buttonText: "Introduction")
                 }
-                .listStyle(PlainListStyle())
-                
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .background(Color.white)
-                .navigationBarTitle("Plan de cours")
-                .navigationBarTitleDisplayMode(.inline)
-                .padding(.top, 40 * geometry.size.height / 667)
+
+                NavigationLink(destination: ContenuView()) {
+                    CoursCardView(buttonText: "Cause")
+                }
+
+                NavigationLink(destination: ContenuView()) {
+                    CoursCardView(buttonText: "Consequence")
+                }
+
+                NavigationLink(destination: ContenuView()) {
+                    CoursCardView(buttonText: "Agir")
+                }
+
+                NavigationLink(destination: ContenuView()) {
+                    CoursCardView(buttonText: "Signe")
+                }
+                 
             }
+            
         }
     }
 }
-
-#Preview {
-    CoursView()
-}
-*/

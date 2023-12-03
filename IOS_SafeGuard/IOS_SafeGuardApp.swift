@@ -21,7 +21,7 @@ struct IOS_SafeGuardApp: App {
                         Text("Go to Program")
                     }
                     
-                  /*  NavigationLink(destination: CommentsView()) {
+                  /* NavigationLink(destination: CommentsView()) {
                         Text("Go to Comment")
                     }
                     

@@ -29,3 +29,31 @@ class CoursViewModel: ObservableObject {
 }
 
 */
+import Foundation
+
+class CoursViewModel: ObservableObject {
+    @Published var courses: [Cours] = []
+
+    func fetchCoursesByType(type: Cours.CoursType) {
+        guard let url = URL(string: "http://localhost:9090/cours/\(type.rawValue)") else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let courses = try decoder.decode([Cours].self, from: data)
+
+                DispatchQueue.main.async {
+                    self.courses = courses
+                }
+            } catch {
+                // Handle decoding error
+            }
+        }.resume()
+    }
+}

@@ -1,5 +1,5 @@
-import Foundation
-
+//import Foundation
+/*
 struct Cours: Codable, Identifiable {
     let id : String
     let type: CoursType
@@ -22,5 +22,22 @@ struct Cours: Codable, Identifiable {
          case cours = "cours"
      }
      */
+}
+*/
+import Foundation
+
+struct Cours: Codable, Identifiable {
+    let id: String
+    let type: CoursType
+    let image: String
+    let description: String
+
+    enum CoursType: String, Codable, CaseIterable {
+        case Introduction = "Introduction"
+        case CAUSE = "CAUSE"
+        case CONSEQUENCE = "CONSEQUENCE"
+        case SIGNE = "SIGNE"
+        case Agir = "Agir"
+    }
 }
 

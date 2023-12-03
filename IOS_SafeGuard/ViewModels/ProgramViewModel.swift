@@ -39,7 +39,7 @@ class ProgramViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = [] // This line should now be recognized
 
     func getAllPrograms() {
-        guard let url = URL(string: "http://localhost:9090/programme/cours") else {
+        guard let url = URL(string: "http://localhost:9090/programme/") else {
             return
         }
 

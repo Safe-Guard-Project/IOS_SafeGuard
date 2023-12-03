@@ -6,28 +6,17 @@
 //
 
 import SwiftUI
-/*
-struct CoursCardView: View {
-    var cours: Cours
 
-       var body: some View {
-           VStack {
-               Text(cours.type)
-                   .font(.title)
-                   .fontWeight(.medium)
-                   .foregroundColor(.white)
-                   .padding(10)
-                   .background(Color.blue)
-                   .cornerRadius(10)
-           }
-           .frame(maxWidth: .infinity, alignment: .center)
-           .background(Color.blue)
-           .cornerRadius(10)
-           .padding(15)
-       }
-}
+struct CoursCardView : View {
+    let buttonText: String
 
-#Preview {
-    CoursCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
+    var body: some View {
+        VStack {
+            Text(buttonText)
+                .font(.headline)
+                .foregroundColor(.black)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 2))
+        }
+    }
 }
-*/

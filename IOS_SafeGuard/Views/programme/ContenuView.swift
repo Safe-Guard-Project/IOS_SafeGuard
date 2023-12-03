@@ -24,7 +24,6 @@ struct ContenuView: View {
                         .frame(height: 50)
 
                     Button(action: {
-                        // Add your button action logic here
                     }) {
                         Image(systemName: "arrow.right.circle.fill")
                             .resizable()
@@ -36,7 +35,7 @@ struct ContenuView: View {
                 .background(Color(UIColor.systemBackground))
             }
             .onAppear {
-                // Fetch courses when the view appears
+              
                 viewModel.fetchCoursesByType(type: type)
             }
         }

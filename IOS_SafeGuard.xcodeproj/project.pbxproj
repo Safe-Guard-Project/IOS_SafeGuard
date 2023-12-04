@@ -15,6 +15,9 @@
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
 		930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */; };
 		931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1622B1C362E006EA625 /* Navigation2.swift */; };
+		931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */; };
+		931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */; };
+		931BE16B2B1CCBCD006EA625 /* CPassRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE16A2B1CCBCD006EA625 /* CPassRes.swift */; };
 		932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFCC2B1A85E700FB62EF /* Navigation.swift */; };
 		932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */; };
 		932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */; };
@@ -52,6 +55,7 @@
 		933A30D62B1812FF006D69DB /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D52B1812FF006D69DB /* LocationDetailsView.swift */; };
 		933A30D82B181317006D69DB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D72B181317006D69DB /* MapView.swift */; };
 		933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */; };
+		939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939108CB2B1CEAB7002AE6A6 /* CPass.swift */; };
 		93DA559D2B13C6720046548B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA559C2B13C6720046548B /* SignInView.swift */; };
 		93DA55A52B1402B30046548B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A42B1402B30046548B /* SignUpView.swift */; };
 		93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A62B1411CB0046548B /* NetworkConstants.swift */; };
@@ -102,6 +106,9 @@
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		931BE1622B1C362E006EA625 /* Navigation2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
+		931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		931BE16A2B1CCBCD006EA625 /* CPassRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPassRes.swift; sourceTree = "<group>"; };
 		932EFFCC2B1A85E700FB62EF /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpValidationView.swift; sourceTree = "<group>"; };
 		932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpResponse.swift; sourceTree = "<group>"; };
@@ -139,6 +146,7 @@
 		933A30D52B1812FF006D69DB /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		933A30D72B181317006D69DB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepositoryImpl.swift; sourceTree = "<group>"; };
+		939108CB2B1CEAB7002AE6A6 /* CPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPass.swift; sourceTree = "<group>"; };
 		93DA559C2B13C6720046548B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		93DA55A42B1402B30046548B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		93DA55A62B1411CB0046548B /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
@@ -260,6 +268,8 @@
 				932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */,
 				932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */,
 				932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */,
+				931BE16A2B1CCBCD006EA625 /* CPassRes.swift */,
+				939108CB2B1CEAB7002AE6A6 /* CPass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +287,7 @@
 				93E9CF272B152138007A147E /* ForgotPasswordView.swift */,
 				932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */,
 				933A309C2B17EE7E006D69DB /* HomePageView.swift */,
+				931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +304,7 @@
 				932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */,
 				932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */,
 				931BE1622B1C362E006EA625 /* Navigation2.swift */,
+				931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -503,9 +515,11 @@
 				933A30BF2B180F66006D69DB /* InformationView.swift in Sources */,
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
+				931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */,
 				933A30BA2B180EFF006D69DB /* CommentaireInfo.swift in Sources */,
 				93E9CF2C2B155E4C007A147E /* AppViewModel.swift in Sources */,
 				933A30D12B181296006D69DB /* CatastropheViewModel.swift in Sources */,
+				931BE16B2B1CCBCD006EA625 /* CPassRes.swift in Sources */,
 				933A30A02B1801E2006D69DB /* ProgramView.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
@@ -528,6 +542,7 @@
 				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
 				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
+				931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */,
 				932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */,
 				933A30AE2B180282006D69DB /* CommentCardView.swift in Sources */,
 				932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */,
@@ -536,6 +551,7 @@
 				933A30CD2B18121A006D69DB /* CatastropheRepository.swift in Sources */,
 				933A30CB2B1811B0006D69DB /* Catastrophe.swift in Sources */,
 				931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */,
+				939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				933A30C12B180F85006D69DB /* InformationCardView.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,

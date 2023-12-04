@@ -78,7 +78,7 @@ class ApiManager: APIService {
                 }
                 .eraseToAnyPublisher()
         }
-          func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error> {
+    func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error> {
             let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByPhone.path
             print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")
 
@@ -96,4 +96,17 @@ class ApiManager: APIService {
                 }
                 .eraseToAnyPublisher()
         }
+    func changePassword(cPass:CPass )-> AnyPublisher<CPassRes?, Error> {
+           let changePasswordEndpoint = UserEndpoints.changePassword.path.description
+           let params: [String: Any] = [
+            "password": cPass.newPassword,
+            "confirmPassword": cPass.confirmPassword
+           ]
+
+        return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + changePasswordEndpoint,
+               method: "POST",
+               params: params
+           )
+           .eraseToAnyPublisher()
+       }
 }

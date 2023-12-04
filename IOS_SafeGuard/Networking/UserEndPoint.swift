@@ -8,6 +8,7 @@ enum UserEndpoints {
     case displayUserProfile(userId: String)
     case recoverPasswordByEmail
     case recoverPasswordByPhone
+    case changePassword
 
     var path: String {
         switch self {
@@ -21,6 +22,9 @@ enum UserEndpoints {
             return "user/recoverPassword/"
         case .recoverPasswordByPhone:
             return "user/recoverPassBySms/"
+        case .changePassword:
+            return "user/changePass"
+
         }
     }
 

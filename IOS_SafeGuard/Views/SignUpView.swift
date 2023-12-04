@@ -15,6 +15,7 @@ struct SignUpView: View {
     @State private var temporaryIsActive: Bool? = nil
     @State private var agreeTerms: Bool = false
     @StateObject private var signUpViewModel = SignUpViewModel()
+    @AppStorage("UserPasswordKey") private var storedPassword: String = "" // Initial password, change it as needed
 
         
         @State private var isSendSMSEnabled = false
@@ -115,7 +116,7 @@ struct SignUpView: View {
                 Spacer()
                 Button(action: {
                     print("FullName: \(fullName), Email: \(email), Password: \(password), PhoneNumber: \(numeroTel)")
-
+                    storedPassword=password
                     signUpViewModel.UserName = fullName
                         signUpViewModel.email = email
                         signUpViewModel.password = password

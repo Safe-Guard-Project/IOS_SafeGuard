@@ -113,4 +113,32 @@ class UserRepositoryImpl: UserRepository {
         .eraseToAnyPublisher()
     }
 
+    
+    func changePassword(cPass:CPass) -> AnyPublisher<CPassRes?, Error> {
+        let changePasswordEndpoint = UserEndpoints.changePassword.path.description
+        let params: [String: Any] = [
+            "password": cPass.newPassword,
+            "confirmPassword": cPass.confirmPassword
+        ]
+
+        return webServiceProvider.callWebService(
+            url: NetworkConstants.baseURL + changePasswordEndpoint,
+            method: "POST",
+            params: params
+        )
+        .tryMap { (response: CPassRes?) -> CPassRes? in
+            // Check the response for custom validation
+            guard let response = response else {
+                // If the response is nil, throw a custom error
+                throw NetworkError.invalidResponse
+            }
+
+            // Perform additional validation if needed
+
+            // Return the response if everything is valid
+            return response
+        }
+        .eraseToAnyPublisher()
+    }
+
 }

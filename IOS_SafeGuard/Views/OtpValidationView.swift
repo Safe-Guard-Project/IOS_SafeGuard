@@ -11,6 +11,8 @@ struct OtpValidationView: View {
     @AppStorage("OtpCodeKey") private var storedOtpCode: String = ""
     @AppStorage("OtpResponseKey") private var storedOtpResponse: String = ""
 
+    @State private var navigateToChangePass: Bool = false
+
     var body: some View {
         VStack {
             Text("Enter OTP to Verify:")
@@ -42,6 +44,9 @@ struct OtpValidationView: View {
 
             Button(action: {
                 self.isVerified = self.verifyOTP(enteredOTP: self.block1 + self.block2 + self.block3 + self.block4)
+
+                // Set navigateToChangePass based on OTP verification
+                self.navigateToChangePass = self.isVerified ?? false
             }) {
                 Text("Verify")
                     .font(.headline)
@@ -52,9 +57,21 @@ struct OtpValidationView: View {
             }
 
             if let isVerifiedValue = isVerified {
-                Text(isVerifiedValue ? "OTP Verified!" : "Verification Failed!")
-                    .font(.title)
-                    .padding()
+                if isVerifiedValue {
+                    Text("OTP Verified!")
+                        .font(.title)
+                        .padding()
+
+                    // Use NavigationLink here based on the condition
+                    NavigationLink(
+                        destination: ChangePasswordView(),
+                        isActive: $navigateToChangePass,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                    .hidden()  // Hide the navigation link, but it will still trigger the navigation
+                }
             }
         }
     }

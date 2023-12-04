@@ -8,6 +8,7 @@ struct SignInView: View {
     @StateObject private var signInViewModel = SignInViewModel()
     @State private var user: User? = nil
 
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {

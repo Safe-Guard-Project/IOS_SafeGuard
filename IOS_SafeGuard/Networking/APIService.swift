@@ -12,6 +12,7 @@ protocol APIService {
     func getCatastrophe() -> AnyPublisher<[Catastrophe]?, Error>
     func recoverPasswordByEmail(email: String) -> AnyPublisher<OtpResponse?, Error>
     func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error>
+    func changePassword(cPass:CPass) -> AnyPublisher<CPassRes?, Error>
 
 }
 

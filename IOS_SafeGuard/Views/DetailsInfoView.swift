@@ -14,8 +14,8 @@ struct DetailsInfoView: View {
                     .bold()
                     .padding(.horizontal)
 
-                if !information.image.isEmpty {
-                    Image(information.image)
+                if information.image != nil, !information.image!.isEmpty {
+                    Image(information.image!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 200)
@@ -112,12 +112,17 @@ struct DetailsInfoView: View {
         return formatter.string(from: date)
     }
 
-    private func titleValueRow(title: String, value: String) -> some View {
+    private func titleValueRow(title: String, value: String?) -> some View {
         HStack {
             Text(title)
                 .bold()
             Spacer()
-            Text(value)
+            if let unwrappedValue = value {
+                Text(unwrappedValue)
+            } else {
+                Text("N/A")
+                    .foregroundColor(.gray)
+            }
         }
         .padding(.horizontal)
     }
@@ -125,6 +130,6 @@ struct DetailsInfoView: View {
 
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsInfoView(information: Information(id: "String", titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
+        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
     }
 }

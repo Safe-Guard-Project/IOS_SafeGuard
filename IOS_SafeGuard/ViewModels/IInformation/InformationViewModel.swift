@@ -4,72 +4,93 @@ class InformationViewModel: ObservableObject {
     @Published var informations: [Information] = []
     @Published var addedInformation: Information?
 
-    func fetchInformations() {
-        guard let url = URL(string: "http://localhost:9090/information") else {
+    func getAllInformation() {
+        guard let url = URL(string: "http://localhost:9090/information/") else {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else {
-                print("Error fetching information: \(error?.localizedDescription ?? "Unknown error")")
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
+
+            guard let data = data else {
+                print("No data received")
                 return
             }
 
             do {
-                let decodedData = try JSONDecoder().decode([Information].self, from: data)
+                let decoder = JSONDecoder()
+
+                // Attempt to decode as a single Information object
+                let decodedData = try decoder.decode(Information.self, from: data)
                 DispatchQueue.main.async {
-                    self.informations = decodedData
+                    // Handle the single object as needed
+                    // You can append it to the array or use it directly
+                    self.addedInformation = decodedData
                 }
+
             } catch {
-                print("Error decoding information data: \(error.localizedDescription)")
+                do {
+                    // Attempt to decode as a dictionary
+                    if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        // Check if the response is an error
+                        if let errorObject = jsonObject["error"] as? [String: Any], !errorObject.isEmpty {
+                            print("Error in API response: \(errorObject)")
+                            // Handle the error as needed (e.g., show an alert)
+                        }
+                    } else {
+                        // Unable to decode as a dictionary, log the decoding error
+                        print("Error decoding data: \(error)")
+                    }
+                } catch {
+                    // If decoding as both dictionary and Information object fails, log the error
+                    print("Error decoding data: \(error)")
+                }
             }
         }.resume()
     }
-
-    func addInformation(title: String, typeCatastrophe: String, idUser: String, pays: String, region: String, description: String, image: Data, dateDePrevention: Date, pourcentageFiabilite: Double, etat: String) {
-        
-        guard let url = URL(string: "http://localhost:9090/Information") else {
-            return
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let informationData: [String: Any] = [
-            "titre": title,
-            "typeCatastrophe": typeCatastrophe,
-            "idUser": idUser,
-            "pays": pays,
-            "region": region,
-            "descriptionInformation": description,
-            "image": image.base64EncodedString(),
-            "dateDePrevention": dateDePrevention.timeIntervalSince1970,
-            "pourcentageFiabilite": pourcentageFiabilite,
-            "etat": etat
-        ]
-
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: informationData)
-        } catch {
-            print("Error encoding information data: \(error.localizedDescription)")
-            return
-        }
-
-        URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                print("Error adding information: \(error?.localizedDescription ?? "Unknown error")")
+    
+    
+    
+    
+    func sendInformationToServer(_ information: Information) {
+            guard let url = URL(string: "http://localhost:9090/information") else {
+                print("Invalid URL")
                 return
             }
 
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
             do {
-                let addedInformation = try JSONDecoder().decode(Information.self, from: data)
-                DispatchQueue.main.async {
-                    self.addedInformation = addedInformation
-                }
+                let encoder = JSONEncoder()
+                encoder.dateEncodingStrategy = .iso8601
+
+                let jsonData = try encoder.encode(information)
+                request.httpBody = jsonData
             } catch {
-                print("Error decoding added information data: \(error.localizedDescription)")
+                print("Error encoding information data: \(error.localizedDescription)")
+                return
             }
-        }.resume()
-    }
+
+            // Perform the network request
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error sending data to server: \(error.localizedDescription)")
+                    return
+                }
+
+                // Handle the response and data as needed
+                if let data = data {
+                    do {
+                        let decodedData = try JSONDecoder().decode(Information.self, from: data)
+                        DispatchQueue.main.async {
+                            self.addedInformation = decodedData
+                        }
+                    } catch {
+                        print("Error decoding server response: \(error.localizedDescription)")
+                    }
+                }
+            }.resume()
+        }
 }

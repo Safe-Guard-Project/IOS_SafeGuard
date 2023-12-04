@@ -7,11 +7,40 @@ struct InformationCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Info image
-            Image(information.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 200)
-                .clipped()
+            if let imageUrl = information.image, let url = URL(string: imageUrl) {
+                // Use AsyncImage or other image loading techniques as needed
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+
+                    case .failure:
+                        // Handle failure or show a placeholder
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                    case .empty:
+                        // Show a placeholder or loading indicator
+                        ProgressView()
+                    @unknown default:
+                        // Handle unknown state
+                        EmptyView()
+                    }
+                }
+            } else {
+                // If image is nil, show a placeholder or handle as needed
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
+            }
             
             // Info details
             VStack(alignment: .leading, spacing: 8) {
@@ -34,5 +63,3 @@ struct InformationCardView: View {
         .padding(10)
     }
 }
-
-

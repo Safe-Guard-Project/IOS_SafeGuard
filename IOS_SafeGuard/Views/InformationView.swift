@@ -6,16 +6,15 @@ struct InformationView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.informations) { information in
-                    NavigationLink(destination: DetailsInfoView(information: information)) {
-                        InformationCardView(information: information)
-                            .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
-                    }
+            List ( viewModel.informations) { Information in
+                NavigationLink (destination: DetailsInfoView(information: Information)) {
+                    InformationCardView(information: Information)
+                        .listRowInsets(EdgeInsets(top:2 , leading:5 , bottom:4, trailing:4))
                 }
             }
+    
             .onAppear {
-                viewModel.fetchInformations()
+                viewModel.getAllInformation()
             }
             .navigationTitle("Informations")
             .navigationBarTitleDisplayMode(.large)

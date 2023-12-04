@@ -20,18 +20,19 @@ struct IOS_SafeGuardApp: App {
                     NavigationLink(destination: ProgramView()) {
                         Text("Go to Program")
                     }
-                 
-                   NavigationLink(destination: CommentsView()) {
+                    
+                    NavigationLink(destination: CommentsView()) {
                         Text("Go to Comment")
                     }
                     
-                    /*
+                    
                     NavigationLink(destination:FavoriView()) {
                         Text("Go to List Favoris")
                         
-                    }
-                   */
-                    
-                }}
-        }
-    }}
+                        
+                        
+                        
+                    }}
+            }
+        }}
+}

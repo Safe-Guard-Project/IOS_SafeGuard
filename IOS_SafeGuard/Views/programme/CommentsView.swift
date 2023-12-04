@@ -22,3 +22,30 @@ struct CommentsView: View {
         commentViewModel.comments.remove(atOffsets: indexSet)
     }*/
 }
+/*
+import SwiftUI
+
+struct CommentsView: View {
+    var cours: Cours
+    @ObservedObject var commentViewModel: CommentViewModel
+
+    var body: some View {
+        VStack {
+            Text("Comments for \(cours.title)")
+                .font(.title)
+                .padding()
+
+            List(commentViewModel.comments) { commentaire in
+                Text(commentaire.textComment)
+            }
+            .onAppear {
+                // Load comments when the view appears
+                commentViewModel.getAllComments()
+            }
+
+            Spacer()
+        }
+        .navigationTitle("Comments")
+    }
+}*/
+

@@ -13,6 +13,8 @@ struct ContenuCardView: View {
     @State private var comment: String = ""
      @State private var isFavorite: Bool = false
       @ObservedObject var commentViewModel: CommentViewModel
+    @ObservedObject var favViewModel: FavorieViewModel
+  
 
      var body: some View {
          VStack(alignment: .leading, spacing: 8) {
@@ -22,6 +24,8 @@ struct ContenuCardView: View {
                      isFavorite.toggle()
 
                      if isFavorite {
+                         favViewModel.addFav(idCoursProgramme: cours.id)
+                         
                         
                      } else {
                          
@@ -72,5 +76,51 @@ struct ContenuCardView: View {
                      }
                      .background(Color(UIColor.systemBackground))
      }
+}/*
+import SwiftUI
+
+struct ContenuCardView: View {
+    var cours: Cours
+    @State private var comment: String = ""
+    @State private var isFavorite: Bool = false
+    @ObservedObject var commentViewModel: CommentViewModel
+    @ObservedObject var favViewModel: FavorieViewModel
+    @State private var isCommentaireListViewActive: Bool = false
+
+    var body: some View {
+        NavigationLink(
+            destination: CommentaireListView(cours: cours, commentViewModel: commentViewModel),
+            isActive: $isCommentaireListViewActive
+        ) {
+            EmptyView()
+        }
+        .hidden()
+
+        VStack(alignment: .leading, spacing: 8) {
+            // ... Your existing content
+
+            HStack {
+                TextField("Ajouter un commentaire", text: $comment)
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
+                    .padding([.leading, .bottom], 10)
+                    .frame(height: 50)
+
+                Button(action: {
+                    commentViewModel.addComment(textComment: comment, idCoursProgramme: cours.id)
+                    comment = ""
+                    isCommentaireListViewActive.toggle()
+                }) {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(Color.blue)
+                        .padding(.trailing, 10)
+                }
+            }
+            .background(Color(UIColor.systemBackground))
+        }
+    }
 }
+*/
 

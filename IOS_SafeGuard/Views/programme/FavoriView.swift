@@ -65,16 +65,17 @@ struct FavoriView: View {
 
 struct FavoriView: View {
     @StateObject private var favorieViewModel = FavorieViewModel()
+
     var body: some View {
         NavigationView {
             List {
                 ForEach(favorieViewModel.favories) { favori in
-                    FavoriCardView(favorie: favori)
+                    FavoriCardView(favorie: favori )
                         
                 }
                
             }
-            .navigationTitle("Votre avis")
+            .navigationTitle("Votre Favoris")
             .navigationBarTitleDisplayMode(.large)
         }
         .onAppear {

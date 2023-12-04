@@ -74,6 +74,27 @@ class FavorieViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    func deletefav(favorie: Favorie) {
+        guard let url = URL(string: "http://localhost:9090/favorie/\(favorie.id)") else {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("Error deleting fav: \(error!)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let index = self.favories.firstIndex(where: { $0.id == favorie.id }) {
+                    self.favories.remove(at: index)
+                }
+            }
+        }.resume()
+    }
     
     
     

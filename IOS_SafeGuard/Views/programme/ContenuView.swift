@@ -1,9 +1,8 @@
-
 import SwiftUI
 
 struct ContenuView: View {
     @StateObject private var viewModel = CoursViewModel()
-    @StateObject private var commentViewModel = CommentViewModel() 
+    @StateObject private var commentViewModel = CommentViewModel()
     @StateObject private var favorieViewModel = FavorieViewModel() // Ajout du CommentViewModel
     var type: Cours.CoursType
 
@@ -24,4 +23,3 @@ struct ContenuView: View {
         }
     }
 }
-

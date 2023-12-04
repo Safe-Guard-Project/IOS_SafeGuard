@@ -65,7 +65,7 @@ struct ContenuCardView: View {
 
                          Button(action: {
                              commentViewModel.addComment(textComment: comment, idCoursProgramme: cours.id)
-                             comment = "" 
+                             comment = ""
                          }) {
                              Image(systemName: "arrow.right.circle.fill")
                                  .resizable()
@@ -123,4 +123,3 @@ struct ContenuCardView: View {
     }
 }
 */
-

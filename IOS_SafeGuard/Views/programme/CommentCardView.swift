@@ -31,6 +31,7 @@ struct CommentCardView: View {
                 .tint(.red)
                 
                 Button("Modify", systemImage: "pencil") {
+                    
                 
                 }
                 .tint(.blue)

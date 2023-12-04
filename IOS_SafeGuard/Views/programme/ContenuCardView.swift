@@ -28,7 +28,9 @@ struct ContenuCardView: View {
                          
                         
                      } else {
-                         
+                         if let favorie = favViewModel.favories.first(where: { $0.idCoursProgramme == cours.id }) {
+                                    favViewModel.deletefav(favorie: favorie)
+                                }
                      }
                  }) {
                      Image(systemName: isFavorite ? "heart.fill" : "heart")

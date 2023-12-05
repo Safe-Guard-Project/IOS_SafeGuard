@@ -1,4 +1,4 @@
-// InformationCardView.swift
+/*// InformationCardView.swift
 import SwiftUI
 
 struct InformationCardView: View {
@@ -63,3 +63,4 @@ struct InformationCardView: View {
         .padding(10)
     }
 }
+*/

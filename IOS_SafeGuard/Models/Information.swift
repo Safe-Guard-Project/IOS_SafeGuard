@@ -1,7 +1,7 @@
 import Foundation
 
 struct Information: Identifiable, Codable {
-    var id: String?
+    var id: String
     let titre: String
     let typeCatastrophe: String
     let idUser: String // Assuming idUser is a String in your Mongoose schema
@@ -9,12 +9,12 @@ struct Information: Identifiable, Codable {
     let region: String
     let descriptionInformation: String
     let dateDePrevention: Date
-    let image: String?
+    let image: String
     let pourcentageFiabilite: Double
     let etat: String
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case titre
         case typeCatastrophe
         case idUser
@@ -27,7 +27,7 @@ struct Information: Identifiable, Codable {
         case etat
     }
 
-    init(titre: String, typeCatastrophe: String, idUser: String, pays: String, region: String, descriptionInformation: String, dateDePrevention: Date, image: String?, pourcentageFiabilite: Double, etat: String) {
+    /*init(titre: String, typeCatastrophe: String, idUser: String, pays: String, region: String, descriptionInformation: String, dateDePrevention: Date, image: String?, pourcentageFiabilite: Double, etat: String) {
         self.id = UUID().uuidString
         self.titre = titre
         self.typeCatastrophe = typeCatastrophe
@@ -39,9 +39,9 @@ struct Information: Identifiable, Codable {
         self.image = image
         self.pourcentageFiabilite = pourcentageFiabilite
         self.etat = etat
-    }
+    }*/
 
-    init(from decoder: Decoder) throws {
+    /*init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         id = try container.decodeIfPresent(String.self, forKey: .id)
@@ -55,5 +55,4 @@ struct Information: Identifiable, Codable {
         image = try container.decodeIfPresent(String.self, forKey: .image) ?? "" // Use a default value or handle nil as needed
         pourcentageFiabilite = try container.decode(Double.self, forKey: .pourcentageFiabilite)
         etat = try container.decode(String.self, forKey: .etat)
-    }
-}
+    }*/}

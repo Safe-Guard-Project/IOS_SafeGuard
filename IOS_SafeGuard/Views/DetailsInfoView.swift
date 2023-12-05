@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct DetailsInfoView: View {
     var information: Information
@@ -132,4 +132,4 @@ struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
         DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
     }
-}
+}*/

@@ -13,6 +13,12 @@
 		5219DC4F2B176E250020D3C2 /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219DC4E2B176E250020D3C2 /* CatastropheRepositoryImpl.swift */; };
 		5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */; };
 		52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF06A12B14BAA100606AE4 /* MapView.swift */; };
+		52F345592B20C7BD00C17A77 /* CatastropheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F345582B20C7BD00C17A77 /* CatastropheRepository.swift */; };
+		52F3455B2B20D09200C17A77 /* ZoneDeDangerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3455A2B20D09200C17A77 /* ZoneDeDangerRepository.swift */; };
+		52F3455D2B20D0B100C17A77 /* ZoneDeDangerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3455C2B20D0B100C17A77 /* ZoneDeDangerRepositoryImpl.swift */; };
+		52F3455F2B20D0FE00C17A77 /* ZoneDeDanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F3455E2B20D0FE00C17A77 /* ZoneDeDanger.swift */; };
+		52F345612B20D47E00C17A77 /* ZoneDeDangerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F345602B20D47E00C17A77 /* ZoneDeDangerEndPoint.swift */; };
+		52F345632B20D55300C17A77 /* ZoneDeDangerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F345622B20D55300C17A77 /* ZoneDeDangerViewModel.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
@@ -59,6 +65,12 @@
 		5225EE5F2B160B21003C27C5 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		52DF069D2B14B24900606AE4 /* IOS-SafeGuard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IOS-SafeGuard-Info.plist"; sourceTree = SOURCE_ROOT; };
 		52DF06A12B14BAA100606AE4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		52F345582B20C7BD00C17A77 /* CatastropheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepository.swift; sourceTree = "<group>"; };
+		52F3455A2B20D09200C17A77 /* ZoneDeDangerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerRepository.swift; sourceTree = "<group>"; };
+		52F3455C2B20D0B100C17A77 /* ZoneDeDangerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerRepositoryImpl.swift; sourceTree = "<group>"; };
+		52F3455E2B20D0FE00C17A77 /* ZoneDeDanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDanger.swift; sourceTree = "<group>"; };
+		52F345602B20D47E00C17A77 /* ZoneDeDangerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerEndPoint.swift; sourceTree = "<group>"; };
+		52F345622B20D55300C17A77 /* ZoneDeDangerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerViewModel.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +187,7 @@
 				93F3921D2B12C87E00A63B62 /* User.swift */,
 				93DA55AC2B1415A00046548B /* Login.swift */,
 				5219DC482B175CCC0020D3C2 /* Catastrophe.swift */,
+				52F3455E2B20D0FE00C17A77 /* ZoneDeDanger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 			children = (
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
 				5219DC4C2B176DCE0020D3C2 /* CatastropheViewModel.swift */,
+				52F345622B20D55300C17A77 /* ZoneDeDangerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -209,6 +223,7 @@
 				93DA55B22B1420D70046548B /* APIService.swift */,
 				93DA55BC2B1451380046548B /* WebServiceProvider.swift */,
 				5219DC4A2B1768BC0020D3C2 /* CatastropheEndPoint.swift */,
+				52F345602B20D47E00C17A77 /* ZoneDeDangerEndPoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -219,6 +234,9 @@
 				93DA55B82B142D040046548B /* UserRepository.swift */,
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
 				5219DC4E2B176E250020D3C2 /* CatastropheRepositoryImpl.swift */,
+				52F345582B20C7BD00C17A77 /* CatastropheRepository.swift */,
+				52F3455A2B20D09200C17A77 /* ZoneDeDangerRepository.swift */,
+				52F3455C2B20D0B100C17A77 /* ZoneDeDangerRepositoryImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -362,20 +380,26 @@
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
+				52F345592B20C7BD00C17A77 /* CatastropheRepository.swift in Sources */,
 				5219DC4F2B176E250020D3C2 /* CatastropheRepositoryImpl.swift in Sources */,
+				52F345612B20D47E00C17A77 /* ZoneDeDangerEndPoint.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
+				52F345632B20D55300C17A77 /* ZoneDeDangerViewModel.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				52DF06A22B14BAA100606AE4 /* MapView.swift in Sources */,
+				52F3455F2B20D0FE00C17A77 /* ZoneDeDanger.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
+				52F3455D2B20D0B100C17A77 /* ZoneDeDangerRepositoryImpl.swift in Sources */,
 				5219DC492B175CCC0020D3C2 /* Catastrophe.swift in Sources */,
 				5219DC4D2B176DCE0020D3C2 /* CatastropheViewModel.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				5225EE602B160B21003C27C5 /* LocationDetailsView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
+				52F3455B2B20D09200C17A77 /* ZoneDeDangerRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

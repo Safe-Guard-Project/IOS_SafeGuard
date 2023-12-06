@@ -7,15 +7,20 @@
 
 // CatastropheRepository.swift
 import Combine
-
-protocol CatastropheRepository {
-    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error>
-}
+import Foundation
 
 class CatastropheRepositoryImpl: CatastropheRepository {
-    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error> {
-        return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + CatastropheEndpoints.getCatastrophe.path,
-                                                        method: CatastropheEndpoints.getCatastrophe.httpMethod,
-                                                        params: nil)
+    private let apiManager: APIService
+    
+    init(apiManager: APIService = ApiManager.shared) {
+        self.apiManager = apiManager
+    }
+    
+    func getCatastrophes() -> AnyPublisher<[Catastrophe], Error> {
+        return apiManager.getCatastrophe()
+            .map { catastrophes in
+                catastrophes ?? []
+            }
+            .eraseToAnyPublisher()
     }
 }

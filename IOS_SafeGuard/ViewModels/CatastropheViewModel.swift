@@ -4,21 +4,33 @@
 //
 //  Created by mohamed oussama bouriga on 29/11/2023.
 //
-
-
+import Foundation
 import Combine
 
 class CatastropheViewModel: ObservableObject {
-    @Published var catastrophes: [Catastrophe] = []
     private var cancellables: Set<AnyCancellable> = []
+    private let repository: CatastropheRepository
 
-    func fetchCatastrophes() {
-        CatastropheRepositoryImpl().getCatastrophes()
-            .sink(receiveCompletion: { completion in
-                // Handle completion
-            }, receiveValue: { [weak self] (catastrophes: [Catastrophe]?) in
-                self?.catastrophes = catastrophes ?? []
-            })
+    @Published var catastrophes: [Catastrophe] = []
+
+    init(repository: CatastropheRepository = CatastropheRepositoryImpl()) {
+        self.repository = repository
+    }
+
+    func getCatastrophes() {
+        repository.getCatastrophes()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break // Do nothing on success
+                case .failure(let error):
+                    print("Error fetching catastrophes: \(error)")
+                }
+            } receiveValue: { [weak self] fetchedCatastrophes in
+                guard let self = self else { return }
+                self.catastrophes = fetchedCatastrophes
+            }
             .store(in: &cancellables)
     }
 }

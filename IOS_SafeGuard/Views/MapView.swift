@@ -11,6 +11,8 @@ struct MapView: View {
     @State private var mapSelection: MKMapItem?
     @State private var showDetails =  false
     @State private var viewModel = CatastropheViewModel()
+    @StateObject private var zoneDeDangerviewModel = ZoneDeDangerViewModel()
+
 
     var body: some View {
         Map(position: $cameraPosition, selection: $mapSelection){
@@ -47,6 +49,12 @@ struct MapView: View {
                     }
                 }
             }
+            
+            ForEach(zoneDeDangerviewModel.zone, id: \.self) { zoned in
+                Marker("My location", systemImage: "paperplane", coordinate: zoned.location)
+                    .tint(.red)
+            }
+
         }
         .overlay(alignment: .top) {
                        HStack {
@@ -99,7 +107,8 @@ struct MapView: View {
                    
                    }
                    .onAppear {
-                          viewModel.fetchCatastrophes()
+                          viewModel.getCatastrophes()
+                       zoneDeDangerviewModel.getZoneDeDangers()
                       }
      
        }

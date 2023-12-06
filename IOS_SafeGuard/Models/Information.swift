@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 struct Information: Identifiable, Codable {
     var id: String
@@ -56,3 +56,27 @@ struct Information: Identifiable, Codable {
         pourcentageFiabilite = try container.decode(Double.self, forKey: .pourcentageFiabilite)
         etat = try container.decode(String.self, forKey: .etat)
     }*/}
+*/
+import SwiftUI
+
+struct Information: Identifiable, Decodable {
+    var id: String?
+    var titre: String? // Make this optional
+    var typeCatastrophe: String
+    var pays: String
+    var region: String
+    var descriptionInformation: String
+    var dateDePrevention: Date
+    var image: String?
+    var pourcentageFiabilite: Int
+    var etat: String
+    var createdAt: Date
+    var updatedAt: Date
+    var __v: Int
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case titre, typeCatastrophe, pays, region, descriptionInformation, dateDePrevention, image, pourcentageFiabilite, etat, createdAt, updatedAt, __v
+    }
+}
+

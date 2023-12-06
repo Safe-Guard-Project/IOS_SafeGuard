@@ -1,4 +1,4 @@
-// InformationView.swift
+/*// InformationView.swift
 import SwiftUI
 
 struct InformationView: View {
@@ -308,4 +308,277 @@ struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
     }
+}*/
+
+
+import SwiftUI
+
+struct InformationView: View {
+    @State var informations: [Information] = []
+    @State private var isAddingInformation = false
+    @State private var selectedInformation: Information?
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(informations) { info in
+                        VStack(alignment: .leading, spacing: 8) {
+                            InformationCardView(information: info)
+                                .onTapGesture {
+                                    selectedInformation = info
+                                }
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                .padding(.top, 16)
+            }
+            .navigationBarTitle("Information")
+            .onAppear {
+                fetchInformation()
+            }
+            .sheet(item: $selectedInformation) { info in
+                InformationDetailView(information: info)
+            }
+            .sheet(isPresented: $isAddingInformation) {
+                AddInfoView()
+            }
+            Spacer()
+        }
+        .overlay(
+            VStack {
+                Spacer()
+                Button(action: {
+                    isAddingInformation = true
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title)
+                        .padding()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color.blue)
+                        .imageScale(.large)
+                }
+            }
+        )
+    }
+
+    struct InformationCardView: View {
+        let information: Information
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 8) {
+                AsyncImageView(url: information.image ?? "")
+                    .frame(height: 200)
+
+                if let titre = information.titre {
+                    Text(titre)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                }
+
+                Text(information.descriptionInformation)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(12)
+            .shadow(radius: 4)
+        }
+    }
+
+
+    struct InformationDetailView: View {
+        var information: Information
+        @State private var commentText: String = ""
+        @State private var comments: [String] = []
+
+        var body: some View {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(information.titre ?? "")
+
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal)
+
+                    if !(information.image?.isEmpty ?? true) {
+                        AsyncImageView(url: information.image ?? "")
+                            .frame(height: 200)
+                    }
+
+                    titleValueRow(title: "Type of Catastrophe", value: information.typeCatastrophe)
+                    titleValueRow(title: "Country", value: information.pays)
+                    titleValueRow(title: "Region", value: information.region)
+                    titleValueRow(title: "Statement", value: information.etat)
+                    titleValueRow(title: "Prevention Date", value: formatDate(information.dateDePrevention))
+                    titleValueRow(title: "Liabilities Percent", value: "\(information.pourcentageFiabilite)%")
+
+                    Section(header: Text("Description of Catastrophe").font(.headline).padding(.horizontal)) {
+                        Text(information.descriptionInformation)
+                            .padding(.horizontal)
+                    }
+
+                    if !comments.isEmpty {
+                        Divider()
+                        Section(header: Text("Comments").font(.headline).padding(.leading)) {
+                            ForEach(comments, id: \.self) { comment in
+                                HStack {
+                                    Text(comment)
+                                        .foregroundColor(.blue)
+                                        .padding(.leading)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+
+                    Divider()
+
+                    HStack {
+                        TextField("Type your comment here", text: $commentText)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
+                            .padding()
+
+                        Button(action: {
+                            if !commentText.isEmpty {
+                                comments.append(commentText)
+                                commentText = ""
+                            }
+                        }) {
+                            Image(systemName: "arrow.right.circle.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                    }
+                    .padding(.horizontal)
+
+                    HStack {
+                        Button(action: {
+                            // Add action for sharing information
+                        }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                    }
+                }
+                .padding()
+            }
+            .navigationBarTitle("Information Detail", displayMode: .inline)
+        }
+
+        private func formatDate(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter.string(from: date)
+        }
+
+        private func titleValueRow(title: String, value: String?) -> some View {
+            HStack {
+                Text(title)
+                    .bold()
+                Spacer()
+                if let unwrappedValue = value, !unwrappedValue.isEmpty {
+                    Text(unwrappedValue)
+                } else {
+                    Text("N/A")
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
+
+    func fetchInformation() {
+        guard let url = URL(string: "http://localhost:5001/information") else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error fetching information: \(error)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
+            do {
+                let informationArray = try decoder.decode([Information].self, from: data)
+
+                DispatchQueue.main.async {
+                    self.informations = informationArray
+                }
+            } catch {
+                print("Error decoding information: \(error)")
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Received JSON: \(jsonString)")
+                } else {
+                    print("Unable to convert JSON data to string")
+                }
+            }
+        }.resume()
+    }
+
+    struct AsyncImageView: View {
+        @StateObject private var imageLoader: ImageLoader
+
+        init(url: String) {
+            let urlString = "http://localhost:5001/" + url
+            _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
+        }
+
+        var body: some View {
+            if let uiImage = imageLoader.image {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+            }
+        }
+    }
+
+    class ImageLoader: ObservableObject {
+        @Published var image: UIImage?
+
+        init(url: String) {
+            guard let imageURL = URL(string: url) else { return }
+
+            URLSession.shared.dataTask(with: imageURL) { data, response, error in
+                if let data = data, let loadedImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.image = loadedImage
+                    }
+                }
+            }.resume()
+        }
+    }
+
+    struct MyInformationView_Previews: PreviewProvider {
+        static var previews: some View {
+            InformationView()
+        }
+    }
 }
+

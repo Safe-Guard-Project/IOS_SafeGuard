@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 class InformationViewModel: ObservableObject {
     @Published var informations: [Information] = []
@@ -93,4 +93,4 @@ class InformationViewModel: ObservableObject {
                 }
             }.resume()
         }
-}
+}*/

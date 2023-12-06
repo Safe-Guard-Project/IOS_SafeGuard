@@ -1,14 +1,12 @@
 import SwiftUI
-
 struct ContenuView: View {
     @StateObject private var viewModel = CoursViewModel()
     @StateObject private var commentViewModel = CommentViewModel()
-    @StateObject private var favorieViewModel = FavorieViewModel() // Ajout du CommentViewModel
+    @StateObject private var favorieViewModel = FavorieViewModel()
     var type: Cours.CoursType
 
     var body: some View {
         NavigationView {
-            
             VStack {
                 List(viewModel.courses) { cours in
                     ContenuCardView(cours: cours, commentViewModel: commentViewModel, favViewModel: favorieViewModel)
@@ -17,10 +15,17 @@ struct ContenuView: View {
                 }
                 .listStyle(PlainListStyle())
                 .navigationBarTitle(type.rawValue)
+                .navigationBarItems(trailing:
+                    NavigationLink(destination: CommentsView()) {
+                        Image(systemName: "text.bubble")
+                            .imageScale(.large)
+                            .padding()
+                    }
+                )
             }
             .onAppear {
                 viewModel.fetchCoursesByType(type: type)
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }

@@ -14,6 +14,6 @@ struct CoursView: View {
                     }
                 }
             
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }

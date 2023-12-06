@@ -5,13 +5,15 @@ struct CoursView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
-                ForEach(Cours.CoursType.allCases, id: \.self) { type in
-                    NavigationLink(destination: ContenuView(type: type)) {
-                        CoursCardView(buttonText: type.rawValue)
+          
+                VStack(spacing: 20) {
+                    ForEach(Cours.CoursType.allCases, id: \.self) { type in
+                        NavigationLink(destination: ContenuView(type: type)) {
+                            CoursCardView(buttonText: type.rawValue)
+                        }
                     }
                 }
-            }
+            
         }
     }
 }

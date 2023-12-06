@@ -12,7 +12,7 @@ struct ProgramCardView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: program.image)) { image in
+            /*AsyncImage(url: URL(string: program.image)) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -21,7 +21,27 @@ struct ProgramCardView: View {
             } placeholder: {
                 // Placeholder view while the image is loading
                 ProgressView()
-            }
+            }*/
+            AsyncImage(url: URL(string: "http://localhost:9090/\(program.image)")) { phase in
+                                 switch phase {
+                                 case .empty:
+                                     ProgressView()
+                                 case .success(let image):
+                                     image
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fill)
+                                         .frame(height: 200)
+                                         .clipped()
+                                 case .failure:
+                                     Image(systemName: "Intro") // You can use a placeholder image here
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fill)
+                                         .frame(height: 200)
+                                         .clipped()
+                                 @unknown default:
+                                     EmptyView()
+                                 }
+                             }
 
             VStack(alignment: .leading) {
                 Text(program.Titre)

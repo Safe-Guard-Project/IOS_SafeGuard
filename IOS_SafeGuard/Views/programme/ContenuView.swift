@@ -8,6 +8,7 @@ struct ContenuView: View {
 
     var body: some View {
         NavigationView {
+            
             VStack {
                 List(viewModel.courses) { cours in
                     ContenuCardView(cours: cours, commentViewModel: commentViewModel, favViewModel: favorieViewModel)

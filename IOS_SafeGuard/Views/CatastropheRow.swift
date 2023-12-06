@@ -38,9 +38,10 @@ struct CatastropheRow: View {
         .padding([.top, .bottom], 5)
     }
 }
-
+/*
 struct CatastropheRow_Previews: PreviewProvider {
     static var previews: some View {
         CatastropheRow(catastrophe: Catastrophe(_id: "1", titre: "Sample", type: "Earthquake", tsunami: 1, description: "Sample Description", date: Date(), radius: 10.0, magnitude: 7.0, latitudeDeCatastrophe: 0.0, longitudeDeCatastrophe: 0.0, createdAt: Date(), updatedAt: Date()))
     }
 }
+*/

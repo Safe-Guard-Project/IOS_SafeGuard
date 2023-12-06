@@ -19,7 +19,7 @@ class CatastropheViewModel: ObservableObject {
                 case .finished:
                     break // Do nothing on success
                 case .failure(let error):
-                    print("Error fetching catastrophes: \(error.localizedDescription)")
+                    print("Error fetching catastrophes: \(error)")
                 }
             } receiveValue: { [weak self] fetchedCatastrophes in
                 guard let self = self else { return }

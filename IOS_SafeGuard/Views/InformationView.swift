@@ -320,6 +320,28 @@ struct InformationView: View {
 
     var body: some View {
             NavigationView {
+                VStack {
+                    HStack {
+                        Text("Blog")
+                                                .font(.title)
+                                                .foregroundColor(Color.blue)
+                                                .padding()
+                                            
+                        Spacer() // Pousse le bouton à droite
+                        
+                        // Déplacer le bouton en haut
+                        Button(action: {
+                            isAddingInformation = true
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title)
+                                .padding()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color.blue)
+                                .imageScale(.large)
+                        }
+                        .padding()
+                    }
                 ScrollView {
                     LazyVStack(spacing: 50) { // Ajouter un espacement vertical entre chaque carte
                         ForEach(informations) { info in
@@ -332,7 +354,8 @@ struct InformationView: View {
                     .padding(.horizontal, 20) // Ajouter un espacement horizontal global
                     .padding(.top, 16)
                 }
-            .navigationBarTitle("Blog")
+                .navigationBarHidden(true)
+
             .onAppear {
                 fetchInformation()
             }
@@ -342,23 +365,9 @@ struct InformationView: View {
             .sheet(isPresented: $isAddingInformation) {
                 AddInfoView()
             }
-            Spacer()
-        }
-        .overlay(
-            VStack {
-                Spacer()
-                Button(action: {
-                    isAddingInformation = true
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.title)
-                        .padding()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(Color.blue)
-                        .imageScale(.large)
                 }
             }
-        )
+        
     }
 
     struct InformationCardView: View {

@@ -185,9 +185,11 @@ func sendBlogToServer() {
 import SwiftUI
 import Alamofire
 
+
+
 struct AddInfoView: View {
     @State private var title = ""
-    @State private var typeOfCatastrophe = "Earthquake" // Default value
+    @State private var typeOfCatastrophe = "Earthquake"
     @State private var country = ""
     @State private var region = ""
     @State private var selectedDate = Date()
@@ -198,73 +200,103 @@ struct AddInfoView: View {
     @State private var statement: Statement = .ongoing
 
     enum Statement: String {
-        case ongoing = "Ongoing"
-        case notYet = "Not Yet"
+        case ongoing = "En cours"
+        case notYet = "Pas encore"
     }
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("New Information")) {
-                    TextField("Title", text: $title)
-                    Picker("Type of Catastrophe", selection: $typeOfCatastrophe) {
-                        ForEach(["Earthquake", "Flood", "Fire", "Other"], id: \.self) {
+                Section(header: SectionHeader("Nouveau Blog")) 
+                {
+                    TextField("Titre", text: $title )
+                        .accentColor(.blue)
+                      // Apply a black border
+                    Picker("Type de Catastrophe", selection: $typeOfCatastrophe) {
+                        ForEach(["Earthquake", "Tsunami", "Inondation", "Tornade", "Autres"], id: \.self) {
                             Text($0)
                         }
                     }
-                    TextField("Country", text: $country)
-                    TextField("Region", text: $region)
-                    DatePicker("Select Date and Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                    TextField("Pays", text: $country)
+                    TextField("Région", text: $region)
+                   
+                    VStack {
+                        DatePicker("Date et heure" ,selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                            .accentColor(.blue)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
 
-                    VStack(alignment: .leading) {
-                        Text("Statement")
+                    HStack {
+                        Spacer()
                         RadioGroup(selectedOption: $statement, options: [.ongoing, .notYet])
+                        Spacer()
                     }
 
-                    TextField("Liability Percentage", text: $liabilityPercentage)
-                        .keyboardType(.decimalPad) // Allow only numeric input
-                    VStack(alignment: .leading) {
-                        TextField("Description of Catastrophe", text: $descriptionCatastrophe)
-                            .frame(height: 100)
-                    }
-                }
+                    TextField("Pourcentage de fiabilité", text: $liabilityPercentage)
+                        .keyboardType(.decimalPad)
+                    TextField("Description", text: $descriptionCatastrophe)
+                        .frame(height: 100)
 
-                Section(header: Text("Blog Image")) {
                     if let image = image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                     } else {
-                        Button(action: {
-                            showImagePicker.toggle()
-                        }) {
-                            Image(systemName: "arrow.up.to.line.alt")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 50)
-                                .foregroundColor(Color(red: 0.36, green: 0.7, blue: 0.36))
-                                .imageScale(.large)
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                showImagePicker.toggle()
+                            }) {
+                                Image(systemName: "arrow.up.to.line.alt")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 20, height: 50)
+                                    .foregroundColor(.blue)
+                                    .imageScale(.large)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                            Spacer()
                         }
+                        .frame(maxWidth: .infinity, alignment: .center)
                     }
-                }
 
-                Section {
-                    HStack {
-                        Spacer()
-                        Button(action: sendInformationToServer) {
-                            Text("Send")
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                        Spacer()
+                    Button(action: sendInformationToServer) {
+                        Text("AJOUTER")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
                     }
+                    .buttonStyle(BorderlessButtonStyle())
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
                 }
+              
+                
             }
-            .navigationTitle("New Information")
+            
+            .navigationBarTitle("", displayMode: .inline)
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(selectedImage: $image, showImagePicker: $showImagePicker)
+            }
+        }
+    }
+
+    struct SectionHeader: View {
+        let title: String
+
+        init(_ title: String) {
+            self.title = title
+        }
+
+        var body: some View {
+            HStack {
+                Spacer()
+                Text(title)
+                    .font(.headline)
+                    .foregroundColor(.blue)
+                Spacer()
             }
         }
     }
@@ -276,13 +308,19 @@ struct AddInfoView: View {
         var body: some View {
             HStack {
                 ForEach(options, id: \.self) { option in
-                    RadioButton(text: option.rawValue, isSelected: option == selectedOption) {
-                        selectedOption = option
-                    }
+                    RadioButton(
+                        text: option.rawValue,
+                        isSelected: option == selectedOption,
+                        action: { selectedOption = option }
+                    )
                 }
+                .buttonStyle(BorderlessButtonStyle())
+                .foregroundColor(.black)
             }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
     }
+
 
     struct RadioButton: View {
         var text: String
@@ -290,16 +328,16 @@ struct AddInfoView: View {
         var action: () -> Void
 
         var body: some View {
-            Button(action: {
-                action()
-            }) {
+            Button(action: action) {
                 HStack(alignment: .center, spacing: 5) {
                     Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
                     Text(text)
                 }
             }
+            .contentShape(Rectangle()) // Set the content shape to allow interaction
         }
     }
+
 
     func sendInformationToServer() {
         guard (image?.jpegData(compressionQuality: 0.5)) != nil else {

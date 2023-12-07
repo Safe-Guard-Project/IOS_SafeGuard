@@ -14,6 +14,18 @@
 		930F49AC2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */; };
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
 		930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */; };
+		931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1622B1C362E006EA625 /* Navigation2.swift */; };
+		931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */; };
+		931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */; };
+		931BE16B2B1CCBCD006EA625 /* CPassRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE16A2B1CCBCD006EA625 /* CPassRes.swift */; };
+		932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFCC2B1A85E700FB62EF /* Navigation.swift */; };
+		932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */; };
+		932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */; };
+		932EFFD52B1AD78200FB62EF /* RecEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */; };
+		932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */; };
+		932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */; };
+		932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */; };
+		932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */; };
 		933A309D2B17EE7E006D69DB /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A309C2B17EE7E006D69DB /* HomePageView.swift */; };
 		933A30A02B1801E2006D69DB /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A309F2B1801E2006D69DB /* ProgramView.swift */; };
 		933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30A12B180201006D69DB /* ProgramCardView.swift */; };
@@ -43,6 +55,12 @@
 		933A30D62B1812FF006D69DB /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D52B1812FF006D69DB /* LocationDetailsView.swift */; };
 		933A30D82B181317006D69DB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D72B181317006D69DB /* MapView.swift */; };
 		933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */; };
+		939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939108CB2B1CEAB7002AE6A6 /* CPass.swift */; };
+		93BA8CE02B21646E001A02E8 /* Favorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CDF2B21646E001A02E8 /* Favorie.swift */; };
+		93BA8CE32B2164BC001A02E8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */; };
+		93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */; };
+		93BA8CE72B216527001A02E8 /* FavorieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */; };
+		93BA8CE92B216543001A02E8 /* CommentaireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */; };
 		93DA559D2B13C6720046548B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA559C2B13C6720046548B /* SignInView.swift */; };
 		93DA55A52B1402B30046548B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A42B1402B30046548B /* SignUpView.swift */; };
 		93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A62B1411CB0046548B /* NetworkConstants.swift */; };
@@ -55,13 +73,14 @@
 		93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */; };
 		93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF222B15081D007A147E /* SplashScreenView.swift */; };
 		93E9CF262B15103A007A147E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 93E9CF252B15103A007A147E /* Kingfisher */; };
-		93E9CF282B152138007A147E /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF272B152138007A147E /* ForgetPasswordView.swift */; };
+		93E9CF282B152138007A147E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF272B152138007A147E /* ForgotPasswordView.swift */; };
 		93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF292B1531F0007A147E /* SignInViewModel.swift */; };
 		93E9CF2C2B155E4C007A147E /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF2B2B155E4B007A147E /* AppViewModel.swift */; };
 		93E9CF2E2B1584E4007A147E /* DisplayUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */; };
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
+		93FDF1742B1EA205003F91D9 /* CatastropheAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +111,18 @@
 		930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITests.swift; sourceTree = "<group>"; };
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		931BE1622B1C362E006EA625 /* Navigation2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
+		931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		931BE16A2B1CCBCD006EA625 /* CPassRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPassRes.swift; sourceTree = "<group>"; };
+		932EFFCC2B1A85E700FB62EF /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpValidationView.swift; sourceTree = "<group>"; };
+		932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpResponse.swift; sourceTree = "<group>"; };
+		932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecEmailViewModel.swift; sourceTree = "<group>"; };
+		932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpCode.swift; sourceTree = "<group>"; };
+		932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRec.swift; sourceTree = "<group>"; };
+		932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumTelRec.swift; sourceTree = "<group>"; };
+		932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecNumTelViewModel.swift; sourceTree = "<group>"; };
 		933A309C2B17EE7E006D69DB /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		933A309F2B1801E2006D69DB /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		933A30A12B180201006D69DB /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
@@ -121,6 +152,12 @@
 		933A30D52B1812FF006D69DB /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		933A30D72B181317006D69DB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepositoryImpl.swift; sourceTree = "<group>"; };
+		939108CB2B1CEAB7002AE6A6 /* CPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPass.swift; sourceTree = "<group>"; };
+		93BA8CDF2B21646E001A02E8 /* Favorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorie.swift; sourceTree = "<group>"; };
+		93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorieViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaireViewModel.swift; sourceTree = "<group>"; };
 		93DA559C2B13C6720046548B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		93DA55A42B1402B30046548B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		93DA55A62B1411CB0046548B /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
@@ -132,13 +169,14 @@
 		93DA55BC2B1451380046548B /* WebServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceProvider.swift; sourceTree = "<group>"; };
 		93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUserProfileView.swift; sourceTree = "<group>"; };
 		93E9CF222B15081D007A147E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		93E9CF272B152138007A147E /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		93E9CF272B152138007A147E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		93E9CF292B1531F0007A147E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		93E9CF2B2B155E4B007A147E /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayUserProfileViewModel.swift; sourceTree = "<group>"; };
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +276,14 @@
 				933A30B92B180EFF006D69DB /* CommentaireInfo.swift */,
 				933A30BB2B180F26006D69DB /* Information.swift */,
 				933A30CA2B1811B0006D69DB /* Catastrophe.swift */,
+				932EFFD22B1AC72A00FB62EF /* OtpResponse.swift */,
+				932EFFDA2B1BE8C900FB62EF /* OtpCode.swift */,
+				932EFFDC2B1BF8B800FB62EF /* EmailRec.swift */,
+				932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */,
+				931BE16A2B1CCBCD006EA625 /* CPassRes.swift */,
+				939108CB2B1CEAB7002AE6A6 /* CPass.swift */,
+				93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */,
+				93BA8CDF2B21646E001A02E8 /* Favorie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,8 +298,10 @@
 				93DA55A42B1402B30046548B /* SignUpView.swift */,
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
-				93E9CF272B152138007A147E /* ForgetPasswordView.swift */,
+				93E9CF272B152138007A147E /* ForgotPasswordView.swift */,
+				932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */,
 				933A309C2B17EE7E006D69DB /* HomePageView.swift */,
+				931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,11 +309,17 @@
 		930F49BC2AFCD8020094A97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				93BA8CE12B2164A4001A02E8 /* Programme */,
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
 				93E9CF292B1531F0007A147E /* SignInViewModel.swift */,
 				93E9CF2B2B155E4B007A147E /* AppViewModel.swift */,
 				93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */,
 				933A30D02B181296006D69DB /* CatastropheViewModel.swift */,
+				932EFFCC2B1A85E700FB62EF /* Navigation.swift */,
+				932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */,
+				932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */,
+				931BE1622B1C362E006EA625 /* Navigation2.swift */,
+				931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -321,6 +375,17 @@
 				933A30D72B181317006D69DB /* MapView.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		93BA8CE12B2164A4001A02E8 /* Programme */ = {
+			isa = PBXGroup;
+			children = (
+				93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */,
+				93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */,
+				93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */,
+				93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */,
+			);
+			path = Programme;
 			sourceTree = "<group>";
 		};
 		93DA55B52B1427CC0046548B /* Services */ = {
@@ -476,48 +541,67 @@
 				933A30BF2B180F66006D69DB /* InformationView.swift in Sources */,
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
+				931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */,
 				933A30BA2B180EFF006D69DB /* CommentaireInfo.swift in Sources */,
 				93E9CF2C2B155E4C007A147E /* AppViewModel.swift in Sources */,
 				933A30D12B181296006D69DB /* CatastropheViewModel.swift in Sources */,
+				931BE16B2B1CCBCD006EA625 /* CPassRes.swift in Sources */,
 				933A30A02B1801E2006D69DB /* ProgramView.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				933A30AC2B18026E006D69DB /* CommentsView.swift in Sources */,
+				93BA8CE72B216527001A02E8 /* FavorieViewModel.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				933A30AA2B180248006D69DB /* ContenuView.swift in Sources */,
 				933A30C72B180FE4006D69DB /* ProfileView.swift in Sources */,
 				93E9CF2E2B1584E4007A147E /* DisplayUserProfileViewModel.swift in Sources */,
 				933A30B22B1802A0006D69DB /* FavoriCardView.swift in Sources */,
+				932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */,
 				933A30C92B180FF7006D69DB /* ProfileCardView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */,
 				933A30B02B180293006D69DB /* FavoriView.swift in Sources */,
 				933A30B82B1802D2006D69DB /* Commentaire.swift in Sources */,
+				932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */,
+				93BA8CE92B216543001A02E8 /* CommentaireViewModel.swift in Sources */,
 				933A30BC2B180F26006D69DB /* Information.swift in Sources */,
+				932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */,
 				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
+				93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */,
+				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
+				931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */,
+				932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */,
 				933A30AE2B180282006D69DB /* CommentCardView.swift in Sources */,
+				932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				933A30CD2B18121A006D69DB /* CatastropheRepository.swift in Sources */,
 				933A30CB2B1811B0006D69DB /* Catastrophe.swift in Sources */,
+				931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */,
+				939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
 				933A30C12B180F85006D69DB /* InformationCardView.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				933A30D62B1812FF006D69DB /* LocationDetailsView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
+				93BA8CE32B2164BC001A02E8 /* ProgramViewModel.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				933A30CF2B18124E006D69DB /* CatastropheEndpoint.swift in Sources */,
 				93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */,
+				93BA8CE02B21646E001A02E8 /* Favorie.swift in Sources */,
 				933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */,
-				93E9CF282B152138007A147E /* ForgetPasswordView.swift in Sources */,
+				93E9CF282B152138007A147E /* ForgotPasswordView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
+				932EFFD52B1AD78200FB62EF /* RecEmailViewModel.swift in Sources */,
 				933A309D2B17EE7E006D69DB /* HomePageView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				933A30A62B180221006D69DB /* CoursView.swift in Sources */,
 				933A30A42B180217006D69DB /* CoursCardView.swift in Sources */,
+				93FDF1742B1EA205003F91D9 /* CatastropheAnnotation.swift in Sources */,
+				932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */,
 				933A30B62B1802C8006D69DB /* Cours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

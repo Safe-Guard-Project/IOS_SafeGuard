@@ -5,11 +5,16 @@
 //  Created by abir on 28/11/2023.
 //
 
+
 import SwiftUI
 
 struct ContenuCardView: View {
     var cours: Cours
+    @State private var comment: String = ""
      @State private var isFavorite: Bool = false
+      @ObservedObject var commentViewModel: CommentViewModel
+    @ObservedObject var favViewModel: FavorieViewModel
+  
 
      var body: some View {
          VStack(alignment: .leading, spacing: 8) {
@@ -19,9 +24,13 @@ struct ContenuCardView: View {
                      isFavorite.toggle()
 
                      if isFavorite {
+                         favViewModel.addFav(idCoursProgramme: cours.id)
+                         
                         
                      } else {
-                         
+                         if let favorie = favViewModel.favories.first(where: { $0.idCoursProgramme == cours.id }) {
+                                    favViewModel.deletefav(favorie: favorie)
+                                }
                      }
                  }) {
                      Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -32,9 +41,8 @@ struct ContenuCardView: View {
                  .font(.title)
              }
 
-             // Image
              GeometryReader { geometry in
-                 Image(cours.image)
+                 Image("tsunami")
                      .resizable()
                      .aspectRatio(contentMode: .fill)
                      .frame(width: geometry.size.width - 80, height: 200)
@@ -49,11 +57,73 @@ struct ContenuCardView: View {
          }
          .background(Color.white)
          .cornerRadius(10)
-        
          .padding(10)
-     }
-}
+         HStack {
+                         TextField("Ajouter un commentaire", text: $comment)
+                             .padding(10)
+                             .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
+                             .padding([.leading, .bottom], 10)
+                             .frame(height: 50)
 
-#Preview {
-    ContenuCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
+                         Button(action: {
+                             commentViewModel.addComment(textComment: comment, idCoursProgramme: cours.id)
+                             comment = ""
+                         }) {
+                             Image(systemName: "arrow.right.circle.fill")
+                                 .resizable()
+                                 .frame(width: 30, height: 30)
+                                 .foregroundColor(Color.blue)
+                                 .padding(.trailing, 10)
+                         }
+                     }
+                     .background(Color(UIColor.systemBackground))
+                     .navigationBarBackButtonHidden(true)
+                     .navigationBarHidden(true)
+     }
+}/*
+import SwiftUI
+
+struct ContenuCardView: View {
+    var cours: Cours
+    @State private var comment: String = ""
+    @State private var isFavorite: Bool = false
+    @ObservedObject var commentViewModel: CommentViewModel
+    @ObservedObject var favViewModel: FavorieViewModel
+    @State private var isCommentaireListViewActive: Bool = false
+
+    var body: some View {
+        NavigationLink(
+            destination: CommentaireListView(cours: cours, commentViewModel: commentViewModel),
+            isActive: $isCommentaireListViewActive
+        ) {
+            EmptyView()
+        }
+        .hidden()
+
+        VStack(alignment: .leading, spacing: 8) {
+            // ... Your existing content
+
+            HStack {
+                TextField("Ajouter un commentaire", text: $comment)
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
+                    .padding([.leading, .bottom], 10)
+                    .frame(height: 50)
+
+                Button(action: {
+                    commentViewModel.addComment(textComment: comment, idCoursProgramme: cours.id)
+                    comment = ""
+                    isCommentaireListViewActive.toggle()
+                }) {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(Color.blue)
+                        .padding(.trailing, 10)
+                }
+            }
+            .background(Color(UIColor.systemBackground))
+        }
+    }
 }
+*/

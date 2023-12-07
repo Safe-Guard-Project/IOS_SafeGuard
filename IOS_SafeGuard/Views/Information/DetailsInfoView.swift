@@ -117,6 +117,8 @@ struct DetailsInfoView: View {
             Text(value)
         }
         .padding(.horizontal)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

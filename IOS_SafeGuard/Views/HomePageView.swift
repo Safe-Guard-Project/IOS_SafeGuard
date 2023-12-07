@@ -11,13 +11,8 @@ struct HomePageView: View {
     var body: some View {
         TabView {
             Group {
-                ForgetPasswordView()
-                    .tabItem {
-                        Label("Home", systemImage: "house.fill")
-                            .foregroundColor(.black) // Set foreground color explicitly
-                    }
-                
-                SignInView()
+                 
+                   InformationView()
                     .tabItem {
                         Label("Blog", systemImage: "magnifyingglass")
                             .foregroundColor(.black) // Set foreground color explicitly
@@ -41,6 +36,8 @@ struct HomePageView: View {
                             .foregroundColor(.black) // Set foreground color explicitly
                     }
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
             .toolbarBackground(Color(red: 255, green: 255, blue: 255), for: .tabBar)
             .toolbarColorScheme(.dark, for: .tabBar)
         }

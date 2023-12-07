@@ -1,152 +1,110 @@
-
-
 import SwiftUI
 import MapKit
 
-
 struct MapView: View {
-    @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
     @State private var searchText = ""
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
-    @State private var showDetails =  false
+    @State private var showDetails = false
     @State private var viewModel = CatastropheViewModel(apiManager: ApiManager.shared)
 
     var body: some View {
-        Map(position: $cameraPosition, selection: $mapSelection){
-            //      Marker("My location",systemImage: "paperplane", coordinate: .userLocation)
-            //     .tint(.blue)
-            Annotation("My location", coordinate: .userLocation){
-                ZStack {
-                    Circle()
-                        .frame (width:32, height: 32)
-                        .foregroundColor (.blue.opacity(0.25))
-                    Circle()
-                        .frame (width: 20, height: 20)
-                        .foregroundColor (.white)
-                    
-                    Circle()
-                        .frame (width: 12, height: 12)
-                        .foregroundColor (.blue)
-                }
+        Map(
+            coordinateRegion: .constant(MKCoordinateRegion.centeredOn(viewModel.userLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 10000, longitudinalMeters: 10000)),
+
+            showsUserLocation: true,
+            userTrackingMode: .constant(.follow),
+            annotationItems: viewModel.catastrophes,
+            annotationContent: { catastrophe in
+                MapPin(coordinate: CLLocationCoordinate2D(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe), tint: .red)
             }
-            ForEach(results, id: \.self) { item in
-                let placemark = item.placemark
-                Marker(placemark.name ?? "", coordinate: placemark.coordinate)
-            }
-            ForEach(viewModel.catastrophes, id: \.self) { catastrophe in
-             
-                Annotation(catastrophe.titre, coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
-                
-                    ZStack {
-                 
-                        Circle()
-                            .frame(width: CGFloat(catastrophe.radius * 2), height: CGFloat(catastrophe.radius * 2))
-                            .foregroundColor(.red.opacity(0.5))
-                        
-                    }
-                }
-          
+        )
+        .onAppear {
+            Task {
+                await viewModel.fetchCatastrophes()
             }
         }
         .overlay(alignment: .top) {
-                       HStack {
-                           HStack {
-                          
-
-                           TextField("Search for a location...", text: $searchText)
-                               .font(.subheadline)
-                               .padding (12)
-                               .background(.white)
-                               .padding()
-                               .shadow(radius: 10)
-                               .onChange(of: searchText) {
-                                   searchPlaces()
-                               }
-                               Button(action: {
-                                          cameraPosition = .region(.userRegion)
-                                      }) {
-                                          Image(systemName: "location")
-                                            
-                                              .foregroundColor(.blue)
-                                              .frame(width: 40, height: 40)
-                                              .background(Color.white)
-                                              .cornerRadius(22)
-                                              .shadow(radius: 5)
-                                      }
-
-                                      .padding(.leading,0)
-                                  }
-                    
-                           
-                           .padding(.trailing, 70)
-                       }
-                   }
-                   .onChange(of: mapSelection, { oldValue, newValue in
-                       showDetails = newValue != nil
-                   })
-                   .sheet(isPresented: $showDetails, content: {
-                       LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
-                           .presentationDetents ([.height (340)])
-                           .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
-                           .presentationCornerRadius (12)
-                   })
-                       
-        
-                   .mapControls {
-                       MapCompass()
-                       MapPitchToggle()
-
-                   
-                   }
-                   .onAppear {
-                          viewModel.fetchCatastrophes()
-                      }
-     
-       }
-
+            HStack {
+                HStack {
+                    TextField("Search for a location...", text: $searchText)
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(.white)
+                        .padding()
+                        .shadow(radius: 10)
+                        .onChange(of: searchText) {
+                            searchPlaces()
+                        }
+                    Button(action: {
+                        // Center on user's location when the button is tapped
+                        if let userLocation = viewModel.userLocation {
+                            let region = MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
+                            mapSelection = nil
+                            showDetails = false
+                            viewModel.fetchCatastrophes()
+                            mapSelection = MKMapItem(placemark: MKPlacemark(coordinate: userLocation))
+                            showDetails = true
+                        }
+                    }) {
+                        Image(systemName: "location")
+                            .foregroundColor(.blue)
+                            .frame(width: 40, height: 40)
+                            .background(Color.white)
+                            .cornerRadius(22)
+                            .shadow(radius: 5)
+                    }
+                    .padding(.leading, 0)
+                }
+                .padding(.trailing, 70)
+            }
+        }
+        .onChange(of: mapSelection) { _, newValue in
+            showDetails = newValue != nil
+        }
+        .sheet(isPresented: $showDetails) {
+            LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
+                .presentationDetents([.height(340)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                .presentationCornerRadius(12)
+        }
+        .mapControls {
+            MapCompass()
+            MapPitchToggle()
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
-           
-           
 
-
-extension MapView {
     func searchPlaces() {
-        let request = MKLocalSearch.Request ()
+        let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
-        request.region = .userRegion
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             guard let response = response else { return }
             self.results = response.mapItems
 
-            // Navigate to the first search result
             if let firstResult = response.mapItems.first {
                 self.mapSelection = firstResult
-                self.cameraPosition = .region(.init(center: firstResult.placemark.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000))
             }
         }
     }
 }
 
-
-
-
-extension CLLocationCoordinate2D {
-    static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 36.901000, longitude: 10.190120)
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView()
     }
 }
 
 extension MKCoordinateRegion {
-    static var userRegion: MKCoordinateRegion {
-        return .init(center: .userLocation,
-                     latitudinalMeters: 10000,
-                     longitudinalMeters: 10000)
+    static func centeredOn(_ center: CLLocationCoordinate2D, latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> MKCoordinateRegion {
+        return MKCoordinateRegion(
+            center: center,
+            latitudinalMeters: latitudinalMeters,
+            longitudinalMeters: longitudinalMeters
+        )
     }
 }
 
 
-#Preview {
-    MapView()
-}

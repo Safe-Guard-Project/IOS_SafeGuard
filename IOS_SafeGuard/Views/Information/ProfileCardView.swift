@@ -56,6 +56,8 @@ struct ProfileCardView: View {
         .cornerRadius(10)
         .shadow(radius: 5)
         .padding(10)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

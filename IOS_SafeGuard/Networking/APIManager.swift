@@ -1,4 +1,5 @@
 import Combine
+import Foundation
 
 class ApiManager: APIService {
     static let shared = ApiManager()
@@ -54,9 +55,58 @@ class ApiManager: APIService {
         let catastropheEndpoint = CatastropheEndpoint.getCatastrophe
         print("URL: \(NetworkConstants.baseURL + catastropheEndpoint.path)")
         return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + catastropheEndpoint.path,
-                                                        method: catastropheEndpoint.httpMethod,
+                                                        method: "GET",
                                                         params: nil,
                                                         queryParams: nil)
             .eraseToAnyPublisher()
     }
+    func recoverPasswordByEmail(email: String) -> AnyPublisher<OtpResponse?, Error> {
+            let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByEmail.path
+            print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")
+
+            let params: [String: Any] = [
+                "email": email
+            ]
+            print("Params: \(params)")
+
+            return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + recoverPasswordEndpoint,
+                                                            method: "POST",
+                                                            params: params)
+                .map { resetCode in
+                    // You can add additional handling or transformation here if needed
+                    return resetCode
+                }
+                .eraseToAnyPublisher()
+        }
+    func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error> {
+            let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByPhone.path
+            print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")
+
+            let params: [String: Any] = [
+                "numeroTel": numeroTel
+            ]
+            print("Params: \(params)")
+
+            return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + recoverPasswordEndpoint,
+                                                            method: "POST",
+                                                            params: params)
+                .map { resetCode in
+                    // You can add additional handling or transformation here if needed
+                    return resetCode
+                }
+                .eraseToAnyPublisher()
+        }
+    func changePassword(cPass:CPass )-> AnyPublisher<CPassRes?, Error> {
+           let changePasswordEndpoint = UserEndpoints.changePassword.path.description
+           let params: [String: Any] = [
+            "password": cPass.newPassword,
+            "confirmPassword": cPass.confirmPassword
+           ]
+
+        return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + changePasswordEndpoint,
+               method: "POST",
+               params: params
+           )
+           .eraseToAnyPublisher()
+       }
 }

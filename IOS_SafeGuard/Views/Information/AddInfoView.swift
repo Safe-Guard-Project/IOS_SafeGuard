@@ -136,6 +136,8 @@ struct RadioButton: View {
                 Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
                 Text(text)
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
 }

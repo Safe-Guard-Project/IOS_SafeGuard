@@ -1,11 +1,5 @@
-//
-//  User.swift
-//  IOS_SafeGuard
-//
-//  Created by Omar.Djebbi on 26/11/2023.
-//When you declare a class or struct as Codable, you're essentially saying that instances of that type can be easily converted to and from a format like JSON
-
 import Foundation
+
 enum UserRole: String, Codable {
     case client
     case admin
@@ -13,15 +7,27 @@ enum UserRole: String, Codable {
 
 struct User: Codable, Identifiable {
     let _id: String
-    let UserName: String
-    let email: String
-    let password: String
-    let Role: UserRole
-    let latitudeUser: Int
-    let longitudeUser: Int
-    let numeroTel: String
+    let UserName: String?
+    let email: String?
+    let password: String?
+    let Role: UserRole?
+    let latitudeUser: Int?
+    let longitudeUser: Int?
+    let numeroTel: String?
+
+    // Include CodingKeys enum to handle custom key mappings
+    enum CodingKeys: String, CodingKey {
+        case _id
+        case UserName
+        case email
+        case password
+        case Role
+        case latitudeUser
+        case longitudeUser
+        case numeroTel
+    }
+
     var id: String {
         return _id
     }
 }
-

@@ -8,7 +8,9 @@ enum NetworkError: Error {
     case invalidData
     case unknownError
     case invalidResponse
+    case invalidMethod
     case statusCode(Int)
+    case biometricsNotAvailable
     case decodingError(DecodingError)
     // Add more error cases as needed
 }

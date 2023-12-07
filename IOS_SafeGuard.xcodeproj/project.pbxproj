@@ -75,6 +75,7 @@
 		93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F392192B12C83700A63B62 /* UserEndPoint.swift */; };
 		93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921B2B12C85D00A63B62 /* APIManager.swift */; };
 		93F3921E2B12C87E00A63B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3921D2B12C87E00A63B62 /* User.swift */; };
+		93FDF1742B1EA205003F91D9 /* CatastropheAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		93F392192B12C83700A63B62 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		93F3921B2B12C85D00A63B62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		93F3921D2B12C87E00A63B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				932EFFDE2B1BF8CD00FB62EF /* NumTelRec.swift */,
 				931BE16A2B1CCBCD006EA625 /* CPassRes.swift */,
 				939108CB2B1CEAB7002AE6A6 /* CPass.swift */,
+				93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				933A30A62B180221006D69DB /* CoursView.swift in Sources */,
 				933A30A42B180217006D69DB /* CoursCardView.swift in Sources */,
+				93FDF1742B1EA205003F91D9 /* CatastropheAnnotation.swift in Sources */,
 				932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */,
 				933A30B62B1802C8006D69DB /* Cours.swift in Sources */,
 			);

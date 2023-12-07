@@ -76,6 +76,17 @@ struct SignInView: View {
                     .buttonStyle(PlainButtonStyle())
                     .disabled($signInViewModel.isSigningIn.wrappedValue)
                     Spacer()
+                    
+                    Button(action: {
+                    signInViewModel.authenticateWithFaceID { result in
+                                  }
+                    }) {
+                    Image(systemName: "faceid")
+                       .resizable()
+                       .frame(width: 30, height: 30)
+                       .foregroundColor(.blue)
+                       .padding()
+                       }
                 }
 
                 if isLogin {

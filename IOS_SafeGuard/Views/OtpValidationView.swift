@@ -85,3 +85,7 @@ struct OtpValidationView: View {
         return enteredOTP == storedOtpCode || enteredOTP == storedOtpResponse
     }
 }
+
+#Preview {
+    OtpValidationView()
+}

@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import CoreLocation
 
 class CatastropheViewModel: ObservableObject {
     @Published var catastrophes: [Catastrophe] = []
@@ -27,5 +28,9 @@ class CatastropheViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-}
 
+    // Define the userLocation property
+    var userLocation: CLLocationCoordinate2D? {
+        return .init(latitude: 36.901000, longitude: 10.190120)
+    }
+}

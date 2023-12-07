@@ -385,12 +385,16 @@ struct InformationView: View {
                     .padding(.horizontal, 16)
             }
             .padding()
-            .border(Color.blue, width: 2) // Bordure en bleu
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.blue, lineWidth: 2)
+            )
             .cornerRadius(12)
             .shadow(radius: 4)
             .frame(height: 300)
         }
     }
+
 
 
 

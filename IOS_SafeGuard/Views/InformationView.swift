@@ -319,22 +319,20 @@ struct InformationView: View {
     @State private var selectedInformation: Information?
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(informations) { info in
-                        VStack(alignment: .leading, spacing: 8) {
+            NavigationView {
+                ScrollView {
+                    LazyVStack(spacing: 50) { // Ajouter un espacement vertical entre chaque carte
+                        ForEach(informations) { info in
                             InformationCardView(information: info)
                                 .onTapGesture {
                                     selectedInformation = info
                                 }
                         }
-                        .padding(.horizontal)
                     }
+                    .padding(.horizontal, 20) // Ajouter un espacement horizontal global
+                    .padding(.top, 16)
                 }
-                .padding(.top, 16)
-            }
-            .navigationBarTitle("Information")
+            .navigationBarTitle("Blog")
             .onAppear {
                 fetchInformation()
             }
@@ -367,26 +365,36 @@ struct InformationView: View {
         let information: Information
 
         var body: some View {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(spacing: 8) {
                 AsyncImageView(url: information.image ?? "")
                     .frame(height: 200)
 
-                if let titre = information.titre {
-                    Text(titre)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                }
+                Spacer()
+
+                Text(information.titre ?? "")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+                    .padding(.horizontal, 16)
+
+                Spacer()
 
                 Text(information.descriptionInformation)
                     .font(.subheadline)
                     .foregroundColor(.gray)
+                    .padding(.horizontal, 16)
             }
             .padding()
-            .background(Color.white)
+            .border(Color.blue, width: 2) // Bordure en bleu
             .cornerRadius(12)
             .shadow(radius: 4)
+            .frame(height: 300)
         }
     }
+
+
+
+
 
 
     struct InformationDetailView: View {
@@ -408,21 +416,21 @@ struct InformationView: View {
                             .frame(height: 200)
                     }
 
-                    titleValueRow(title: "Type of Catastrophe", value: information.typeCatastrophe)
-                    titleValueRow(title: "Country", value: information.pays)
+                    titleValueRow(title: "Type DE Catastrophe", value: information.typeCatastrophe)
+                    titleValueRow(title: "Pays", value: information.pays)
                     titleValueRow(title: "Region", value: information.region)
-                    titleValueRow(title: "Statement", value: information.etat)
-                    titleValueRow(title: "Prevention Date", value: formatDate(information.dateDePrevention))
-                    titleValueRow(title: "Liabilities Percent", value: "\(information.pourcentageFiabilite)%")
+                    titleValueRow(title: "Etat", value: information.etat)
+                    titleValueRow(title: "Date de prevention", value: formatDate(information.dateDePrevention))
+                    titleValueRow(title: "Pourcentage de Fiabilité", value: "\(information.pourcentageFiabilite)%")
 
-                    Section(header: Text("Description of Catastrophe").font(.headline).padding(.horizontal)) {
+                    Section(header: Text("Description de catastrophe").font(.headline).padding(.horizontal)) {
                         Text(information.descriptionInformation)
                             .padding(.horizontal)
                     }
 
                     if !comments.isEmpty {
                         Divider()
-                        Section(header: Text("Comments").font(.headline).padding(.leading)) {
+                        Section(header: Text("Commentaires").font(.headline).padding(.leading)) {
                             ForEach(comments, id: \.self) { comment in
                                 HStack {
                                     Text(comment)
@@ -437,7 +445,7 @@ struct InformationView: View {
                     Divider()
 
                     HStack {
-                        TextField("Type your comment here", text: $commentText)
+                        TextField("Tapez votre commentaire", text: $commentText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
                             .padding()
@@ -473,7 +481,7 @@ struct InformationView: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("Information Detail", displayMode: .inline)
+            .navigationBarTitle("Détails du Blog", displayMode: .inline)
         }
 
         private func formatDate(_ date: Date) -> String {
@@ -500,7 +508,7 @@ struct InformationView: View {
     }
 
     func fetchInformation() {
-        guard let url = URL(string: "http://localhost:5001/information") else {
+        guard let url = URL(string: "http://localhost:9090/information") else {
             print("Invalid URL")
             return
         }
@@ -543,7 +551,7 @@ struct InformationView: View {
         @StateObject private var imageLoader: ImageLoader
 
         init(url: String) {
-            let urlString = "http://localhost:5001/" + url
+            let urlString = "http://localhost:9090/" + url
             _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
         }
 

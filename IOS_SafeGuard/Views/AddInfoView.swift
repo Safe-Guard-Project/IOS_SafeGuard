@@ -85,7 +85,7 @@ struct AddInfoView: View {
                 }
             }
             .navigationTitle("New Blog")
-        }
+        }v
     }
 
     struct RadioGroup: View {
@@ -302,12 +302,12 @@ struct AddInfoView: View {
     }
 
     func sendInformationToServer() {
-        guard let imageData = image?.jpegData(compressionQuality: 0.5) else {
+        guard (image?.jpegData(compressionQuality: 0.5)) != nil else {
             print("Selected image is missing")
             return
         }
 
-        guard let url = URL(string: "http://localhost:5001/information") else {
+        guard let url = URL(string: "http://localhost:9090/information") else {
             print("Invalid URL")
             return
         }

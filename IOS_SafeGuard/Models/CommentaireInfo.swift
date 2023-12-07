@@ -6,7 +6,13 @@
 //
 
 import Foundation
-struct CommentaireInfo: Identifiable{
-    let id = UUID()
+
+struct CommentaireInfo: Identifiable, Codable {
+    let id: UUID?
     let textComment: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case textComment
+    }
 }

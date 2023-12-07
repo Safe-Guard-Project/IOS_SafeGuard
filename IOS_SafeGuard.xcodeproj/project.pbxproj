@@ -39,6 +39,9 @@
 		E58479872B17FB8800B6ABD3 /* page1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58479862B17FB8800B6ABD3 /* page1View.swift */; };
 		E58479892B17FC1300B6ABD3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58479882B17FC1300B6ABD3 /* ProfileView.swift */; };
 		E584798B2B17FDA500B6ABD3 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */; };
+		E5EB75CC2B21823F000E6229 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB75CB2B21823F000E6229 /* URLImage */; };
+		E5EB75CE2B21823F000E6229 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB75CD2B21823F000E6229 /* URLImageStore */; };
+		E5EB75D02B218E15000E6229 /* YourAPIServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */; };
 		EF6C8A9F2B1EA2A300CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8A9E2B1EA2A300CD8587 /* Alamofire */; };
 		EF6C8AA12B1EA2B800CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8AA02B1EA2B800CD8587 /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -95,6 +98,7 @@
 		E58479862B17FB8800B6ABD3 /* page1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = page1View.swift; sourceTree = "<group>"; };
 		E58479882B17FC1300B6ABD3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
+		E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAPIServiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EB75CE2B21823F000E6229 /* URLImageStore in Frameworks */,
 				93E9CF262B15103A007A147E /* Kingfisher in Frameworks */,
+				E5EB75CC2B21823F000E6229 /* URLImage in Frameworks */,
 				EF6C8A9F2B1EA2A300CD8587 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +216,7 @@
 				E58479862B17FB8800B6ABD3 /* page1View.swift */,
 				E58479882B17FC1300B6ABD3 /* ProfileView.swift */,
 				E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */,
+				E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +279,8 @@
 			packageProductDependencies = (
 				93E9CF252B15103A007A147E /* Kingfisher */,
 				EF6C8A9E2B1EA2A300CD8587 /* Alamofire */,
+				E5EB75CB2B21823F000E6229 /* URLImage */,
+				E5EB75CD2B21823F000E6229 /* URLImageStore */,
 			);
 			productName = IOS_SafeGuard;
 			productReference = 930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */;
@@ -351,6 +360,7 @@
 			packageReferences = (
 				93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EF6C8A9D2B1EA2A300CD8587 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E5EB75CA2B21823F000E6229 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 930F498E2AFCD52A0094A97E /* Products */;
 			projectDirPath = "";
@@ -395,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
+				E5EB75D02B218E15000E6229 /* YourAPIServiceView.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				E58479872B17FB8800B6ABD3 /* page1View.swift in Sources */,
@@ -753,6 +764,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		E5EB75CA2B21823F000E6229 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		EF6C8A9D2B1EA2A300CD8587 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -768,6 +787,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E5EB75CB2B21823F000E6229 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5EB75CA2B21823F000E6229 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		E5EB75CD2B21823F000E6229 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5EB75CA2B21823F000E6229 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
 		};
 		EF6C8A9E2B1EA2A300CD8587 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -309,7 +309,7 @@ struct InformationView_Previews: PreviewProvider {
         InformationView()
     }
 }*/
-
+import URLImage
 
 import SwiftUI
 
@@ -375,10 +375,16 @@ struct InformationView: View {
 
         var body: some View {
             VStack(spacing: 8) {
-                AsyncImageView(url: information.image ?? "")
+               /* AsyncImageView(url: information.image ?? "")
                     .frame(height: 200)
 
-                Spacer()
+                Spacer()*/
+                Image("tsunami") // Replace "folderImage" with the actual name of your image asset
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 100) // Adjust the height as needed
+
+                        Spacer()
 
                 Text(information.titre ?? "")
                     .font(.headline)
@@ -448,10 +454,22 @@ struct InformationView: View {
                         }
                         .padding(.horizontal)
 
-                    if !(information.image?.isEmpty ?? true) {
-                        AsyncImageView(url: information.image ?? "")
-                            .frame(height: 200)
-                    }
+                       /* if !(information.image?.isEmpty ?? true) {
+                            AsyncImageView(url: information.image ?? "")
+                                .frame(height: 200)
+                        } else {
+                            Image("tsunami.jpg") // Use the name of your static image asset
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 200)
+                        }*/
+                        Image("tsunami") // Replace "folderImage" with the actual name of your image asset
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 100) // Adjust the height as needed
+
+                                Spacer()
+
 
                     titleValueRow(title: "Type de catastrophe :", value: information.typeCatastrophe)
                     titleValueRow(title: "Pays :", value: information.pays)
@@ -604,7 +622,7 @@ struct InformationView: View {
         }.resume()
     }
 
-    struct AsyncImageView: View {
+    /*struct AsyncImageView: View {
         @StateObject private var imageLoader: ImageLoader
 
         init(url: String) {
@@ -638,7 +656,7 @@ struct InformationView: View {
                 }
             }.resume()
         }
-    }
+    }*/
 
     struct MyInformationView_Previews: PreviewProvider {
         static var previews: some View {

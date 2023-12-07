@@ -1,6 +1,6 @@
-import SwiftUI
+/*import SwiftUI
 
-/*struct ProfileCardView: View {
+struct ProfileCardView: View {
     var information: Information
     
     var body: some View {
@@ -63,7 +63,7 @@ import SwiftUI
 
 struct ProfileCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileCardView(information: Information(id: "gg", titre: "Sample Title", typeCatastrophe: "Sample Type", idUser: "", pays: "Sample Country", region: "Sample Region", descriptionInformation: "Sample Description", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 50, etat: "Sample State"))
+        
     }
 }
 */

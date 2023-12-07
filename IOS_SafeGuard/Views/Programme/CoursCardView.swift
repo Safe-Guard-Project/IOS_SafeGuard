@@ -4,29 +4,36 @@
 //
 //  Created by abir on 28/11/2023.
 //
-
 import SwiftUI
 
 struct CoursCardView: View {
-    var cours: Cours
 
-       var body: some View {
-           VStack {
-               Text(cours.type)
-                   .font(.title)
-                   .fontWeight(.medium)
-                   .foregroundColor(.white)
-                   .padding(10)
-                   .background(Color.blue)
-                   .cornerRadius(10)
-           }
-           .frame(maxWidth: .infinity, alignment: .center)
-           .background(Color.blue)
-           .cornerRadius(10)
-           .padding(15)
-       }
-}
+    let buttonText: String
 
-#Preview {
-    CoursCardView(cours: Cours(type: "Cause", image: "Intro", description: "ok"))
+    var body: some View {
+
+        VStack {
+
+            Text(buttonText)
+
+                .font(.headline)
+
+                .foregroundColor(.white)
+
+                .frame(width: 200, height: 40)
+
+                .padding()
+
+                .background(RoundedRectangle(cornerRadius: 20).fill(Color.blue))
+
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 2))
+
+                .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3) // Add a shadow
+                .navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true)
+
+        }
+
+    }
+
 }

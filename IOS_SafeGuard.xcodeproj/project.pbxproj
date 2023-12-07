@@ -56,6 +56,11 @@
 		933A30D82B181317006D69DB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D72B181317006D69DB /* MapView.swift */; };
 		933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */; };
 		939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939108CB2B1CEAB7002AE6A6 /* CPass.swift */; };
+		93BA8CE02B21646E001A02E8 /* Favorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CDF2B21646E001A02E8 /* Favorie.swift */; };
+		93BA8CE32B2164BC001A02E8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */; };
+		93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */; };
+		93BA8CE72B216527001A02E8 /* FavorieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */; };
+		93BA8CE92B216543001A02E8 /* CommentaireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */; };
 		93DA559D2B13C6720046548B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA559C2B13C6720046548B /* SignInView.swift */; };
 		93DA55A52B1402B30046548B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A42B1402B30046548B /* SignUpView.swift */; };
 		93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA55A62B1411CB0046548B /* NetworkConstants.swift */; };
@@ -148,6 +153,11 @@
 		933A30D72B181317006D69DB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepositoryImpl.swift; sourceTree = "<group>"; };
 		939108CB2B1CEAB7002AE6A6 /* CPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPass.swift; sourceTree = "<group>"; };
+		93BA8CDF2B21646E001A02E8 /* Favorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorie.swift; sourceTree = "<group>"; };
+		93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorieViewModel.swift; sourceTree = "<group>"; };
+		93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaireViewModel.swift; sourceTree = "<group>"; };
 		93DA559C2B13C6720046548B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		93DA55A42B1402B30046548B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		93DA55A62B1411CB0046548B /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
@@ -273,6 +283,7 @@
 				931BE16A2B1CCBCD006EA625 /* CPassRes.swift */,
 				939108CB2B1CEAB7002AE6A6 /* CPass.swift */,
 				93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */,
+				93BA8CDF2B21646E001A02E8 /* Favorie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 		930F49BC2AFCD8020094A97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				93BA8CE12B2164A4001A02E8 /* Programme */,
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
 				93E9CF292B1531F0007A147E /* SignInViewModel.swift */,
 				93E9CF2B2B155E4B007A147E /* AppViewModel.swift */,
@@ -363,6 +375,17 @@
 				933A30D72B181317006D69DB /* MapView.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		93BA8CE12B2164A4001A02E8 /* Programme */ = {
+			isa = PBXGroup;
+			children = (
+				93BA8CE22B2164BC001A02E8 /* ProgramViewModel.swift */,
+				93BA8CE42B2164FC001A02E8 /* CoursViewModel.swift */,
+				93BA8CE62B216527001A02E8 /* FavorieViewModel.swift */,
+				93BA8CE82B216543001A02E8 /* CommentaireViewModel.swift */,
+			);
+			path = Programme;
 			sourceTree = "<group>";
 		};
 		93DA55B52B1427CC0046548B /* Services */ = {
@@ -527,6 +550,7 @@
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
 				933A30AC2B18026E006D69DB /* CommentsView.swift in Sources */,
+				93BA8CE72B216527001A02E8 /* FavorieViewModel.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				933A30AA2B180248006D69DB /* ContenuView.swift in Sources */,
 				933A30C72B180FE4006D69DB /* ProfileView.swift in Sources */,
@@ -540,10 +564,12 @@
 				933A30B02B180293006D69DB /* FavoriView.swift in Sources */,
 				933A30B82B1802D2006D69DB /* Commentaire.swift in Sources */,
 				932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */,
+				93BA8CE92B216543001A02E8 /* CommentaireViewModel.swift in Sources */,
 				933A30BC2B180F26006D69DB /* Information.swift in Sources */,
 				932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */,
 				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
+				93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */,
 				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
 				931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */,
 				932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */,
@@ -560,10 +586,12 @@
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				933A30D62B1812FF006D69DB /* LocationDetailsView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
+				93BA8CE32B2164BC001A02E8 /* ProgramViewModel.swift in Sources */,
 				93F3921E2B12C87E00A63B62 /* User.swift in Sources */,
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				933A30CF2B18124E006D69DB /* CatastropheEndpoint.swift in Sources */,
 				93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */,
+				93BA8CE02B21646E001A02E8 /* Favorie.swift in Sources */,
 				933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */,
 				93E9CF282B152138007A147E /* ForgotPasswordView.swift in Sources */,
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,

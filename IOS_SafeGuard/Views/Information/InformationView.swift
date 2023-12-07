@@ -49,7 +49,10 @@ struct InformationView: View {
                 withAnimation {
                     isActionButtonVisible = true
                 }
+                
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
 }

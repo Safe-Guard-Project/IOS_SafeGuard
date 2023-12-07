@@ -47,7 +47,9 @@ struct SignInView: View {
                     Button(action: {
                         signInViewModel.email = email
                         signInViewModel.password = password
-                        signInViewModel.signIn(email: email, password: password) { result in
+                        signInViewModel.signIn(email: email, password: password) 
+                        
+                        { result in
                             switch result {
                             case .success(let user):
                                 self.user = user
@@ -58,7 +60,6 @@ struct SignInView: View {
                                 UserDefaults.standard.set(user.numeroTel, forKey: "numeroTel")
                                 // Navigate to DisplayUserProfileView
                                 self.isLogin = true
-
                                 //Navigation().navigateToProfile()
                             case .failure(let error):
                                 print("Sign-in failed: \(error)")
@@ -78,9 +79,10 @@ struct SignInView: View {
                     Spacer()
                     
                     Button(action: {
-                    signInViewModel.authenticateWithFaceID { result in
+                    //signInViewModel.authenticateWithFaceID
+                        
                                   }
-                    }) {
+                    ) {
                     Image(systemName: "faceid")
                        .resizable()
                        .frame(width: 30, height: 30)
@@ -127,14 +129,19 @@ struct SignInView: View {
             .background(Color("BlueBackground"))
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
+
             .background(
             NavigationLink(
-                destination: DisplayUserProfileView(),
+                destination: HomePageView(),
                 isActive: $isLogin,
                 label: EmptyView.init
             )
             )
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
+
     }
+    
 }

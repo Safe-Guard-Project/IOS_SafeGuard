@@ -49,7 +49,10 @@ struct ProfileView: View {
                 withAnimation {
                     isActionButtonVisible = true
                 }
+                
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
     }
 }

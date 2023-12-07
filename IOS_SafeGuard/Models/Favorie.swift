@@ -1,20 +1,18 @@
 //
-//  Commentaire.swift
+//  Favorie.swift
 //  IOS_SafeGuard
 //
-//  Created by abir on 28/11/2023.
+//  Created by abir on 4/12/2023.
 //
 
 import Foundation
-
-struct Commentaire: Codable, Identifiable {
+struct Favorie: Codable, Identifiable {
     let id: String
-    let textComment: String
     let idCoursProgramme: String
-
+   
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case textComment
        case idCoursProgramme
+       
     }
 }

@@ -1,55 +1,53 @@
 import SwiftUI
+struct CommentsView: View {
+    @StateObject private var commentViewModel = CommentViewModel()
+
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(commentViewModel.comments) { comment in
+                    CommentCardView(commentaire: comment)
+                }
+            }
+            .navigationBarTitleDisplayMode(.large)
+             // Titre de la barre de navigation
+
+            .navigationBarItems(leading: HStack {
+                Text("Tous les commentaires")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+            })
+        }
+        .onAppear {
+            commentViewModel.getAllComments()
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+    }
+}
+/*
+import SwiftUI
 
 struct CommentsView: View {
-    /*
-     let comments = [
-     "Great information!",
-     "Very helpful.",
-     "I have a question...",
-     "Nice explanation!",
-     "Thank you!"
-     // Add more comments as needed
-     ]
-     */
-    @State private var comments: [Commentaire] = [
-           Commentaire(textComment: "Great information!"),
-           Commentaire(textComment: "I have a question"),
-           Commentaire(textComment: "Nice explanation!"),
-           Commentaire(textComment: "Thank you!"),
-       ]
+    var cours: Cours
+    @ObservedObject var commentViewModel: CommentViewModel
+
     var body: some View {
-            NavigationView {
-                List {
-                    ForEach(comments) { comment in
-                        CommentCardView(commentaire: comment)
-                            .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
-                            .swipeActions {
-                                Button("Modify") {
-                                    // Add code for modifying the comment
-                                }
-                                .tint(.blue)
+        VStack {
+            Text("Comments for \(cours.title)")
+                .font(.title)
+                .padding()
 
-                                Button("Delete") {
-                                    // Add code for deleting the comment
-                                    if let index = comments.firstIndex(where: { $0.id == comment.id }) {
-                                        comments.remove(at: index)
-                                    }
-                                }
-                                .tint(.red)
-                            }
-                    }
-                    .onDelete(perform: deleteComment)
-                }
-                .navigationTitle("Votre avis")
-                .navigationBarTitleDisplayMode(.large)
+            List(commentViewModel.comments) { commentaire in
+                Text(commentaire.textComment)
             }
-        }
+            .onAppear {
+                // Load comments when the view appears
+                commentViewModel.getAllComments()
+            }
 
-        private func deleteComment(at indexSet: IndexSet) {
-            comments.remove(atOffsets: indexSet)
+            Spacer()
         }
-}
-
-#Preview {
-    CommentsView()
-}
+        .navigationTitle("Comments")
+    }
+}*/

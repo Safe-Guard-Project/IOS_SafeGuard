@@ -76,7 +76,7 @@
         
         
         
-        func authenticateWithFaceID(completion: @escaping (Result<User, Error>) -> Void) {
+        /*func authenticateWithFaceID(completion: @escaping (Result<User, Error>) -> Void) {
                 let context = LAContext()
 
                 // Check if the device supports Face ID
@@ -91,7 +91,7 @@
                         if success {
                             // Face ID authentication successful
                             // Call completion with the result of successful authentication
-                            completion(.success(User.mockUser())) // Replace with your user object
+                            completion(.success(User)) // Replace with your user object
                         } else {
                             // Face ID authentication failed
                             // Call completion with the result of failed authentication
@@ -99,5 +99,5 @@
                         }
                     }
                 }
-            }
+            }*/
     }

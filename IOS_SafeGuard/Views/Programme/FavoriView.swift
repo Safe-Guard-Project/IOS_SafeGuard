@@ -1,9 +1,9 @@
 
 import SwiftUI
-
+/*
 struct FavoriView: View {
     let courses = [
-        Cours(type:"Cause", image:"cause",description:"Un tsunami est généralement provoqué par un séisme sous-marin, une éruption volcanique ou un glissement de terrain sous-marin, déplaçant brusquement de grandes quantités d eau et générant des vagues dévastatrices."),
+        Cours(type:"cause" ,image:"cause",description:"Un tsunami est généralement provoqué par un séisme sous-marin, une éruption volcanique ou un glissement de terrain sous-marin, déplaçant brusquement de grandes quantités d eau et générant des vagues dévastatrices."),
         
         
     ]
@@ -59,4 +59,33 @@ struct FavoriView: View {
 
 #Preview {
     FavoriView()
+}
+
+*/
+
+struct FavoriView: View {
+    @StateObject private var favorieViewModel = FavorieViewModel()
+
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(favorieViewModel.favories) { favori in
+                    FavoriCardView(favorie: favori )
+                        
+                }
+               
+            }
+            .navigationTitle("Votre Favoris")
+            .navigationBarTitleDisplayMode(.large)
+        }
+        .onAppear {
+            favorieViewModel.getAllFav()
+        }
+        //.navigationBarBackButtonHidden(true)
+       // .navigationBarHidden(true)
+    }
+
+   /* private func deleteComment(at indexSet: IndexSet) {
+        commentViewModel.comments.remove(atOffsets: indexSet)
+    }*/
 }

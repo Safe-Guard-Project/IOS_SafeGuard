@@ -18,25 +18,22 @@ class WebServiceProvider {
                 .eraseToAnyPublisher()
         }
 
-        // Declare request variable here
-        var request: URLRequest
+        // Check if it's a GET request and append query parameters
+        if method.uppercased() == "GET", let queryParams = queryParams {
+            urlComponents.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+        }
 
-        if method.uppercased() == "GET" {
-            // Append query parameters if available
-            if let queryParams = queryParams {
-                urlComponents.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
-            }
+        guard let fullURL = urlComponents.url else {
+            return Fail<T?, Error>(error: NetworkError.invalidURL)
+                .eraseToAnyPublisher()
+        }
 
-            // Move the declaration of request here for GET requests
-            guard let fullURL = urlComponents.url else {
-                return Fail<T?, Error>(error: NetworkError.invalidURL)
-                    .eraseToAnyPublisher()
-            }
-            request = URLRequest(url: fullURL)
-        } else if method.uppercased() == "POST", let params = params {
-            // Set the HTTP body for POST requests
+        var request = URLRequest(url: fullURL)
+        request.httpMethod = method
+
+        // Set the HTTP body if needed
+        if method.uppercased() == "POST", let params = params {
             do {
-                request = URLRequest(url: urlComponents.url!) // Note: Force unwrapping here assumes fullURL is not nil
                 request.httpBody = try JSONSerialization.data(withJSONObject: params)
                 // Set the content type to JSON
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -44,10 +41,6 @@ class WebServiceProvider {
                 return Fail<T?, Error>(error: NetworkError.invalidData)
                     .eraseToAnyPublisher()
             }
-        } else {
-            // Handle other HTTP methods here if needed
-            return Fail<T?, Error>(error: NetworkError.invalidMethod)
-                .eraseToAnyPublisher()
         }
 
         return URLSession.shared.dataTaskPublisher(for: request)

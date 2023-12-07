@@ -54,6 +54,13 @@ struct DisplayUserProfileView: View {
                         .foregroundColor(.gray)
                         .padding(.leading, 16)
                     
+                    // Add NavigationLink to FavoriView
+                    NavigationLink(destination: FavoriView()) {
+                        Text("Go to Favorites")
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                            .padding(.leading, 16)
+                    }
                 }
                 .padding(8)
             }
@@ -61,14 +68,11 @@ struct DisplayUserProfileView: View {
                 // Fetch user information when the view appears
             }
             
-            
             .navigationBarTitle("My Profile")
-            .navigationBarBackButtonHidden(true)
+            //.navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             .background(Color("BlueBackground"))
-
         }
-        
     }
 }
 

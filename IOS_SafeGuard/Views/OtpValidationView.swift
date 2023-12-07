@@ -71,6 +71,8 @@ struct OtpValidationView: View {
                         }
                     )
                     .hidden()  // Hide the navigation link, but it will still trigger the navigation
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
                 }
             }
         }

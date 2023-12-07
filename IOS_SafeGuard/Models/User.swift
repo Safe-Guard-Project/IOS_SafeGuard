@@ -30,14 +30,4 @@ struct User: Codable, Identifiable {
     var id: String {
         return _id
     }
-    
-    
 }
-extension User {
-    static func mockUser() -> User {
-        return User(_id: "mockID", UserName: "omardjo",email: "mr.djebbi@gmail.com",password:"test",Role:UserRole.client,latitudeUser:0,longitudeUser:0, numeroTel: "123456789")
-        // Adjust the properties according to your actual User structure
-    }
-}
-
-

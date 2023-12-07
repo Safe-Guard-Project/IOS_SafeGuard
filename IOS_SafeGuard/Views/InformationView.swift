@@ -415,13 +415,19 @@ struct InformationView: View {
         @State private var commentText: String = ""
         @State private var comments: [String] = []
 
+        // Add a binding state to track the share sheet presentation
+        @State private var isShareSheetPresented: Bool = false
+
         var body: some View {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text(information.titre ?? "")
+                VStack(alignment: .center, spacing: 16) {
 
+                    // Centered Blue Title
+                    Text(information.titre ?? "")
                         .font(.title)
                         .bold()
+                        .foregroundColor(.blue)
+                        .multilineTextAlignment(.center)
                         .padding(.horizontal)
 
                     if !(information.image?.isEmpty ?? true) {
@@ -429,14 +435,14 @@ struct InformationView: View {
                             .frame(height: 200)
                     }
 
-                    titleValueRow(title: "Type DE Catastrophe", value: information.typeCatastrophe)
-                    titleValueRow(title: "Pays", value: information.pays)
-                    titleValueRow(title: "Region", value: information.region)
-                    titleValueRow(title: "Etat", value: information.etat)
-                    titleValueRow(title: "Date de prevention", value: formatDate(information.dateDePrevention))
-                    titleValueRow(title: "Pourcentage de Fiabilité", value: "\(information.pourcentageFiabilite)%")
+                    titleValueRow(title: "Type de catastrophe :", value: information.typeCatastrophe)
+                    titleValueRow(title: "Pays :", value: information.pays)
+                    titleValueRow(title: "Region :", value: information.region)
+                    titleValueRow(title: "Etat :", value: information.etat)
+                    titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention))
+                    titleValueRow(title: "Pourcentage de Fiabilité :", value: "\(information.pourcentageFiabilite)%")
 
-                    Section(header: Text("Description de catastrophe").font(.headline).padding(.horizontal)) {
+                    Section(header: Text("Description de catastrophe :").font(.headline).padding(.horizontal)) {
                         Text(information.descriptionInformation)
                             .padding(.horizontal)
                     }
@@ -481,20 +487,47 @@ struct InformationView: View {
                     .padding(.horizontal)
 
                     HStack {
+                        Spacer() // Add Spacer to push the buttons to the right
+
+                        // Share Button
                         Button(action: {
-                            // Add action for sharing information
+                            isShareSheetPresented.toggle()
                         }) {
                             Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(.white)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.black) // Set the color to black
+                                .padding()
+                                .background(Color.white) // Set the background to white
+                                .cornerRadius(10)
                         }
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .sheet(isPresented: $isShareSheetPresented) {
+                                               // Use the ShareSheet view here
+                                               ShareSheet(activityItems: [information.titre ?? "", information.descriptionInformation])
+                                           }
+
+                       
+                    
                     }
+                    .padding(.horizontal)
                 }
                 .padding()
             }
             .navigationBarTitle("Détails du Blog", displayMode: .inline)
+        }
+        struct ShareSheet: UIViewControllerRepresentable {
+            let activityItems: [Any]
+            let applicationActivities: [UIActivity]? = nil
+
+            func makeUIViewController(context: Context) -> UIViewController {
+                let controller = UIActivityViewController(
+                    activityItems: activityItems,
+                    applicationActivities: applicationActivities
+                )
+                return controller
+            }
+
+            func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
         }
 
         private func formatDate(_ date: Date) -> String {
@@ -519,6 +552,8 @@ struct InformationView: View {
             .padding(.horizontal)
         }
     }
+
+
 
     func fetchInformation() {
         guard let url = URL(string: "http://localhost:9090/information") else {

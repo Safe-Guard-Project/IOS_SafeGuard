@@ -419,15 +419,33 @@ struct InformationView: View {
         @State private var isShareSheetPresented: Bool = false
 
         var body: some View {
-            ScrollView {
-                VStack(alignment: .center, spacing: 16) {
+                ScrollView {
+                    VStack(alignment: .center, spacing: 16) {
 
-                    // Centered Blue Title
-                    Text(information.titre ?? "")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.blue)
-                        .multilineTextAlignment(.center)
+                        HStack {
+                            Text(information.titre ?? "")
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                                .fontWeight(.bold)
+                                .padding(.horizontal, 16)
+
+                            Spacer()
+
+                            Button(action: {
+                                isShareSheetPresented.toggle()
+                            }) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                            }
+                            .sheet(isPresented: $isShareSheetPresented) {
+                                ShareSheet(activityItems: [information.titre ?? "", information.descriptionInformation])
+                            }
+                        }
                         .padding(.horizontal)
 
                     if !(information.image?.isEmpty ?? true) {
@@ -442,14 +460,28 @@ struct InformationView: View {
                     titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention))
                     titleValueRow(title: "Pourcentage de Fiabilité :", value: "\(information.pourcentageFiabilite)%")
 
-                    Section(header: Text("Description de catastrophe :").font(.headline).padding(.horizontal)) {
-                        Text(information.descriptionInformation)
-                            .padding(.horizontal)
-                    }
+                        Section {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Description de catastrophe :")
+                                    .font(.headline)
+                                    .foregroundColor(.black) // Set the header text color to navy blue
+                                    .padding(.horizontal)
 
+                                Text(information.descriptionInformation)
+                                    .padding(.horizontal)
+                                    .foregroundColor(.black) // Set the text color as needed
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .border(Color.black) // Apply a black border to the frame
+                            }
+                        }
                     if !comments.isEmpty {
                         Divider()
-                        Section(header: Text("Commentaires").font(.headline).padding(.leading)) {
+                        Section(header:
+                            Text("Commentaires")
+                                .font(.headline)
+                                .foregroundColor(.blue) // Set the header text color to blue
+                                .padding(.leading)
+                        ) {
                             ForEach(comments, id: \.self) { comment in
                                 HStack {
                                     Text(comment)
@@ -486,30 +518,7 @@ struct InformationView: View {
                     }
                     .padding(.horizontal)
 
-                    HStack {
-                        Spacer() // Add Spacer to push the buttons to the right
-
-                        // Share Button
-                        Button(action: {
-                            isShareSheetPresented.toggle()
-                        }) {
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.black) // Set the color to black
-                                .padding()
-                                .background(Color.white) // Set the background to white
-                                .cornerRadius(10)
-                        }
-                        .sheet(isPresented: $isShareSheetPresented) {
-                                               // Use the ShareSheet view here
-                                               ShareSheet(activityItems: [information.titre ?? "", information.descriptionInformation])
-                                           }
-
-                       
                     
-                    }
-                    .padding(.horizontal)
                 }
                 .padding()
             }

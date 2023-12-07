@@ -95,6 +95,57 @@ class CommentViewModel: ObservableObject {
             }
         }.resume()
     }
+    func updateComment(commentID: String, textComment: String, idCoursProgramme: String) {
+        guard validateInputs(textComment: textComment, idCoursProgramme: idCoursProgramme) else {
+            return
+        }
+
+        let updatedComment = Commentaire(
+            id: commentID,
+            textComment: textComment,
+            idCoursProgramme: idCoursProgramme
+        )
+
+        let encoder = JSONEncoder()
+        guard let jsonData = try? encoder.encode(updatedComment) else {
+            print("Failed to encode data")
+            return
+        }
+
+        guard let url = URL(string: "http://localhost:9090/commentairesProgramme/\(commentID)") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error: \(error)")
+                } else if let data = data {
+                    do {
+                        let updatedComment = try JSONDecoder().decode(Commentaire.self, from: data)
+                        if let index = self.comments.firstIndex(where: { $0.id == updatedComment.id }) {
+                            self.comments[index] = updatedComment
+                        }
+                    } catch {
+                        print("Error decoding updated comment response: \(error)")
+                    }
+                }
+            }
+        }.resume()
+    }
+    func validateInputs(textComment: String, idCoursProgramme: String) -> Bool {
+            if textComment.isEmpty || idCoursProgramme.isEmpty {
+                print("Validation failed: Text comment or ID is empty.")
+                return false
+            }
+            return true
+        }
 }
  /*
 import Foundation

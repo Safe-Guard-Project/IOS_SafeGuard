@@ -42,7 +42,7 @@ struct ContenuCardView: View {
              }
 
              GeometryReader { geometry in
-                 Image(cours.image)
+                 Image("tsunami")
                      .resizable()
                      .aspectRatio(contentMode: .fill)
                      .frame(width: geometry.size.width - 80, height: 200)

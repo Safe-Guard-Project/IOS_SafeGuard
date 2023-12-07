@@ -23,7 +23,6 @@ struct CommentsView: View {
         }
     }
 }
-
 /*
 import SwiftUI
 

@@ -39,19 +39,16 @@ struct MapView: View {
             ForEach(viewModel.catastrophes, id: \.self) { catastrophe in
              
                 Annotation(catastrophe.titre, coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
-                   
                     ZStack {
-                 
                         Circle()
                             .frame(width: CGFloat(catastrophe.radius * 2), height: CGFloat(catastrophe.radius * 2))
                             .foregroundColor(.red.opacity(0.5))
-                        
                     }
                 }
             }
             
             ForEach(zoneDeDangerviewModel.zone, id: \.self) { zoned in
-                Marker("My location", systemImage: "paperplane", coordinate: zoned.location)
+                Marker("My location", systemImage: "paperplane", coordinate: .init(latitude: zoned.latitudeDeZoneDanger, longitude: zoned.longitudeDeZoneDanger))
                     .tint(.red)
             }
 

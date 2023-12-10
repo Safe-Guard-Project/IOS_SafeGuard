@@ -24,7 +24,7 @@ struct Catastrophe: Codable, Identifiable, Hashable {
         case id = "_id"
         case titre, type, description, date, radius, magnitude, latitudeDeCatastrophe, longitudeDeCatastrophe, createdAt, updatedAt
     }
-    var location: CLLocationCoordinate2D {
+    var catastropheLocation: CLLocationCoordinate2D {
          return CLLocationCoordinate2D(latitude: latitudeDeCatastrophe, longitude: longitudeDeCatastrophe)
      }
 
@@ -39,6 +39,7 @@ struct Catastrophe: Codable, Identifiable, Hashable {
         magnitude = try container.decode(Double.self, forKey: .magnitude)
         latitudeDeCatastrophe = try container.decode(Double.self, forKey: .latitudeDeCatastrophe)
         longitudeDeCatastrophe = try container.decode(Double.self, forKey: .longitudeDeCatastrophe)
+        
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
     }

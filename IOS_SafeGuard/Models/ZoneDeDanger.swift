@@ -9,29 +9,27 @@ import CoreLocation
 
 struct ZoneDeDanger: Codable, Identifiable, Hashable {
     let id: String
-    let latitudeDeZoneDeDanger: Double
-    let longitudeDeZoneDeDanger: Double
+    let latitudeDeZoneDanger: Double
+    let longitudeDeZoneDanger: Double
     let idUser: String
     let createdAt: String
     let updatedAt: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case latitudeDeZoneDeDanger, longitudeDeZoneDeDanger, idUser, createdAt, updatedAt
+        case latitudeDeZoneDanger, longitudeDeZoneDanger, idUser, createdAt, updatedAt
     }
 
 
-    var location: CLLocationCoordinate2D {
-         return CLLocationCoordinate2D(latitude: latitudeDeZoneDeDanger, longitude: longitudeDeZoneDeDanger)
-     }
+  
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
-        latitudeDeZoneDeDanger = try container.decode(Double.self, forKey: .latitudeDeZoneDeDanger)
+        latitudeDeZoneDanger = try container.decode(Double.self, forKey: .latitudeDeZoneDanger)
         
         // Use the correct key for decoding longitude
-        longitudeDeZoneDeDanger = try container.decode(Double.self, forKey: .longitudeDeZoneDeDanger)
+        longitudeDeZoneDanger = try container.decode(Double.self, forKey: .longitudeDeZoneDanger)
         
         idUser = try container.decode(String.self, forKey: .idUser)
         createdAt = try container.decode(String.self, forKey: .createdAt)

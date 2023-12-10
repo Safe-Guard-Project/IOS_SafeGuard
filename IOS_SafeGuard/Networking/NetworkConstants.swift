@@ -3,5 +3,5 @@
 import Foundation
 
 struct NetworkConstants {
-    static let baseURL = "http://192.168.1.138:9090/"
+    static let baseURL = "http://127.0.0.1:9090/"
 }

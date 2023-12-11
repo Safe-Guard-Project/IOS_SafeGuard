@@ -17,7 +17,7 @@ class CatastropheRepositoryImpl: CatastropheRepository {
     }
     
     func getCatastrophes() -> AnyPublisher<[Catastrophe], Error> {
-        return apiManager.getCatastrophe()
+        return apiManager.getCatastrophes()
             .map { catastrophes in
                 catastrophes ?? []
             }

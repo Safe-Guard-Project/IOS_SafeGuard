@@ -7,12 +7,12 @@
 
 
 enum CatastropheEndpoint {
-    case getCatastrophe
+    case getCatastrophes
     case path
 
     var path: String {
         switch self {
-        case .getCatastrophe:
+        case .getCatastrophes:
             return "catastrophe/" // Adjust the actual path accordingly
         case .path:
             return "catastrophe/" // Adjust the actual path accordingly
@@ -21,7 +21,7 @@ enum CatastropheEndpoint {
 
     var httpMethod: String {
         switch self {
-        case .getCatastrophe:
+        case .getCatastrophes:
             return "GET"
         case .path:
             return "GET" // or another default value for .path

@@ -10,7 +10,7 @@ struct MapView: View {
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var showDetails =  false
-    @State private var viewModel = CatastropheViewModel()
+    @StateObject private var catastropheViewModel = CatastropheViewModel()
     @StateObject private var zoneDeDangerviewModel = ZoneDeDangerViewModel()
 
 
@@ -36,14 +36,19 @@ struct MapView: View {
                 let placemark = item.placemark
                 Marker(placemark.name ?? "", coordinate: placemark.coordinate)
             }
-            ForEach(viewModel.catastrophes, id: \.self) { catastrophe in
-                Annotation(catastrophe.titre, coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
+            ForEach(catastropheViewModel.catastrophes, id: \.self) { catastrophe in
+                let staticRadius: CGFloat = catastrophe.radius // Set your desired static radius value
+
+                Annotation("catastrophe", coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
                     Circle()
-                        .frame(width: CGFloat(catastrophe.radius * 2000), height: CGFloat(catastrophe.radius * 2000))
+                        .frame(width: staticRadius * 2, height: staticRadius * 2)
                         .foregroundColor(.red.opacity(0.5))
                 }
-            }
+            
 
+            }
+            
+          
             
             ForEach(zoneDeDangerviewModel.zone, id: \.self) { zoned in
                 Marker("Danger", systemImage: "marker", coordinate: .init(latitude: zoned.latitudeDeZoneDanger, longitude: zoned.longitudeDeZoneDanger))
@@ -51,6 +56,7 @@ struct MapView: View {
             }
 
         }
+        
         .overlay(alignment: .top) {
                        HStack {
                            HStack {
@@ -102,7 +108,7 @@ struct MapView: View {
                    
                    }
                    .onAppear {
-                          viewModel.getCatastrophes()
+                       catastropheViewModel.getCatastrophes()
                        zoneDeDangerviewModel.getZoneDeDangers()
                       }
      
@@ -110,7 +116,7 @@ struct MapView: View {
 
     }
            
-           
+
 
 
 extension MapView {
@@ -153,3 +159,4 @@ extension MKCoordinateRegion {
 #Preview {
     MapView()
 }
+

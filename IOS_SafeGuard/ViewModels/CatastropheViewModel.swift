@@ -9,7 +9,7 @@ import Combine
 
 class CatastropheViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
-    private let repository: CatastropheRepository
+    private let repository:CatastropheRepository
 
     @Published var catastrophes: [Catastrophe] = []
 

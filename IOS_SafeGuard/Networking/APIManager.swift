@@ -51,11 +51,11 @@ class ApiManager: APIService {
             .eraseToAnyPublisher()
     }
 
-    func getCatastrophe() -> AnyPublisher<[Catastrophe]?, Error> {
-        let catastropheEndpoint = CatastropheEndpoint.getCatastrophe
+    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error> {
+        let catastropheEndpoint = CatastropheEndpoint.getCatastrophes
         print("URL: \(NetworkConstants.baseURL + catastropheEndpoint.path)")
         return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + catastropheEndpoint.path,
-                                                        method: catastropheEndpoint.httpMethod,
+                                                        method: "GET",
                                                         params: nil,
                                                         queryParams: nil)
             .eraseToAnyPublisher()

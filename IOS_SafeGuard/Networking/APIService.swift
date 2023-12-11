@@ -9,7 +9,7 @@ protocol APIService {
     func signUp(user: User) -> AnyPublisher<User?, Error>
     func signIn(user: Login) -> AnyPublisher<User?, Error>
     func displayUserProfile(userId: String) -> AnyPublisher<User?, Error>
-    func getCatastrophe() -> AnyPublisher<[Catastrophe]?, Error>
+    func getCatastrophes() -> AnyPublisher<[Catastrophe]?, Error>
     func getZoneDeDangers() -> AnyPublisher<[ZoneDeDanger]?, Error>
 
 }

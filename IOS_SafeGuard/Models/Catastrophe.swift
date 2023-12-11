@@ -24,9 +24,7 @@ struct Catastrophe: Codable, Identifiable, Hashable {
         case id = "_id"
         case titre, type, description, date, radius, magnitude, latitudeDeCatastrophe, longitudeDeCatastrophe, createdAt, updatedAt
     }
-    var catastropheLocation: CLLocationCoordinate2D {
-         return CLLocationCoordinate2D(latitude: latitudeDeCatastrophe, longitude: longitudeDeCatastrophe)
-     }
+    
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -37,9 +35,9 @@ struct Catastrophe: Codable, Identifiable, Hashable {
         date = try container.decode(String.self, forKey: .date) // Change the type to String
         radius = try container.decode(Double.self, forKey: .radius)
         magnitude = try container.decode(Double.self, forKey: .magnitude)
+  
         latitudeDeCatastrophe = try container.decode(Double.self, forKey: .latitudeDeCatastrophe)
         longitudeDeCatastrophe = try container.decode(Double.self, forKey: .longitudeDeCatastrophe)
-        
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
     }

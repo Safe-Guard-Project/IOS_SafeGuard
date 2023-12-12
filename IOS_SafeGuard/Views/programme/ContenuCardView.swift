@@ -41,16 +41,26 @@ struct ContenuCardView: View {
                  .font(.title)
              }
 
-             GeometryReader { geometry in
-                 Image("tsunami")
-                     .resizable()
-                     .aspectRatio(contentMode: .fill)
-                     .frame(width: geometry.size.width - 80, height: 200)
-                     .clipped()
-                     .cornerRadius(10)
-                     .offset(x: 40, y: 10)
-             }
-             .frame(height: 200)
+             AsyncImage(url: URL(string: cours.image)) { phase in
+                                  switch phase {
+                                  case .empty:
+                                      ProgressView()
+                                  case .success(let image):
+                                      image
+                                          .resizable()
+                                          .aspectRatio(contentMode: .fill)
+                                          .frame(height: 200)
+                                          .clipped()
+                                  case .failure:
+                                      Image(systemName: "Intro") // You can use a placeholder image here
+                                          .resizable()
+                                          .aspectRatio(contentMode: .fill)
+                                          .frame(height: 200)
+                                          .clipped()
+                                  @unknown default:
+                                      EmptyView()
+                                  }
+                              }
              Text(cours.description)
                  .font(.body)
                  .padding(16)

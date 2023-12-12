@@ -2,17 +2,39 @@
 //  RemoteImage.swift
 //  IOS_SafeGuard
 //
-//  Created by abir on 2/12/2023.
+//  Created by abir on 12/12/2023.
 //
 
+// RemoteImage.swift
 import SwiftUI
 
 struct RemoteImage: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    private var url: URL
 
-#Preview {
-    RemoteImage()
+    init(url: URL) {
+        self.url = url
+    }
+
+    var body: some View {
+        AsyncImage(url: url) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
+            case .failure:
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
+            @unknown default:
+                EmptyView()
+            }
+        }
+    }
 }

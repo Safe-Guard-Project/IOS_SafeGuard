@@ -61,22 +61,40 @@ import SwiftUI
 
 struct Information: Identifiable, Decodable {
     var id: String?
-    var titre: String? // Make this optional
-    var typeCatastrophe: String
-    var pays: String
-    var region: String
-    var descriptionInformation: String
-    var dateDePrevention: Date
+    var titre: String?
+    var typeCatastrophe: String?
+    var pays: String?
+    var region: String?
+    var descriptionInformation: String?
+    var dateDePrevention: Date?
     var image: String?
-    var pourcentageFiabilite: Int
-    var etat: String
-    var createdAt: Date
-    var updatedAt: Date
-    var __v: Int
+    var pourcentageFiabilite: Int?
+    var etat: String?
+    var createdAt: Date?
+    var updatedAt: Date?
+    var __v: Int?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case titre, typeCatastrophe, pays, region, descriptionInformation, dateDePrevention, image, pourcentageFiabilite, etat, createdAt, updatedAt, __v
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decodeIfPresent(String.self, forKey: .id)
+        titre = try container.decodeIfPresent(String.self, forKey: .titre)
+        typeCatastrophe = try container.decodeIfPresent(String.self, forKey: .typeCatastrophe)
+        pays = try container.decodeIfPresent(String.self, forKey: .pays)
+        region = try container.decodeIfPresent(String.self, forKey: .region)
+        descriptionInformation = try container.decodeIfPresent(String.self, forKey: .descriptionInformation)
+        dateDePrevention = try container.decodeIfPresent(Date.self, forKey: .dateDePrevention)
+        image = try container.decodeIfPresent(String.self, forKey: .image)
+        pourcentageFiabilite = try container.decodeIfPresent(Int.self, forKey: .pourcentageFiabilite)
+        etat = try container.decodeIfPresent(String.self, forKey: .etat)
+        createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt)
+        updatedAt = try container.decodeIfPresent(Date.self, forKey: .updatedAt)
+        __v = try container.decodeIfPresent(Int.self, forKey: .__v)
     }
 }
 

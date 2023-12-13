@@ -376,7 +376,7 @@ struct AddInfoView: View {
                 print("Error: \(error)")
                 if let data = response.data {
                     let responseString = String(data: data, encoding: .utf8)
-                    print("Response data: \(responseString ?? "")")
+                    print("Response data: \(error  )")
                 }
                 return
             }

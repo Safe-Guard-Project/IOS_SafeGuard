@@ -121,7 +121,7 @@ struct ProfileView: View {
 
                 Spacer()
 
-                Text(information.descriptionInformation)
+                Text(information.descriptionInformation!)
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .padding(.horizontal, 16)
@@ -205,7 +205,7 @@ struct ProfileView: View {
                     titleValueRow(title: "Pays :", value: information.pays)
                     titleValueRow(title: "Region :", value: information.region)
                     titleValueRow(title: "Etat :", value: information.etat)
-                    titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention))
+                    titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention!))
                     titleValueRow(title: "Pourcentage de Fiabilité :", value: "\(information.pourcentageFiabilite)%")
 
                         Section {
@@ -215,7 +215,7 @@ struct ProfileView: View {
                                     .foregroundColor(.black) // Set the header text color to navy blue
                                     .padding(.horizontal)
 
-                                Text(information.descriptionInformation)
+                                Text(information.descriptionInformation!)
                                     .padding(.horizontal)
                                     .foregroundColor(.black) // Set the text color as needed
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -305,7 +305,6 @@ struct ProfileView: View {
                 return
             }
 
-            // ... rest of the code remains the same
         }
 
 

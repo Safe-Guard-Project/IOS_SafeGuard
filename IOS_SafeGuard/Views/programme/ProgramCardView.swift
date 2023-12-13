@@ -23,13 +23,13 @@ struct ProgramCardView: View {
                                      image
                                          .resizable()
                                          .aspectRatio(contentMode: .fill)
-                                         .frame(height: 200)
+                                         .frame(height: 150)
                                          .clipped()
                                  case .failure:
                                      Image(systemName: "Intro")
                                          .resizable()
                                          .aspectRatio(contentMode: .fill)
-                                         .frame(height: 200)
+                                         .frame(height: 150)
                                          .clipped()
                                  @unknown default:
                                      EmptyView()

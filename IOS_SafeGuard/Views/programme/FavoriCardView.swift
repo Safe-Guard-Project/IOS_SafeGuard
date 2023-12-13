@@ -17,11 +17,10 @@ struct FavoriCardView: View {
     var body: some View {
         if !isDeleted {
             VStack(alignment: .leading, spacing: 8) {
-                let image = extractImage(from: favorie.idCoursProgramme)
-                let description = extractDescription(from: favorie.idCoursProgramme)
+              
                 
-                GeometryReader { geometry in
-                    Image(image)
+              /*  GeometryReader { geometry in
+                    Image(favorie.idCoursProgramme.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width - 80, height: 200)
@@ -30,8 +29,29 @@ struct FavoriCardView: View {
                         .offset(x: 40, y: 10)
                 }
                 .frame(height: 200)
-                
-                Text(description)
+                */
+                AsyncImage(url: URL(string: favorie.idCoursProgramme.image)) { phase in
+                                     switch phase {
+                                     case .empty:
+                                         ProgressView()
+                                     case .success(let image):
+                                         image
+                                             .resizable()
+                                             .aspectRatio(contentMode: .fill)
+                                             .frame(height: 160)
+                                             .clipped()
+                                     case .failure:
+                                         Image(systemName: "Intro") // You can use a placeholder image here
+                                             .resizable()
+                                             .aspectRatio(contentMode: .fill)
+                                             .frame(height: 200)
+                                             .clipped()
+                                     @unknown default:
+                                         EmptyView()
+                                     }
+                                 }
+
+                Text(favorie.idCoursProgramme.description)
                     .font(.body)
                     .padding(16)
             }
@@ -52,15 +72,4 @@ struct FavoriCardView: View {
         }
     }
 
-
-    func extractImage(from idCoursProgramme: String) -> String {
-    
-        return "image"
-    }
-
-    
-    func extractDescription(from idCoursProgramme: String) -> String {
-        
-        return "Description avec id \(idCoursProgramme)"
-    }
 }

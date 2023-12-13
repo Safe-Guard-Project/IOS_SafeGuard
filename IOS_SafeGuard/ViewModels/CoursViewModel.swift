@@ -26,4 +26,5 @@ class CoursViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+ 
 }

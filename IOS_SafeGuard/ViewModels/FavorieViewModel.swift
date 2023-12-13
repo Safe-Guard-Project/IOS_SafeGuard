@@ -12,6 +12,7 @@ import Combine
 class FavorieViewModel: ObservableObject {
     @Published var favories: [Favorie] = []
     private var cancellables: Set<AnyCancellable> = []
+    @Published var coursDetails: Cours? 
     
     func addFav( idCoursProgramme: String) {
         guard let url = URL(string: "http://localhost:9090/favorie") else {
@@ -54,7 +55,7 @@ class FavorieViewModel: ObservableObject {
     }
     
     func getAllFav() {
-        guard let url = URL(string: "http://localhost:9090/favorie") else {
+        guard let url = URL(string: "http://localhost:9090/favorie/cours") else {
             return
         }
 
@@ -105,6 +106,27 @@ class FavorieViewModel: ObservableObject {
         }.resume()
     }
     
+    func fetchCoursDetails(id: String) {
+           guard let url = URL(string: "http://localhost:9090/cours/\(id)") else {
+               return
+           }
+
+           URLSession.shared.dataTaskPublisher(for: url)
+               .map(\.data)
+               .decode(type: Cours?.self, decoder: JSONDecoder())
+               .receive(on: DispatchQueue.main)
+               .sink { completion in
+                   switch completion {
+                   case .finished:
+                       break
+                   case .failure(let error):
+                       print("Error fetching details: \(error)")
+                   }
+               } receiveValue: { [weak self] cours in
+                   self?.coursDetails = cours
+               }
+               .store(in: &cancellables)
+       }
     
     
    

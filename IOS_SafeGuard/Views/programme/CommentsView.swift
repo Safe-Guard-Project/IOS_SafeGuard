@@ -3,7 +3,7 @@ struct CommentsView: View {
     @StateObject private var commentViewModel = CommentViewModel()
 
     var body: some View {
-        NavigationView {
+    
             List {
                 ForEach(commentViewModel.comments) { comment in
                     CommentCardView(commentaire: comment)
@@ -17,7 +17,7 @@ struct CommentsView: View {
                     .font(.title2)
                     .foregroundColor(.secondary)
             })
-        }
+        
         .onAppear {
             commentViewModel.getAllComments()
         }

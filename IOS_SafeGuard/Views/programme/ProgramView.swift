@@ -5,7 +5,7 @@ struct ProgramView: View {
     @ObservedObject var viewModel = ProgramViewModel()
 
     var body: some View {
-        NavigationView {
+      
            
                 List(viewModel.programs) { program in
                     
@@ -18,8 +18,8 @@ struct ProgramView: View {
                     viewModel.getAllPrograms()
                 }
                 .navigationTitle("Programmes")
-                .navigationBarTitleDisplayMode(.large)
-        }
+                
+        
         
         
         

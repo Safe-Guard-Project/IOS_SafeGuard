@@ -5,7 +5,7 @@ struct CoursView: View {
     var program :Program
 
     var body: some View {
-        NavigationView {
+    
           
                 VStack(spacing: 20) {
                     ForEach(Cours.CoursType.allCases, id: \.self) { type in
@@ -15,6 +15,6 @@ struct CoursView: View {
                     }
                 }
             
-        }.navigationBarBackButtonHidden(true)
+      
     }
 }

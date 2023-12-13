@@ -7,7 +7,7 @@ struct ContenuView: View {
     var program: Program
 
     var body: some View {
-        NavigationView {
+      
             VStack {
                 List(viewModel.courses) { cours in
                     ContenuCardView(cours: cours, commentViewModel: commentViewModel, favViewModel: favorieViewModel)
@@ -27,6 +27,6 @@ struct ContenuView: View {
             .onAppear {
                 viewModel.fetchCoursesByType(type: type ,program: program)
             }
-        }.navigationBarBackButtonHidden(true)
+      
     }
 }

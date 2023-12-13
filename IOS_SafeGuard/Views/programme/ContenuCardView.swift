@@ -48,7 +48,7 @@ struct ContenuCardView: View {
                                       image
                                           .resizable()
                                           .aspectRatio(contentMode: .fill)
-                                          .frame(height: 190)
+                                          .frame(height: 180)
                                           .clipped()
                                   case .failure:
                                       Image(systemName: "Intro") // You can use a placeholder image here

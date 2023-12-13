@@ -41,7 +41,7 @@ struct FavoriCardView: View {
                                              .frame(height: 160)
                                              .clipped()
                                      case .failure:
-                                         Image(systemName: "Intro") // You can use a placeholder image here
+                                         Image(systemName: "Intro") 
                                              .resizable()
                                              .aspectRatio(contentMode: .fill)
                                              .frame(height: 200)

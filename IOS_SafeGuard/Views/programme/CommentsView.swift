@@ -10,8 +10,7 @@ struct CommentsView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.large)
-             // Titre de la barre de navigation
-
+             
             .navigationBarItems(leading: HStack {
                 Text("Tous les commentaires")
                     .font(.title2)
@@ -23,30 +22,3 @@ struct CommentsView: View {
         }
     }
 }
-/*
-import SwiftUI
-
-struct CommentsView: View {
-    var cours: Cours
-    @ObservedObject var commentViewModel: CommentViewModel
-
-    var body: some View {
-        VStack {
-            Text("Comments for \(cours.title)")
-                .font(.title)
-                .padding()
-
-            List(commentViewModel.comments) { commentaire in
-                Text(commentaire.textComment)
-            }
-            .onAppear {
-                // Load comments when the view appears
-                commentViewModel.getAllComments()
-            }
-
-            Spacer()
-        }
-        .navigationTitle("Comments")
-    }
-}*/
-

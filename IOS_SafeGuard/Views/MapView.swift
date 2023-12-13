@@ -12,8 +12,11 @@ struct MapView: View {
     @State private var showDetails =  false
     @StateObject private var catastropheViewModel = CatastropheViewModel()
     @StateObject private var zoneDeDangerviewModel = ZoneDeDangerViewModel()
-
-
+    @State private var getDirections = false
+    @State private var routeDisplaying = false
+    @State private var route: MKRoute?
+    @State private var routeDestination: MKMapItem?
+    
     var body: some View {
         Map(position: $cameraPosition, selection: $mapSelection){
             //      Marker("My location",systemImage: "paperplane", coordinate: .userLocation)
@@ -33,11 +36,22 @@ struct MapView: View {
                 }
             }
             ForEach(results, id: \.self) { item in
-                let placemark = item.placemark
-                Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                if routeDisplaying {
+                    let placemark = item.placemark
+                    Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                }else {
+                    let placemark = item.placemark
+                    Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                    
+                }
+                
+            }
+            if let route {
+                MapPolyline(route.polyline)
+                    .stroke(.blue, lineWidth: 6)
             }
             ForEach(catastropheViewModel.catastrophes, id: \.self) { catastrophe in
-                let staticRadius: CGFloat = catastrophe.radius // Set your desired static radius value
+                let staticRadius: CGFloat = 10 // Set your desired static radius value
 
                 Annotation("catastrophe", coordinate: .init(latitude: catastrophe.latitudeDeCatastrophe, longitude: catastrophe.longitudeDeCatastrophe)) {
                     Circle()
@@ -71,6 +85,12 @@ struct MapView: View {
                                .onChange(of: searchText) {
                                    searchPlaces()
                                }
+                               .onChange(of: getDirections, {oldValue,newValue in
+                                   if newValue {
+                                       fetchRoute()
+                                   }
+                                   
+                               })
                                Button(action: {
                                           cameraPosition = .region(.userRegion)
                                       }) {
@@ -94,7 +114,7 @@ struct MapView: View {
                        showDetails = newValue != nil
                    })
                    .sheet(isPresented: $showDetails, content: {
-                       LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
+                       LocationDetailsView(mapSelection: $mapSelection, show: $showDetails,getDirections : $getDirections)
                            .presentationDetents ([.height (340)])
                            .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
                            .presentationCornerRadius (12)
@@ -136,11 +156,35 @@ extension MapView {
             }
         }
     }
+    func fetchRoute() {
+        if let mapSelection = mapSelection { // Add the missing condition
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: .init(coordinate: .userLocation))
+            request.destination = mapSelection
+            Task {
+                let result = try? await MKDirections(request: request).calculate()
+                route = result?.routes.first
+                routeDestination = mapSelection
+                withAnimation(.snappy) {
+                    routeDisplaying = true
+                    showDetails = false
+                    if let rect = route?.polyline.boundingMapRect, routeDisplaying {
+                        cameraPosition = .rect(rect) // Update 'MapCameraPosition' to 'cameraPosition'
+                    }
+                }
+            }
+        }
+    }
 }
 
 
 
 
+                                    
+                           
+                           
+                           
+                           
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
         return .init(latitude: 36.901000, longitude: 10.190120)

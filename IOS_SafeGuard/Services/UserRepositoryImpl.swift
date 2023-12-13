@@ -12,27 +12,28 @@ class UserRepositoryImpl: UserRepository {
     
     
     func signUp(user: User) -> AnyPublisher<User?, Error> {
-        let signUpEndpoint = UserEndpoints.signUp.path.description // Convert enum to String
-        let params: [String: Any] = [
-            "UserName": user.UserName,
-            "email": user.email,
-            "password": user.password,
-            "numeroTel": user.numeroTel,
-        ]
-        
-        return webServiceProvider.callWebService(
-            url: NetworkConstants.baseURL + signUpEndpoint,
-            method: "POST",
-            params: params
-        )
-        .map { (user: User?) -> User? in
-            // Save user information after successful sign-up
-            if let user = user {
+            let signUpEndpoint = UserEndpoints.signUp.path.description
+            let params: [String: Any] = [
+                "UserName": user.UserName,
+                "email": user.email,
+                "password": user.password,
+                "numeroTel": user.numeroTel
+            ]
+            
+            return webServiceProvider.callWebService(
+                url: NetworkConstants.baseURL + signUpEndpoint,
+                method: "POST",
+                params: params
+            )
+            .map { (user: User?) -> User? in
+                // Save user information after successful sign-up
+                if let user = user {
+                    // Additional handling if needed
+                }
+                return user
             }
-            return user
+            .eraseToAnyPublisher()
         }
-        .eraseToAnyPublisher()
-    }
     
     func signIn(user: Login) -> AnyPublisher<User?, Error> {
         let signInEndpoint = UserEndpoints.signIn.path.description

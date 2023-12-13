@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct ProfileCardView: View {
     var information: Information
@@ -66,3 +66,4 @@ struct ProfileCardView_Previews: PreviewProvider {
         ProfileCardView(information: Information(titre: "Sample Title", typeCatastrophe: "Sample Type", pays: "Sample Country", region: "Sample Region", descriptionInformation: "Sample Description", dateDePrevention: Date(), image: "sampleImage", pourcentageFiabilite: 50, etat: "Sample State"))
     }
 }
+*/

@@ -8,7 +8,7 @@
 import Foundation
 struct Favorie: Codable, Identifiable {
     let id: String
-    let idCoursProgramme: String
+    let idCoursProgramme: Cours
    
     enum CodingKeys: String, CodingKey {
         case id = "_id"

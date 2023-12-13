@@ -5,7 +5,7 @@
 //  Created by ekbell on 28/11/2023.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct InformationCardView: View {
     var information : Information
@@ -53,3 +53,4 @@ struct InformationCardView: View {
     InformationCardView(information: Information (titre: "Une inondation au bout de 3 heures !!! ", typeCatastrophe: "inondation" , pays: "France" , region: "Nice" , descriptionInformation: "Une alerte d'inondation a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 50 , etat: "Coming" ))
 
 }
+*/

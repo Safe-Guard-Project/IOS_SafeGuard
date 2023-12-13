@@ -52,14 +52,14 @@ class ApiManager: APIService {
     }
 
     func getCatastrophe() -> AnyPublisher<[Catastrophe]?, Error> {
-        let catastropheEndpoint = CatastropheEndpoint.getCatastrophe
-        print("URL: \(NetworkConstants.baseURL + catastropheEndpoint.path)")
-        return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + catastropheEndpoint.path,
-                                                        method: "GET",
-                                                        params: nil,
-                                                        queryParams: nil)
-            .eraseToAnyPublisher()
-    }
+            let catastropheEndpoint = CatastropheEndpoint.getCatastrophe
+            print("URL: \(NetworkConstants.baseURL + catastropheEndpoint.path)")
+            return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + catastropheEndpoint.path,
+                                                            method: catastropheEndpoint.httpMethod,
+                                                            params: nil,
+                                                            queryParams: nil)
+                .eraseToAnyPublisher()
+        }
     func recoverPasswordByEmail(email: String) -> AnyPublisher<OtpResponse?, Error> {
             let recoverPasswordEndpoint = UserEndpoints.recoverPasswordByEmail.path
             print("URL: \(NetworkConstants.baseURL + recoverPasswordEndpoint)")

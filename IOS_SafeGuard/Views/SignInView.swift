@@ -47,7 +47,7 @@ struct SignInView: View {
                     Button(action: {
                         signInViewModel.email = email
                         signInViewModel.password = password
-                        signInViewModel.signIn(email: email, password: password) 
+                        signInViewModel.signIn(email: email, password: password)
                         
                         { result in
                             switch result {

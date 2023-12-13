@@ -1,18 +1,14 @@
 //
-//  CatastropheRepositoryImpl.swift
+//  CatastropheRepository.swift
 //  IOS_SafeGuard
 //
-//  Created by mohamed oussama bouriga on 29/11/2023.
+//  Created by dhiasaibi on 28/11/2023.
 //
 
-// CatastropheRepository.swift
+import Foundation
 import Combine
 
 protocol CatastropheRepository {
-    init(apiService: APIService, webServiceProvider: WebServiceProvider)
-
-    func getCatastrophe() -> AnyPublisher<[Catastrophe]?, Error>
+    func getCatastrophes() -> AnyPublisher<[Catastrophe], Error>
 }
-
-
-
+ 

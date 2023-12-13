@@ -12,22 +12,30 @@ struct HomePageView: View {
         TabView {
             Group {
                  
-                   InformationView()
-                    .tabItem {
+                   //InformationView()
+                   /* .tabItem {
                         Label("Blog", systemImage: "magnifyingglass")
                             .foregroundColor(.black) // Set foreground color explicitly
                     }
-                
+                */
                 ProgramView()
                     .tabItem {
                         Label("Learn", systemImage: "plus.circle.fill")
                             .foregroundColor(.black) // Set foreground color explicitly
                     }
                 
-                MapView()
+              //  MapView()
                     .tabItem {
                         Label("Map", systemImage: "map")
                             .foregroundColor(.black) // Set foreground color explicitly
+                    }
+                
+                ContentViewCatastrophe()
+                    .tabItem {
+                        Label("Catastrophe",systemImage: "globe")
+                            .foregroundColor(.black) // Set foreground color explicitly
+
+                           
                     }
                 
                 DisplayUserProfileView()

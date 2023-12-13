@@ -56,7 +56,7 @@ struct DisplayUserProfileView: View {
                     
                     // Add NavigationLink to FavoriView
                     NavigationLink(destination: FavoriView()) {
-                        Text("Go to Favorites")
+                        Text("Your Favorites")
                             .font(.headline)
                             .foregroundColor(.blue)
                             .padding(.leading, 16)

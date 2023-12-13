@@ -1,22 +1,24 @@
-//
-//  Program.swift
-//  IOS_SafeGuard
-//
-//  Created by abir on 27/11/2023.
-//
-
 import Foundation
 import SwiftUI
 import CoreData
 
 struct Program: Identifiable, Codable {
-    var id: UUID?
+    var id: String
     let image: String
     let Titre: String
     let descriptionProgramme: String
-    let cours: [String]
+    let cours: [Cours]
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case Titre = "Titre"
+        case image
+        case descriptionProgramme
+        case cours
 
-    init(image: String, Titre: String, descriptionProgramme: String, cours: [String]) {
+    }
+
+    init(id : String ,image: String, Titre: String, descriptionProgramme: String, cours: [Cours]) {
+        self.id = id
         self.image = image
         self.Titre = Titre
         self.descriptionProgramme = descriptionProgramme
@@ -26,12 +28,12 @@ struct Program: Identifiable, Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        id = try container.decodeIfPresent(UUID.self, forKey: .id)
+        id = try container.decode(String.self, forKey: .id)
         image = try container.decode(String.self, forKey: .image)
         Titre = try container.decode(String.self, forKey: .Titre)
         descriptionProgramme = try container.decode(String.self, forKey: .descriptionProgramme)
 
-        if let coursArray = try? container.decode([String].self, forKey: .cours) {
+        if let coursArray = try? container.decode([Cours].self, forKey: .cours) {
             cours = coursArray
         } else {
             cours = []

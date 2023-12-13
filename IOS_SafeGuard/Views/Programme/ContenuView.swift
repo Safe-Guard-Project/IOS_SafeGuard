@@ -4,9 +4,10 @@ struct ContenuView: View {
     @StateObject private var commentViewModel = CommentViewModel()
     @StateObject private var favorieViewModel = FavorieViewModel()
     var type: Cours.CoursType
+    var program: Program
 
     var body: some View {
-        NavigationView {
+      
             VStack {
                 List(viewModel.courses) { cours in
                     ContenuCardView(cours: cours, commentViewModel: commentViewModel, favViewModel: favorieViewModel)
@@ -24,10 +25,8 @@ struct ContenuView: View {
                 )
             }
             .onAppear {
-                viewModel.fetchCoursesByType(type: type)
+                viewModel.fetchCoursesByType(type: type ,program: program)
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
-        }.navigationBarBackButtonHidden(true)
+      
     }
 }

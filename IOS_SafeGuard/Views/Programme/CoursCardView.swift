@@ -29,8 +29,6 @@ struct CoursCardView: View {
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 2))
 
                 .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3) // Add a shadow
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
 
         }
 

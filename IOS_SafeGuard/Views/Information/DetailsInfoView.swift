@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct DetailsInfoView: View {
     var information: Information
@@ -14,8 +14,8 @@ struct DetailsInfoView: View {
                     .bold()
                     .padding(.horizontal)
 
-                if !information.image.isEmpty {
-                    Image(information.image)
+                if information.image != nil, !information.image!.isEmpty {
+                    Image(information.image!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 200)
@@ -52,10 +52,12 @@ struct DetailsInfoView: View {
                 }
 
                 Divider()
+
                 HStack {
                     TextField("Type your comment here", text: $commentText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
+                        .padding()
 
                     Button(action: {
                         comments.append(commentText)
@@ -70,6 +72,7 @@ struct DetailsInfoView: View {
                             .cornerRadius(10)
                     }
                 }
+                .padding(.horizontal)
             }
             .padding()
         }
@@ -109,21 +112,24 @@ struct DetailsInfoView: View {
         return formatter.string(from: date)
     }
 
-    private func titleValueRow(title: String, value: String) -> some View {
+    private func titleValueRow(title: String, value: String?) -> some View {
         HStack {
             Text(title)
                 .bold()
             Spacer()
-            Text(value)
+            if let unwrappedValue = value {
+                Text(unwrappedValue)
+            } else {
+                Text("N/A")
+                    .foregroundColor(.gray)
+            }
         }
         .padding(.horizontal)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
     }
 }
 
 struct DetailsInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
+        DetailsInfoView(information: Information(titre: "Comments", typeCatastrophe: "Comments", idUser: "", pays: "", region: "", descriptionInformation: "Leave your comments here.", dateDePrevention: Date(), image: "Intro", pourcentageFiabilite: 0, etat: ""))
     }
-}
+}*/

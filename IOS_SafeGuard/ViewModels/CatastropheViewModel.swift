@@ -1,36 +1,30 @@
-import Combine
 import Foundation
-import CoreLocation
+import Combine
 
 class CatastropheViewModel: ObservableObject {
-    @Published var catastrophes: [Catastrophe] = []
     private var cancellables: Set<AnyCancellable> = []
+    private let repository: CatastropheRepository
 
-    private let apiManager: ApiManager
+    @Published var catastrophes: [Catastrophe] = []
 
-    init(apiManager: ApiManager) {
-        self.apiManager = apiManager
+    init(repository: CatastropheRepository = CatastropheRepositoryImpl()) {
+        self.repository = repository
     }
 
-    func fetchCatastrophes() {
-        apiManager.getCatastrophe()
+    func getCatastrophes() {
+        repository.getCatastrophes()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
+            .sink { completion in
                 switch completion {
                 case .finished:
                     break // Do nothing on success
                 case .failure(let error):
-                    // Handle the error (e.g., show an alert, log, etc.)
-                    print("Error fetching catastrophes: (error.localizedDescription)")
+                    print("Error fetching catastrophes: \(error)")
                 }
-            }, receiveValue: { [weak self] catastrophes in
-                self?.catastrophes = catastrophes ?? []
-            })
+            } receiveValue: { [weak self] fetchedCatastrophes in
+                guard let self = self else { return }
+                self.catastrophes = fetchedCatastrophes
+            }
             .store(in: &cancellables)
-    }
-
-    // Define the userLocation property
-    var userLocation: CLLocationCoordinate2D? {
-        return .init(latitude: 36.901000, longitude: 10.190120)
     }
 }

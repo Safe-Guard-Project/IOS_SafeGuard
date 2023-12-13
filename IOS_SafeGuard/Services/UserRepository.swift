@@ -1,4 +1,5 @@
 import Combine
+import Foundation
 
 protocol UserRepository {
     init(apiService: APIService, webServiceProvider: WebServiceProvider)

@@ -101,19 +101,32 @@ struct ProfileView: View {
 
         var body: some View {
             VStack(spacing: 8) {
-               /* AsyncImageView(url: information.image ?? "")
-                    .frame(height: 200)
-
-                Spacer()*/
-                Image("inondation") // Replace "folderImage" with the actual name of your image asset
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 100) // Adjust the height as needed
+                
+                AsyncImage(url: URL(string: information.image)) { phase in
+                                                switch phase {
+                                                case .empty:
+                                                    ProgressView()
+                                                case .success(let image):
+                                                    image
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(height: 150)
+                                                        .clipped()
+                                                case .failure:
+                                                    Image(systemName: "Intro")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(height: 150)
+                                                        .clipped()
+                                                @unknown default:
+                                                    EmptyView()
+                                                }
+                                            }
 
                         Spacer()
 
 
-                Text(information.titre ?? "")
+                Text(information.titre )
                     .font(.headline)
                     .foregroundColor(.black)
                     .fontWeight(.bold)
@@ -121,7 +134,7 @@ struct ProfileView: View {
 
                 Spacer()
 
-                Text(information.descriptionInformation!)
+                Text(information.descriptionInformation)
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .padding(.horizontal, 16)
@@ -161,7 +174,7 @@ struct ProfileView: View {
                     VStack(alignment: .center, spacing: 16) {
 
                         HStack {
-                            Text(information.titre ?? "")
+                            Text(information.titre )
                                 .font(.headline)
                                 .foregroundColor(.blue)
                                 .fontWeight(.bold)
@@ -181,22 +194,33 @@ struct ProfileView: View {
                                     .cornerRadius(10)
                             }
                             .sheet(isPresented: $isShareSheetPresented) {
-                                ShareSheet(activityItems: [information.titre ?? "", information.descriptionInformation])
+                                ShareSheet(activityItems: [information.titre , information.descriptionInformation])
                             }
                             
                         }
                         .padding(.horizontal)
 
-                   /* if !(information.image?.isEmpty ?? true) {
-                        AsyncImageView(url: information.image ?? "")
-                            .frame(height: 200)
-                    
                         
-                    }*/
-                        Image("inondation") // Replace "folderImage" with the actual name of your image asset
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 100) // Adjust the height as needed
+                        AsyncImage(url: URL(string: information.image)) { phase in
+                                                        switch phase {
+                                                        case .empty:
+                                                            ProgressView()
+                                                        case .success(let image):
+                                                            image
+                                                                .resizable()
+                                                                .aspectRatio(contentMode: .fill)
+                                                                .frame(height: 150)
+                                                                .clipped()
+                                                        case .failure:
+                                                            Image(systemName: "Intro")
+                                                                .resizable()
+                                                                .aspectRatio(contentMode: .fill)
+                                                                .frame(height: 150)
+                                                                .clipped()
+                                                        @unknown default:
+                                                            EmptyView()
+                                                        }
+                                                    }
 
                                 Spacer()
 
@@ -205,7 +229,7 @@ struct ProfileView: View {
                     titleValueRow(title: "Pays :", value: information.pays)
                     titleValueRow(title: "Region :", value: information.region)
                     titleValueRow(title: "Etat :", value: information.etat)
-                    titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention!))
+                    titleValueRow(title: "Date de prevention :", value: formatDate(information.dateDePrevention))
                     titleValueRow(title: "Pourcentage de Fiabilité :", value: "\(information.pourcentageFiabilite)%")
 
                         Section {
@@ -215,7 +239,7 @@ struct ProfileView: View {
                                     .foregroundColor(.black) // Set the header text color to navy blue
                                     .padding(.horizontal)
 
-                                Text(information.descriptionInformation!)
+                                Text(information.descriptionInformation)
                                     .padding(.horizontal)
                                     .foregroundColor(.black) // Set the text color as needed
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -275,7 +299,7 @@ struct ProfileView: View {
             
         }
         private func addComment() {
-            guard let informationID = information.id else {
+            guard information.id != nil else {
                 print("Cannot add comment without information ID")
                 return
             }
@@ -389,41 +413,7 @@ struct ProfileView: View {
         }.resume()
     }
 
-    struct AsyncImageView: View {
-        @StateObject private var imageLoader: ImageLoader
-
-        init(url: String) {
-            let urlString = "http://localhost:9090/" + url
-            _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
-        }
-
-        var body: some View {
-            if let uiImage = imageLoader.image {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-            }
-        }
-    }
-
-    class ImageLoader: ObservableObject {
-        @Published var image: UIImage?
-
-        init(url: String) {
-            guard let imageURL = URL(string: url) else { return }
-
-            URLSession.shared.dataTask(with: imageURL) { data, response, error in
-                if let data = data, let loadedImage = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.image = loadedImage
-                    }
-                }
-            }.resume()
-        }
-    }
+   
 
     struct MyProfileView_Previews: PreviewProvider {
         static var previews: some View {

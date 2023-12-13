@@ -28,9 +28,8 @@ struct ContenuCardView: View {
                          
                         
                      } else {
-                    /*  if let favorie = favViewModel.favories.first(where: { $0.idCoursProgramme == cours.id }) {
-                                    favViewModel.deletefav(favorie: favorie)
-                                }*/
+                        
+
                      }
                  }) {
                      Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -49,7 +48,7 @@ struct ContenuCardView: View {
                                       image
                                           .resizable()
                                           .aspectRatio(contentMode: .fill)
-                                          .frame(height: 200)
+                                          .frame(height: 190)
                                           .clipped()
                                   case .failure:
                                       Image(systemName: "Intro") // You can use a placeholder image here

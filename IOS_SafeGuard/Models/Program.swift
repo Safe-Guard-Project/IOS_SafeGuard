@@ -7,7 +7,7 @@ struct Program: Identifiable, Codable {
     let image: String
     let Titre: String
     let descriptionProgramme: String
-    let cours: [String]
+    let cours: [Cours]
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case Titre = "Titre"
@@ -17,7 +17,7 @@ struct Program: Identifiable, Codable {
 
     }
 
-    init(id : String ,image: String, Titre: String, descriptionProgramme: String, cours: [String]) {
+    init(id : String ,image: String, Titre: String, descriptionProgramme: String, cours: [Cours]) {
         self.id = id
         self.image = image
         self.Titre = Titre
@@ -33,7 +33,7 @@ struct Program: Identifiable, Codable {
         Titre = try container.decode(String.self, forKey: .Titre)
         descriptionProgramme = try container.decode(String.self, forKey: .descriptionProgramme)
 
-        if let coursArray = try? container.decode([String].self, forKey: .cours) {
+        if let coursArray = try? container.decode([Cours].self, forKey: .cours) {
             cours = coursArray
         } else {
             cours = []

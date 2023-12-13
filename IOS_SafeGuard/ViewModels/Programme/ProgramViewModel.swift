@@ -14,7 +14,7 @@ class ProgramViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
 
     func getAllPrograms() {
-        guard let url = URL(string: "http://localhost:9090/programme/") else {
+        guard let url = URL(string: "http://localhost:9090/programme/cours") else {
             return
         }
 

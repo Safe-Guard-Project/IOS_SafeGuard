@@ -23,14 +23,8 @@ struct CommentCardView: View {
                     isDeleted = true
                 }
                 .tint(.red)
-                
-                Button("Modify", systemImage: "pencil") {
-                    
-                
-                }
-                .tint(.blue)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+              
+
 
             }
         }

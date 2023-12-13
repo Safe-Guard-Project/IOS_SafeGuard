@@ -12,6 +12,7 @@ import Combine
 class FavorieViewModel: ObservableObject {
     @Published var favories: [Favorie] = []
     private var cancellables: Set<AnyCancellable> = []
+    @Published var coursDetails: Cours?
     
     func addFav( idCoursProgramme: String) {
         guard let url = URL(string: "http://localhost:9090/favorie") else {
@@ -54,7 +55,7 @@ class FavorieViewModel: ObservableObject {
     }
     
     func getAllFav() {
-        guard let url = URL(string: "http://localhost:9090/favorie") else {
+        guard let url = URL(string: "http://localhost:9090/favorie/cours") else {
             return
         }
 

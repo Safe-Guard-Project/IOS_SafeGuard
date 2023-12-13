@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9304824E2B21D02C00DC2253 /* CatastropheListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304824D2B21D02C00DC2253 /* CatastropheListView.swift */; };
+		930482502B21D04900DC2253 /* CatastropheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304824F2B21D04900DC2253 /* CatastropheRow.swift */; };
+		930482522B21D07200DC2253 /* ContentViewCatastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930482512B21D07200DC2253 /* ContentViewCatastrophe.swift */; };
 		930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */; };
 		930F49952AFCD52B0094A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49942AFCD52B0094A97E /* Assets.xcassets */; };
 		930F49982AFCD52B0094A97E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F49972AFCD52B0094A97E /* Preview Assets.xcassets */; };
@@ -101,6 +104,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9304824D2B21D02C00DC2253 /* CatastropheListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheListView.swift; sourceTree = "<group>"; };
+		9304824F2B21D04900DC2253 /* CatastropheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRow.swift; sourceTree = "<group>"; };
+		930482512B21D07200DC2253 /* ContentViewCatastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCatastrophe.swift; sourceTree = "<group>"; };
 		930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SafeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930F49902AFCD52A0094A97E /* IOS_SafeGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardApp.swift; sourceTree = "<group>"; };
 		930F49942AFCD52B0094A97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -302,6 +308,9 @@
 				932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */,
 				933A309C2B17EE7E006D69DB /* HomePageView.swift */,
 				931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */,
+				9304824D2B21D02C00DC2253 /* CatastropheListView.swift */,
+				9304824F2B21D04900DC2253 /* CatastropheRow.swift */,
+				930482512B21D07200DC2253 /* ContentViewCatastrophe.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 			mainGroup = 930F49842AFCD52A0094A97E;
 			packageReferences = (
 				93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				930482532B21D50500DC2253 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 930F498E2AFCD52A0094A97E /* Products */;
 			projectDirPath = "";
@@ -535,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930482522B21D07200DC2253 /* ContentViewCatastrophe.swift in Sources */,
 				933A30C32B180F9F006D69DB /* AddInfoView.swift in Sources */,
 				933A30D82B181317006D69DB /* MapView.swift in Sources */,
 				933A30B42B1802BB006D69DB /* Program.swift in Sources */,
@@ -559,6 +570,7 @@
 				932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */,
 				933A30C92B180FF7006D69DB /* ProfileCardView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
+				9304824E2B21D02C00DC2253 /* CatastropheListView.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */,
 				933A30B02B180293006D69DB /* FavoriView.swift in Sources */,
@@ -569,6 +581,7 @@
 				932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */,
 				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
+				930482502B21D04900DC2253 /* CatastropheRow.swift in Sources */,
 				93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */,
 				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
 				931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */,
@@ -928,6 +941,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		930482532B21D50500DC2253 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";

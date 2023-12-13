@@ -28,9 +28,8 @@ struct ContenuCardView: View {
                          
                         
                      } else {
-                         if let favorie = favViewModel.favories.first(where: { $0.idCoursProgramme == cours.id }) {
-                                    favViewModel.deletefav(favorie: favorie)
-                                }
+                        
+
                      }
                  }) {
                      Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -41,16 +40,26 @@ struct ContenuCardView: View {
                  .font(.title)
              }
 
-             GeometryReader { geometry in
-                 Image("tsunami")
-                     .resizable()
-                     .aspectRatio(contentMode: .fill)
-                     .frame(width: geometry.size.width - 80, height: 200)
-                     .clipped()
-                     .cornerRadius(10)
-                     .offset(x: 40, y: 10)
-             }
-             .frame(height: 200)
+             AsyncImage(url: URL(string: cours.image)) { phase in
+                                  switch phase {
+                                  case .empty:
+                                      ProgressView()
+                                  case .success(let image):
+                                      image
+                                          .resizable()
+                                          .aspectRatio(contentMode: .fill)
+                                          .frame(height: 180)
+                                          .clipped()
+                                  case .failure:
+                                      Image(systemName: "Intro")
+                                          .resizable()
+                                          .aspectRatio(contentMode: .fill)
+                                          .frame(height: 200)
+                                          .clipped()
+                                  @unknown default:
+                                      EmptyView()
+                                  }
+                              }
              Text(cours.description)
                  .font(.body)
                  .padding(16)
@@ -77,53 +86,5 @@ struct ContenuCardView: View {
                          }
                      }
                      .background(Color(UIColor.systemBackground))
-                     .navigationBarBackButtonHidden(true)
-                     .navigationBarHidden(true)
      }
-}/*
-import SwiftUI
-
-struct ContenuCardView: View {
-    var cours: Cours
-    @State private var comment: String = ""
-    @State private var isFavorite: Bool = false
-    @ObservedObject var commentViewModel: CommentViewModel
-    @ObservedObject var favViewModel: FavorieViewModel
-    @State private var isCommentaireListViewActive: Bool = false
-
-    var body: some View {
-        NavigationLink(
-            destination: CommentaireListView(cours: cours, commentViewModel: commentViewModel),
-            isActive: $isCommentaireListViewActive
-        ) {
-            EmptyView()
-        }
-        .hidden()
-
-        VStack(alignment: .leading, spacing: 8) {
-            // ... Your existing content
-
-            HStack {
-                TextField("Ajouter un commentaire", text: $comment)
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.2)))
-                    .padding([.leading, .bottom], 10)
-                    .frame(height: 50)
-
-                Button(action: {
-                    commentViewModel.addComment(textComment: comment, idCoursProgramme: cours.id)
-                    comment = ""
-                    isCommentaireListViewActive.toggle()
-                }) {
-                    Image(systemName: "arrow.right.circle.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color.blue)
-                        .padding(.trailing, 10)
-                }
-            }
-            .background(Color(UIColor.systemBackground))
-        }
-    }
 }
-*/

@@ -182,6 +182,9 @@ func sendBlogToServer() {
         }
     }
 }*/
+
+
+
 import SwiftUI
 import Alamofire
 
@@ -340,10 +343,10 @@ struct AddInfoView: View {
 
 
     func sendInformationToServer() {
-        guard (image?.jpegData(compressionQuality: 0.5)) != nil else {
+       /* guard (image?.jpegData(compressionQuality: 0.5)) != nil else {
             print("Selected image is missing")
             return
-        }
+        }*/
 
         guard let url = URL(string: "http://localhost:9090/information") else {
             print("Invalid URL")
@@ -440,3 +443,184 @@ struct AddInfoView: View {
     }
 }
 
+/*import SwiftUI
+import PhotosUI
+struct AddInfoView: View {
+    @State private var title = ""
+    @State private var typeOfCatastrophe = "Earthquake"
+    @State private var country = ""
+    @State private var region = ""
+    @State private var selectedDate = Date()
+    @State private var liabilityPercentage = ""
+    @State private var descriptionCatastrophe = ""
+    @State private var image: UIImage? = nil
+    @State private var photopickerItem: PhotosPickerItem?
+    @State private var showImagePicker = false
+    @State private var statement: Statement = .ongoing
+    @StateObject var addinfoModel = AddInfoViewModel()
+
+
+    enum Statement: String {
+        case ongoing = "En cours"
+        case notYet = "Pas encore"
+    }
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: SectionHeader("Nouveau Blog"))
+                {
+                    TextField("Titre", text: $title )
+                        .accentColor(.blue)
+                    // Apply a black border
+                    Picker("Type de Catastrophe", selection: $typeOfCatastrophe) {
+                        ForEach(["Earthquake", "Tsunami", "Inondation", "Tornade", "Autres"], id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    TextField("Pays", text: $country)
+                    TextField("Région", text: $region)
+                    
+                    VStack {
+                        DatePicker("Date et heure" ,selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                            .accentColor(.blue)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        RadioGroup(selectedOption: $statement, options: [.ongoing, .notYet])
+                        Spacer()
+                    }
+                    
+                    TextField("Pourcentage de fiabilité", text: $liabilityPercentage)
+                        .keyboardType(.decimalPad)
+                    TextField("Description", text: $descriptionCatastrophe)
+                        .frame(height: 100)
+                }
+                
+                Section(header: Text("Ajouter une image") .font(.headline)){
+                    PhotosPicker(selection: $photopickerItem, matching: .images){
+                        Image(uiImage: image ?? UIImage( resource: .placeholder))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 300, height: 300)
+                            .clipped()
+                            .cornerRadius(3)
+                    }
+                    
+                }
+                .onChange(of: photopickerItem) { _, _ in
+                    Task{
+                        if let photopickerItem,
+                           let data = try? await photopickerItem.loadTransferable(type:Data.self){
+                            if let image = UIImage(data: data){
+                                image = image
+                                print("image ajouté", image)
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+            
+            .navigationBarTitle("Ajouter Blog")
+            .toolbar{
+                        
+                               Button("Save") {
+                                     if let photoData = image?.jpegData(compressionQuality: 0.5) {
+                                         let base64String = photoData.base64EncodedString(options: [])
+                                         print("Base64 Encoded String:", base64String)
+                                        AddInfoViewModel.addInfo(
+                                            title : title,
+                                            country : country,
+                                            typeOfCatastrophe : typeOfCatastrophe ,
+                                            region : region,
+                                            selectedDate : selectedDate ,
+                                            liabilityPercentage : liabilityPercentage ,
+                                            descriptionCatastrophe : descriptionCatastrophe ,
+                                            statement : statement ,
+                                             image : base64String
+                                         )
+                                
+                                         
+
+                                     } else {
+                                         // Handle the case where PhotoEvent is nil or couldn't be converted to data
+                                         print("Error converting image to data.")
+                                     }
+                                 }
+
+                             
+                         }
+                         
+                     }
+                 }
+                 
+             }
+
+             struct ContentView_Previews: PreviewProvider{
+                 static var previews: some View{
+                     AddInfoView()
+                 }
+             }
+                
+                
+            
+                struct SectionHeader: View {
+                    let title: String
+
+                    init(_ title: String) {
+                        self.title = title
+                    }
+
+                    var body: some View {
+                        HStack {
+                            Spacer()
+                            Text(title)
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                            Spacer()
+                        }
+                    }
+                }
+
+                struct RadioGroup: View {
+                    @Binding var selectedOption: AddInfoView.Statement
+                    var options: [AddInfoView.Statement]
+
+                    var body: some View {
+                        HStack {
+                            ForEach(options, id: \.self) { option in
+                                RadioButton(
+                                    text: option.rawValue,
+                                    isSelected: option == selectedOption,
+                                    action: { selectedOption = option }
+                                )
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                            .foregroundColor(.black)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+
+
+                struct RadioButton: View {
+                    var text: String
+                    var isSelected: Bool
+                    var action: () -> Void
+
+                    var body: some View {
+                        Button(action: action) {
+                            HStack(alignment: .center, spacing: 5) {
+                                Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
+                                Text(text)
+                            }
+                        }
+                        .contentShape(Rectangle()) // Set the content shape to allow interaction
+                    }
+            }
+
+*/

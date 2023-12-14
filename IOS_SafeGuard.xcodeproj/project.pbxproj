@@ -44,6 +44,11 @@
 		EF069A702B2A55C000A86819 /* CommentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF069A6F2B2A55C000A86819 /* CommentInfoViewModel.swift */; };
 		EF643A212B2A67810086F1E5 /* CommentairesInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */; };
 		EF643A232B2A67B30086F1E5 /* CommentairesInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */; };
+		EF643A252B2A7E760086F1E5 /* CommentButton1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A242B2A7E760086F1E5 /* CommentButton1View.swift */; };
+		EF643A272B2A7EB30086F1E5 /* CommentairesInfoView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A262B2A7EB30086F1E5 /* CommentairesInfoView1.swift */; };
+		EF643A292B2A7F160086F1E5 /* CommentairesInfoCardView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A282B2A7F160086F1E5 /* CommentairesInfoCardView1.swift */; };
+		EF643A2B2B2A82C40086F1E5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A2A2B2A82C40086F1E5 /* ProfileViewModel.swift */; };
+		EF643A2D2B2A8F870086F1E5 /* AddInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A2C2B2A8F870086F1E5 /* AddInfoViewModel.swift */; };
 		EF6C8A9F2B1EA2A300CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8A9E2B1EA2A300CD8587 /* Alamofire */; };
 		EF6C8AA12B1EA2B800CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8AA02B1EA2B800CD8587 /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -103,6 +108,11 @@
 		EF069A6F2B2A55C000A86819 /* CommentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInfoViewModel.swift; sourceTree = "<group>"; };
 		EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoView.swift; sourceTree = "<group>"; };
 		EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoCardView.swift; sourceTree = "<group>"; };
+		EF643A242B2A7E760086F1E5 /* CommentButton1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButton1View.swift; sourceTree = "<group>"; };
+		EF643A262B2A7EB30086F1E5 /* CommentairesInfoView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoView1.swift; sourceTree = "<group>"; };
+		EF643A282B2A7F160086F1E5 /* CommentairesInfoCardView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoCardView1.swift; sourceTree = "<group>"; };
+		EF643A2A2B2A82C40086F1E5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		EF643A2C2B2A8F870086F1E5 /* AddInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +232,9 @@
 				EF069A6B2B2A527C00A86819 /* CommentButtonView.swift */,
 				EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */,
 				EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */,
+				EF643A242B2A7E760086F1E5 /* CommentButton1View.swift */,
+				EF643A262B2A7EB30086F1E5 /* CommentairesInfoView1.swift */,
+				EF643A282B2A7F160086F1E5 /* CommentairesInfoCardView1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				E50EF4CF2B1A7E4200041A18 /* InformationViewModel.swift */,
+				EF643A2A2B2A82C40086F1E5 /* ProfileViewModel.swift */,
+				EF643A2C2B2A8F870086F1E5 /* AddInfoViewModel.swift */,
 			);
 			path = IInformation;
 			sourceTree = "<group>";
@@ -412,6 +427,7 @@
 			files = (
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				E5EB75D02B218E15000E6229 /* YourAPIServiceView.swift in Sources */,
+				EF643A2D2B2A8F870086F1E5 /* AddInfoViewModel.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				E58479872B17FB8800B6ABD3 /* page1View.swift in Sources */,
@@ -427,7 +443,10 @@
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
+				EF643A272B2A7EB30086F1E5 /* CommentairesInfoView1.swift in Sources */,
+				EF643A2B2B2A82C40086F1E5 /* ProfileViewModel.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
+				EF643A292B2A7F160086F1E5 /* CommentairesInfoCardView1.swift in Sources */,
 				E5756D502B16CAA200A5BAFC /* CommentaireInfo.swift in Sources */,
 				E58479892B17FC1300B6ABD3 /* ProfileView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
@@ -438,6 +457,7 @@
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				E50EF4D02B1A7E4200041A18 /* InformationViewModel.swift in Sources */,
+				EF643A252B2A7E760086F1E5 /* CommentButton1View.swift in Sources */,
 				EF643A232B2A67B30086F1E5 /* CommentairesInfoCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

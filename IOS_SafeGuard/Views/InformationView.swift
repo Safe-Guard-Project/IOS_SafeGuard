@@ -70,7 +70,7 @@ struct InformationView: View {
         
         var body: some View {
             VStack(spacing: 8) {
-                AsyncImage(url: URL(string: information.image )) { phase in
+                AsyncImage(url: URL(string: information.image ?? "" )) { phase in
                     switch phase {
                     case .empty:
                         ProgressView()
@@ -114,6 +114,7 @@ struct InformationView: View {
             .cornerRadius(12)
             .shadow(radius: 4)
             .frame(height: 300)
+            
         }
     }
     
@@ -159,7 +160,7 @@ struct InformationView: View {
                     }
                     .padding(.horizontal)
                     
-                    AsyncImage(url: URL(string: information.image)) { phase in
+                    AsyncImage(url: URL(string: information.image ?? "")) { phase in
                                                     switch phase {
                                                     case .empty:
                                                         ProgressView()
@@ -201,7 +202,7 @@ struct InformationView: View {
                                     .foregroundColor(.black)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .border(Color.black)
-                                CommentButtonView()
+                                CommentButtonView1()
                                 .padding()
 
                             }

@@ -4,6 +4,7 @@ struct ProfileView: View {
     @State var informations: [Information] = []
     @State private var isAddingInformation = false
     @State private var selectedInformation: Information?
+    @StateObject private var commentInfoViewModel = CommentInfoViewModel()
 
     var body: some View {
             NavigationView {
@@ -27,7 +28,7 @@ struct ProfileView: View {
                 fetchInformation()
             }
             .sheet(item: $selectedInformation) { info in
-                ProfileDetailView(information: info)
+                ProfileDetailView(information: info, CommentInfoViewModel: commentInfoViewModel)
             }
             
                 }
@@ -37,55 +38,72 @@ struct ProfileView: View {
 
     struct ProfileCardView: View {
         let information: Information
+        @State private var isDeleted: Bool = false
+        @StateObject private var profileViewModel = ProfileViewModel()
+
+
 
         var body: some View {
-            VStack(spacing: 8) {
-                
-                AsyncImage(url: URL(string: information.image)) { phase in
-                                                switch phase {
-                                                case .empty:
-                                                    ProgressView()
-                                                case .success(let image):
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(height: 150)
-                                                        .clipped()
-                                                case .failure:
-                                                    Image(systemName: "Intro")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(height: 150)
-                                                        .clipped()
-                                                @unknown default:
-                                                    EmptyView()
-                                                }
-                                            }
-
-                        Spacer()
-
-
-                Text(information.titre )
-                    .font(.headline)
-                    .foregroundColor(.black)
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 16)
-
-                Spacer()
-
-                Text(information.descriptionInformation)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.horizontal, 16)
+            if !isDeleted {
+                VStack(spacing: 8) {
+                    
+                    AsyncImage(url: URL(string: information.image ?? "")) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 150)
+                                .clipped()
+                        case .failure:
+                            Image(systemName: "Intro")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 150)
+                                .clipped()
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    
+                    Text(information.titre )
+                        .font(.headline)
+                        .foregroundColor(.black)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 16)
+                    
+                    Spacer()
+                    
+                    Text(information.descriptionInformation)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 16)
+                }
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.blue, lineWidth: 2)
+                )
+                .cornerRadius(12)
+                .shadow(radius: 4)
+                .frame(height: 300)
+                .swipeActions(edge: .trailing) {
+                    Button("Delete", systemImage: "trash") {
+                      profileViewModel.deleteBlog(information: information)
+                        isDeleted = true
+                        
+                    }
+                    .tint(.red)
+                    
+                    
+                    
+                }
             }
-            .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.blue, lineWidth: 2)
-            )
-            .cornerRadius(12)
-            .shadow(radius: 4)
-            .frame(height: 300)
         }
     }
 
@@ -99,6 +117,8 @@ struct ProfileView: View {
         var information: Information
         @State private var commentText: String = ""
         @State private var comments: [String] = []
+        @ObservedObject var CommentInfoViewModel: CommentInfoViewModel
+
         struct Comment: Codable {
                let text: String
                let informationID: String
@@ -140,7 +160,7 @@ struct ProfileView: View {
                         .padding(.horizontal)
 
                         
-                        AsyncImage(url: URL(string: information.image)) { phase in
+                        AsyncImage(url: URL(string: information.image ?? "")) { phase in
                                                         switch phase {
                                                         case .empty:
                                                             ProgressView()
@@ -183,26 +203,9 @@ struct ProfileView: View {
                                     .foregroundColor(.black) // Set the text color as needed
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .border(Color.black) // Apply a black border to the frame
+                                CommentButtonView()
                             }
                         }
-                    if !comments.isEmpty {
-                        Divider()
-                        Section(header:
-                            Text("Commentaires")
-                                .font(.headline)
-                                .foregroundColor(.blue) // Set the header text color to blue
-                                .padding(.leading)
-                        ) {
-                            ForEach(comments, id: \.self) { comment in
-                                HStack {
-                                    Text(comment)
-                                        .foregroundColor(.blue)
-                                        .padding(.leading)
-                                    Spacer()
-                                }
-                            }
-                        }
-                    }
 
                     Divider()
 
@@ -213,8 +216,9 @@ struct ProfileView: View {
                             .padding()
 
                         Button(action: {
-                           // addComment()
-                        }) {
+                            CommentInfoViewModel.addComment(descriptionCommentaire: commentText, idInformation: information.id ?? "0")
+                            commentText = ""
+                                        }) {
                             Image(systemName: "arrow.right.circle.fill")
                                 .resizable()
                                 .frame(width: 30, height: 30)

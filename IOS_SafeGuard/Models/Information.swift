@@ -67,7 +67,7 @@ struct Information: Identifiable, Decodable {
     var region: String
     var descriptionInformation: String
     var dateDePrevention: Date
-    var image: String
+    var image: String?
     var pourcentageFiabilite: Int
     var etat: String
     var createdAt: Date

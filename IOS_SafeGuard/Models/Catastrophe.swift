@@ -5,8 +5,9 @@
 //  Created by dhiasaibi on 28/11/2023.
 //
 import Foundation
+import CoreLocation
 
-struct Catastrophe: Codable, Identifiable {
+struct Catastrophe: Codable, Identifiable, Hashable {
     let id: String
     let titre: String
     let type: String
@@ -23,6 +24,7 @@ struct Catastrophe: Codable, Identifiable {
         case id = "_id"
         case titre, type, description, date, radius, magnitude, latitudeDeCatastrophe, longitudeDeCatastrophe, createdAt, updatedAt
     }
+    
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -33,6 +35,7 @@ struct Catastrophe: Codable, Identifiable {
         date = try container.decode(String.self, forKey: .date) // Change the type to String
         radius = try container.decode(Double.self, forKey: .radius)
         magnitude = try container.decode(Double.self, forKey: .magnitude)
+  
         latitudeDeCatastrophe = try container.decode(Double.self, forKey: .latitudeDeCatastrophe)
         longitudeDeCatastrophe = try container.decode(Double.self, forKey: .longitudeDeCatastrophe)
         createdAt = try container.decode(String.self, forKey: .createdAt)

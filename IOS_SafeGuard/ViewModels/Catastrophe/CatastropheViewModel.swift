@@ -1,9 +1,15 @@
+//
+//  CatastropheViewModel.swift
+//  IOS_SafeGuard
+//
+//  Created by mohamed oussama bouriga on 29/11/2023.
+//
 import Foundation
 import Combine
 
 class CatastropheViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
-    private let repository: CatastropheRepository
+    private let repository:CatastropheRepository
 
     @Published var catastrophes: [Catastrophe] = []
 

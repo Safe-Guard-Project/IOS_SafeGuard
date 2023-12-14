@@ -109,4 +109,13 @@ class ApiManager: APIService {
            )
            .eraseToAnyPublisher()
        }
+    func getZoneDeDangers() -> AnyPublisher<[ZoneDeDanger]?, Error> {
+           let zoneDeDangerEndpoint = ZoneDeDangerEndpoint.getZoneDeDangers
+           print("URL: \(NetworkConstants.baseURL + zoneDeDangerEndpoint.path)")
+           return WebServiceProvider.shared.callWebService(url: NetworkConstants.baseURL + zoneDeDangerEndpoint.path,
+                                                           method: "GET",
+                                                           params: nil,
+                                                           queryParams: nil)
+               .eraseToAnyPublisher()
+       }
 }

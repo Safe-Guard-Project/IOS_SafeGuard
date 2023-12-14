@@ -18,6 +18,7 @@ struct ProgramView: View {
                     viewModel.getAllPrograms()
                 }
                 .navigationTitle("Programmes")
+        
                 
         
         

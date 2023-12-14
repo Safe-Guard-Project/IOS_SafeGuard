@@ -6,6 +6,47 @@ class WebServiceProvider {
         let instance = WebServiceProvider()
         return instance
     }()
+    func uploadFile(url: URL, fileData: Data, fileName: String, fileKey: String) -> AnyPublisher<Data, Error> {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let boundary = UUID().uuidString
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        var body = Data()
+        
+        // Add file data
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"\(fileKey)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+        body.append(fileData)
+        body.append("\r\n".data(using: .utf8)!)
+        
+        // Add any additional parameters if needed
+        /*
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"paramName\"\r\n\r\n".data(using: .utf8)!)
+        body.append("paramValue".data(using: .utf8)!)
+        body.append("\r\n".data(using: .utf8)!)
+        */
+        
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        request.httpBody = body
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
+            }
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+
+
+
 
     func callWebService<T: Codable>(
         url: String,

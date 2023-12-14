@@ -13,6 +13,13 @@ class DisplayUserProfileViewModel: ObservableObject {
         self.userRepository = userRepository
         self.userId = UserDefaults.standard.string(forKey: "UserID") ?? ""
     }
+    
+    convenience init() {
+        let apiService: APIService = ApiManager.shared
+        let webServiceProvider: WebServiceProvider = WebServiceProvider.shared
+        let userRepository: UserRepository = UserRepositoryImpl(apiService: apiService, webServiceProvider: webServiceProvider)
+        self.init(userRepository: userRepository)
+    }
 
     func fetchUserInformation() {
         guard !userId.isEmpty else {
@@ -35,4 +42,22 @@ class DisplayUserProfileViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func saveUserProfileImage(imageData: Data) {
+        userRepository.saveUserProfileImage(imageData: imageData)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                // Handle completion if needed
+            } receiveValue: { response in
+                // Handle the image upload response if needed
+                if let response = response {
+                    print("Image upload response: \(response)")
+                } else {
+                    print("Image upload failed or response is nil.")
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+
 }

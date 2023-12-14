@@ -11,6 +11,9 @@ struct LocationDetailsView: View {
     @Binding var mapSelection: MKMapItem?
     @Binding var show: Bool
     @State private var lookAroundScene: MKLookAroundScene?
+    @Binding var getDirections : Bool
+    
+    
     var body: some View {
         VStack {
             HStack {
@@ -29,7 +32,7 @@ struct LocationDetailsView: View {
                     show.toggle()
                     mapSelection = nil
                 } label: {
-                    Image (systemName: "xmark.circle. fill")
+                    Image (systemName: "xmark.circle.fill")
                         .resizable()
                         .frame (width:24, height:24)
                         .foregroundStyle(.gray, Color(.systemGray6))
@@ -45,19 +48,42 @@ struct LocationDetailsView: View {
                 ContentUnavailableView("No preview available", systemImage: "eye.slash")
             }
         }
+        HStack(spacing: 24) {
+            Button {
+                if let mapSelection = mapSelection {
+                    mapSelection.openInMaps()
+                }
+            } label: {
+                Text("Open in Maps")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 170, height: 48)
+                    .background(.green)
+                    .cornerRadius(12)
+            }
+
+            Button {
+                getDirections = true
+                show = false
+            } label: {
+                Text("Get Directions")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 170, height: 48)
+                    .background(.blue)
+                    .cornerRadius(12)
+            }
+        }
+        .padding(.horizontal)
         .onAppear {
-            print ("DEBUG: Did call on appear")
             fetchLookAroundPreview()
         }
         .onChange(of: mapSelection) { oldValue, newValue in
-        print("DEBUG:Did call  on change")
             fetchLookAroundPreview()
         }
         .padding()
-        
     }
 }
-        
         
 
 
@@ -71,5 +97,5 @@ extension LocationDetailsView {
                 
             }}}}
 #Preview {
-    LocationDetailsView(mapSelection: .constant(nil), show: .constant(false))
+    LocationDetailsView(mapSelection: .constant(nil), show: .constant(false),getDirections: .constant(false))
 }

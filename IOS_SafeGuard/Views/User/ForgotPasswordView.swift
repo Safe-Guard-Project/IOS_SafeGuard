@@ -1,5 +1,4 @@
 import SwiftUI
-
 struct ForgotPasswordView: View {
     @State private var email: String = ""
     @State private var phone: String = ""

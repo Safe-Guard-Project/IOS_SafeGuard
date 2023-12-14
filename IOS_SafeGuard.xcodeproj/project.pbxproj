@@ -32,16 +32,18 @@
 		E50EF4D02B1A7E4200041A18 /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF4CF2B1A7E4200041A18 /* InformationViewModel.swift */; };
 		E52CCF762B163B850068E96A /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF752B163B850068E96A /* Information.swift */; };
 		E52CCF7A2B1648F60068E96A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF792B1648F60068E96A /* InformationView.swift */; };
-		E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52CCF7B2B16493E0068E96A /* InformationCardView.swift */; };
 		E5756D4C2B16818100A5BAFC /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4B2B16818100A5BAFC /* AddInfoView.swift */; };
 		E5756D4E2B16AA3A00A5BAFC /* DetailsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */; };
 		E5756D502B16CAA200A5BAFC /* CommentaireInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5756D4F2B16CAA200A5BAFC /* CommentaireInfo.swift */; };
 		E58479872B17FB8800B6ABD3 /* page1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58479862B17FB8800B6ABD3 /* page1View.swift */; };
 		E58479892B17FC1300B6ABD3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58479882B17FC1300B6ABD3 /* ProfileView.swift */; };
-		E584798B2B17FDA500B6ABD3 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */; };
 		E5EB75CC2B21823F000E6229 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB75CB2B21823F000E6229 /* URLImage */; };
 		E5EB75CE2B21823F000E6229 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB75CD2B21823F000E6229 /* URLImageStore */; };
 		E5EB75D02B218E15000E6229 /* YourAPIServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */; };
+		EF069A6C2B2A527C00A86819 /* CommentButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF069A6B2B2A527C00A86819 /* CommentButtonView.swift */; };
+		EF069A702B2A55C000A86819 /* CommentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF069A6F2B2A55C000A86819 /* CommentInfoViewModel.swift */; };
+		EF643A212B2A67810086F1E5 /* CommentairesInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */; };
+		EF643A232B2A67B30086F1E5 /* CommentairesInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */; };
 		EF6C8A9F2B1EA2A300CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8A9E2B1EA2A300CD8587 /* Alamofire */; };
 		EF6C8AA12B1EA2B800CD8587 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF6C8AA02B1EA2B800CD8587 /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -91,14 +93,16 @@
 		E50EF4CF2B1A7E4200041A18 /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
 		E52CCF752B163B850068E96A /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		E52CCF792B1648F60068E96A /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		E52CCF7B2B16493E0068E96A /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 		E5756D4B2B16818100A5BAFC /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
 		E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoView.swift; sourceTree = "<group>"; };
 		E5756D4F2B16CAA200A5BAFC /* CommentaireInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaireInfo.swift; sourceTree = "<group>"; };
 		E58479862B17FB8800B6ABD3 /* page1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = page1View.swift; sourceTree = "<group>"; };
 		E58479882B17FC1300B6ABD3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAPIServiceView.swift; sourceTree = "<group>"; };
+		EF069A6B2B2A527C00A86819 /* CommentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButtonView.swift; sourceTree = "<group>"; };
+		EF069A6F2B2A55C000A86819 /* CommentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInfoViewModel.swift; sourceTree = "<group>"; };
+		EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoView.swift; sourceTree = "<group>"; };
+		EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,13 +214,14 @@
 				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
 				E52CCF792B1648F60068E96A /* InformationView.swift */,
-				E52CCF7B2B16493E0068E96A /* InformationCardView.swift */,
 				E5756D4B2B16818100A5BAFC /* AddInfoView.swift */,
 				E5756D4D2B16AA3A00A5BAFC /* DetailsInfoView.swift */,
 				E58479862B17FB8800B6ABD3 /* page1View.swift */,
 				E58479882B17FC1300B6ABD3 /* ProfileView.swift */,
-				E584798A2B17FDA500B6ABD3 /* ProfileCardView.swift */,
 				E5EB75CF2B218E15000E6229 /* YourAPIServiceView.swift */,
+				EF069A6B2B2A527C00A86819 /* CommentButtonView.swift */,
+				EF643A202B2A67810086F1E5 /* CommentairesInfoView.swift */,
+				EF643A222B2A67B30086F1E5 /* CommentairesInfoCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			children = (
 				E50EF4CE2B1A7E2700041A18 /* IInformation */,
 				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
+				EF069A6F2B2A55C000A86819 /* CommentInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,12 +416,13 @@
 				93DA559D2B13C6720046548B /* SignInView.swift in Sources */,
 				E58479872B17FB8800B6ABD3 /* page1View.swift in Sources */,
 				E5756D4E2B16AA3A00A5BAFC /* DetailsInfoView.swift in Sources */,
-				E584798B2B17FDA500B6ABD3 /* ProfileCardView.swift in Sources */,
 				93DA55BB2B142D230046548B /* UserRepositoryImpl.swift in Sources */,
+				EF069A6C2B2A527C00A86819 /* CommentButtonView.swift in Sources */,
+				EF069A702B2A55C000A86819 /* CommentInfoViewModel.swift in Sources */,
 				E5756D4C2B16818100A5BAFC /* AddInfoView.swift in Sources */,
+				EF643A212B2A67810086F1E5 /* CommentairesInfoView.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
-				E52CCF7C2B16493E0068E96A /* InformationCardView.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
@@ -431,6 +438,7 @@
 				93DA55A92B14122C0046548B /* NetworkError.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				E50EF4D02B1A7E4200041A18 /* InformationViewModel.swift in Sources */,
+				EF643A232B2A67B30086F1E5 /* CommentairesInfoCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,314 +1,3 @@
-/*// InformationView.swift
-import SwiftUI
-
-struct InformationView: View {
-    @State var informations: [Information] = []
-    @State private var isAddingInformation = false
-    
-    @State private var selectedInformation: Information?
-    
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(informations, id: \.id) { event in
-                        VStack(alignment: .leading, spacing: 8) {
-                            InfoCardView(information: Information)
-                                .onTapGesture {
-                                    selectedInformation = Information
-                                }
-                        }
-                        .padding(.horizontal)
-                    }
-                }
-                .padding(.top, 16)
-            }
-            
-            .navigationBarTitle("Blog")
-            .onAppear {
-                fetchInformation()
-            }
-            
-            .sheet(item: $selectedInformation) { event in
-                InfoDetailView(information: <#T##Information#>)
-            }
-            .sheet(isPresented: $isAddingInformation) {
-                AddInfoView()
-            }
-            Spacer()
-            
-        }
-        .overlay(
-            VStack {
-                Spacer()
-                Button(action: {
-                    isAddingInformation = true
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.title)
-                        .padding()
-                        .frame(width: 20, height: 20) // Ajuster la taille de l'icône selon vos besoins
-                        .foregroundColor(Color.blue) // Couleur de l'icône // Choisissez la couleur appropriée
-                        .imageScale(.large) // Choisissez la
-                }
-            }
-        )
-        
-        
-    }
-}
-struct InfoCardView: View {
-    let information: Information
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            AsyncImageView(url: information.image )
-                .frame(height: 200) // Taille de l'image en vedette
-
-            Text(information.titre)
-                .font(.headline)
-                .foregroundColor(.primary)
-            Text(information.descriptionInformation)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 4)
-    }
-}
-struct InfoDetailView: View {
-    var information: Information
-    @State private var commentText: String = ""
-    @State private var comments: [String] = []
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(information.titre)
-                    .font(.title)
-                    .bold()
-                    .padding(.horizontal)
-
-                if let image = information.image, !image.isEmpty {
-                    Image(image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 200)
-                        .padding(.horizontal)
-                }
-
-                titleValueRow(title: "Type of Catastrophe", value: information.typeCatastrophe)
-                titleValueRow(title: "Country", value: information.pays)
-                titleValueRow(title: "Region", value: information.region)
-                titleValueRow(title: "Statement", value: information.etat)
-                titleValueRow(title: "Prevention Date", value: formatDate(information.dateDePrevention))
-                titleValueRow(title: "Liabilities Percent", value: "\(information.pourcentageFiabilite)%")
-
-                Text("Description of Catastrophe:")
-                    .font(.headline)
-                    .padding(.horizontal)
-                Text(information.descriptionInformation)
-                    .padding(.horizontal)
-
-                if !comments.isEmpty {
-                    Divider()
-                    Text("Comments:")
-                        .font(.headline)
-                        .padding(.leading)
-
-                    ForEach(comments, id: \.self) { comment in
-                        HStack {
-                            Text(comment)
-                                .foregroundColor(.blue)
-                                .padding(.leading)
-                            Spacer()
-                        }
-                    }
-                }
-
-                Divider()
-
-                HStack {
-                    TextField("Type your comment here", text: $commentText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.2)))
-                        .padding()
-
-                    Button(action: {
-                        if !commentText.isEmpty {
-                            comments.append(commentText)
-                            commentText = ""
-                        }
-                    }) {
-                        Image(systemName: "arrow.right.circle.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
-                }
-                .padding(.horizontal)
-
-                HStack {
-                    Button(action: {
-                        // Add action for sharing information
-                    }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.white)
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                }
-            }
-            .padding()
-        }
-        .navigationBarTitle("Information Detail", displayMode: .inline)
-    }
-
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }
-
-    private func titleValueRow(title: String, value: String?) -> some View {
-        HStack {
-            Text(title)
-                .bold()
-            Spacer()
-            if let unwrappedValue = value, !unwrappedValue.isEmpty {
-                Text(unwrappedValue)
-            } else {
-                Text("N/A")
-                    .foregroundColor(.gray)
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
-
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }
-
-    private func titleValueRow(title: String, value: String?) -> some View {
-        HStack {
-            Text(title)
-                .bold()
-            Spacer()
-            if let unwrappedValue = value {
-                Text(unwrappedValue)
-            } else {
-                Text("N/A")
-                    .foregroundColor(.gray)
-            }
-        }
-        .padding(.horizontal)
-    }
-
-
-
-
-func fetchInformation() {
-    guard let url = URL(string: "http://localhost:9090/information") else {
-        print("URL invalide")
-        return
-    }
-
-    URLSession.shared.dataTask(with: url) { data, _, error in
-        if let error = error {
-            print("Erreur lors de la récupération des événements : \(error)")
-            return
-        }
-
-        guard let data = data else {
-            print("Aucune donnée trouvée")
-            return
-        }
-
-        let decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
-            if let jsonDictionary = json as? [String: Any], let eventList = jsonDictionary["list"] as? [[String: Any]] {
-                let jsonData = try JSONSerialization.data(withJSONObject: eventList)
-                let fetchedInfos = try decoder.decode([Information].self, from: jsonData)
-                DispatchQueue.main.async {
-                    self.informations = fetchedInfos
-                }
-            } else {
-                print("La structure JSON ne correspond pas")
-            }
-        } catch {
-            print("Erreur de décodage JSON : \(error)")
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print("JSON reçu : \(jsonString)")
-            } else {
-                print("Impossible de convertir les données JSON en chaîne")
-            }
-        }
-
-    }.resume()
-}
-
-
-
-
-struct AsyncImageView: View {
-    @StateObject private var imageLoader: ImageLoader
-    
-    init(url: String) {
-        let urlString = "http://localhost:9090/" + url // Assurez-vous que l'URL est correctement formée ici
-        _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
-    }
-    
-    var body: some View {
-        if let uiImage = imageLoader.image {
-            Image(uiImage: uiImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        } else {
-            // Placeholder image ou indicateur de chargement
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-        }
-    }
-}
-class ImageLoader: ObservableObject {
-    @Published var image: UIImage?
-    
-    init(url: String) {
-        guard let imageURL = URL(string: url) else { return }
-        
-        URLSession.shared.dataTask(with: imageURL) { data, response, error in
-            if let data = data, let loadedImage = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.image = loadedImage
-                }
-            }
-        }.resume()
-    }
-}
-
-struct InformationView_Previews: PreviewProvider {
-    static var previews: some View {
-        InformationView()
-    }
-}*/
 import URLImage
 
 import SwiftUI
@@ -317,6 +6,7 @@ struct InformationView: View {
     @State var informations: [Information] = []
     @State private var isAddingInformation = false
     @State private var selectedInformation: Information?
+    @StateObject private var commentInfoViewModel = CommentInfoViewModel()
     
     var body: some View {
         NavigationView {
@@ -327,9 +17,7 @@ struct InformationView: View {
                         .foregroundColor(Color.blue)
                         .padding()
                     
-                    Spacer() // Pousse le bouton à droite
-                    
-                    // Déplacer le bouton en haut
+                    Spacer()
                     Button(action: {
                         isAddingInformation = true
                     }) {
@@ -360,7 +48,7 @@ struct InformationView: View {
                     fetchInformation()
                 }
                 .sheet(item: $selectedInformation) { info in
-                    InformationDetailView(information: info)
+                    InformationDetailView(information: info, CommentInfoViewModel: commentInfoViewModel)
                 }
                 .sheet(isPresented: $isAddingInformation) {
                     AddInfoView()
@@ -369,6 +57,13 @@ struct InformationView: View {
         }
         
     }
+    
+    
+    
+    
+    
+    
+    
     
     struct InformationCardView: View {
         let information: Information
@@ -395,15 +90,7 @@ struct InformationView: View {
                         EmptyView()
                     }
                 }
-                /* AsyncImageView(url: information.image ?? "")
-                 .frame(height: 200)
-                 
-                 Spacer()*/
-                /*Image("tsunami") // Replace "folderImage" with the actual name of your image asset
-                 .resizable()
-                 .aspectRatio(contentMode: .fit)
-                 .frame(height: 100) // Adjust the height as needed
-                 */
+               
                 Spacer()
                 
                 Text(information.titre )
@@ -430,9 +117,7 @@ struct InformationView: View {
         }
     }
     
-    
-    
-    
+
     
     
     
@@ -440,8 +125,8 @@ struct InformationView: View {
         var information: Information
         @State private var commentText: String = ""
         @State private var comments: [String] = []
+        @ObservedObject var CommentInfoViewModel: CommentInfoViewModel
         
-        // Add a binding state to track the share sheet presentation
         @State private var isShareSheetPresented: Bool = false
         
         var body: some View {
@@ -508,37 +193,19 @@ struct InformationView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Description de catastrophe :")
                                     .font(.headline)
-                                    .foregroundColor(.black) // Set the header text color to navy blue
+                                    .foregroundColor(.black)
                                     .padding(.horizontal)
                                 
                                 Text(information.descriptionInformation)
                                     .padding(.horizontal)
-                                    .foregroundColor(.black) // Set the text color as needed
+                                    .foregroundColor(.black)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .border(Color.black) // Apply a black border to the frame
+                                    .border(Color.black)
+                                CommentButtonView()
+                                .padding()
+
                             }
                         }
-                        if !comments.isEmpty {
-                            Divider()
-                            Section(header:
-                                        Text("Commentaires")
-                                .font(.headline)
-                                .foregroundColor(.blue) // Set the header text color to blue
-                                .padding(.leading)
-                            ) {
-                                ForEach(comments, id: \.self) { comment in
-                                    HStack {
-                                        Text(comment)
-                                            .foregroundColor(.blue)
-                                            .padding(.leading)
-                                        Spacer()
-                                    }
-                                }
-                            }
-                        }
-                        
-                        Divider()
-                        
                         HStack {
                             TextField("Tapez votre commentaire", text: $commentText)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -546,11 +213,9 @@ struct InformationView: View {
                                 .padding()
                             
                             Button(action: {
-                                if !commentText.isEmpty {
-                                    comments.append(commentText)
-                                    commentText = ""
-                                }
-                            }) {
+                                CommentInfoViewModel.addComment(descriptionCommentaire: commentText, idInformation: information.id ?? "0")
+                                commentText = ""
+                                            }) {
                                 Image(systemName: "arrow.right.circle.fill")
                                     .resizable()
                                     .frame(width: 30, height: 30)
@@ -605,6 +270,8 @@ struct InformationView: View {
                 .padding(.horizontal)
             }
         }
+    
+    
         
         
         
@@ -647,42 +314,9 @@ struct InformationView: View {
                 }
             }.resume()
         }
+   
         
-        /*struct AsyncImageView: View {
-         @StateObject private var imageLoader: ImageLoader
-         
-         init(url: String) {
-         let urlString = "http://localhost:9090/" + url
-         _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
-         }
-         
-         var body: some View {
-         if let uiImage = imageLoader.image {
-         Image(uiImage: uiImage)
-         .resizable()
-         .aspectRatio(contentMode: .fit)
-         } else {
-         ProgressView()
-         .progressViewStyle(CircularProgressViewStyle())
-         }
-         }
-         }
-         
-         class ImageLoader: ObservableObject {
-         @Published var image: UIImage?
-         
-         init(url: String) {
-         guard let imageURL = URL(string: url) else { return }
-         
-         URLSession.shared.dataTask(with: imageURL) { data, response, error in
-         if let data = data, let loadedImage = UIImage(data: data) {
-         DispatchQueue.main.async {
-         self.image = loadedImage
-         }
-         }
-         }.resume()
-         }
-         }*/
+        
         
         struct MyInformationView_Previews: PreviewProvider {
             static var previews: some View {

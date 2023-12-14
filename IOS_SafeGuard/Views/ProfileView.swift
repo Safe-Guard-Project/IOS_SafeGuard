@@ -1,66 +1,5 @@
-/*import SwiftUI
-
-struct ProfileView: View {
-    @State private var informations = [
-        Information(id: "1", titre: "Les forêts de Ain drahem en danger !!! ", typeCatastrophe: "Incendie", idUser: "userID1", pays: "Tunisie", region: "Ain Drahem", descriptionInformation: "Une incendie a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "thumbnail-incendie-herve-dermoune", pourcentageFiabilite: 100, etat: "On going"),
-        Information(id: "2", titre: "Tsunami menace l'europe !!! ", typeCatastrophe: "Tsunami", idUser: "userID2", pays: "France", region: "Nice", descriptionInformation: "Une alerte de Tsunami a été émise pour la région en raison des fortes précipitations attendues au cours des prochaines heures", dateDePrevention: Date(), image: "doc2", pourcentageFiabilite: 70, etat: "Coming")
-    ]
-
-    @State private var isActionButtonVisible = false
-    @State private var isAddInfoViewActive = false
-
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(informations.indices, id: \.self) { index in
-                    NavigationLink(destination: DetailsInfoView(information: informations[index])) {
-                        InformationCardView(information: informations[index])
-                            .listRowInsets(EdgeInsets(top: 2, leading: 5, bottom: 4, trailing: 4))
-                            .swipeActions {
-                                // Modifier action
-                                Button {
-                                    // Handle modifier action
-                                    print("Modifier tapped for index \(index)")
-                                } label: {
-                                    Label("Modifier", systemImage: "pencil.circle")
-                                        .foregroundColor(.green)
-                                }
-
-                                // Supprimer action
-                                Button {
-                                    // Handle supprimer action
-                                    informations.remove(at: index)
-                                } label: {
-                                    Label("Supprimer", systemImage: "trash.circle")
-                                        .foregroundColor(.red)
-                                }
-                            }
-                    }
-                }
-                .onDelete { indexSet in
-                    informations.remove(atOffsets: indexSet)
-                }
-            }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.large)
-            .onAppear {
-                withAnimation {
-                    isActionButtonVisible = true
-                }
-            }
-        }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}*/
 import URLImage
-
 import SwiftUI
-
 struct ProfileView: View {
     @State var informations: [Information] = []
     @State private var isAddingInformation = false
@@ -71,7 +10,7 @@ struct ProfileView: View {
                 VStack {
 
                 ScrollView {
-                    LazyVStack(spacing: 50) { // Ajouter un espacement vertical entre chaque carte
+                    LazyVStack(spacing: 50) {
                         ForEach(informations) { info in
                             ProfileCardView(information: info)
                                 .onTapGesture {
@@ -79,7 +18,7 @@ struct ProfileView: View {
                                 }
                         }
                     }
-                    .padding(.horizontal, 20) // Ajouter un espacement horizontal global
+                    .padding(.horizontal, 20) 
                     .padding(.top, 16)
                 }
                 .navigationBarHidden(true)
@@ -274,7 +213,7 @@ struct ProfileView: View {
                             .padding()
 
                         Button(action: {
-                            addComment()
+                           // addComment()
                         }) {
                             Image(systemName: "arrow.right.circle.fill")
                                 .resizable()
@@ -298,7 +237,7 @@ struct ProfileView: View {
             
             
         }
-        private func addComment() {
+       /* private func addComment() {
             guard information.id != nil else {
                 print("Cannot add comment without information ID")
                 return
@@ -309,7 +248,7 @@ struct ProfileView: View {
                 return
             }
 
-            let comment = CommentaireInfo(id: nil, textComment: commentText)
+            let comment = CommentaireInfo(from: <#Decoder#>, idInformation: idInformation, id: <#String#> ,descriptionCommentaire : descriptionCommentaire)
 
             guard let url = URL(string: "http://localhost:9090/commentairesinformation") else {
                 print("Invalid URL for comment addition")
@@ -330,7 +269,7 @@ struct ProfileView: View {
             }
 
         }
-
+*/
 
 
         struct ShareSheet: UIViewControllerRepresentable {

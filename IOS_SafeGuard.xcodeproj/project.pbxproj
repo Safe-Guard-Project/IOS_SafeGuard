@@ -17,6 +17,25 @@
 		930F49AC2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */; };
 		930F49AE2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */; };
 		930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */; };
+		931475782B2A6AED00615505 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 931475772B2A6AED00615505 /* Alamofire */; };
+		9314757A2B2A763800615505 /* ZoneDeDanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475792B2A763800615505 /* ZoneDeDanger.swift */; };
+		9314757C2B2A768000615505 /* ZoneDeDangerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314757B2B2A768000615505 /* ZoneDeDangerEndpoint.swift */; };
+		9314757E2B2A76A800615505 /* ZoneDeDangerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314757D2B2A76A800615505 /* ZoneDeDangerRepository.swift */; };
+		931475802B2A76C700615505 /* ZoneDeDangerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314757F2B2A76C700615505 /* ZoneDeDangerRepositoryImpl.swift */; };
+		931475832B2A775500615505 /* ZoneDeDangerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475822B2A775500615505 /* ZoneDeDangerViewModel.swift */; };
+		931475892B2AA6C400615505 /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475882B2AA6C400615505 /* ImageUploadResponse.swift */; };
+		9314758C2B2ABEC900615505 /* AddInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314758B2B2ABEC900615505 /* AddInfoViewModel.swift */; };
+		9314758E2B2ABEE500615505 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314758D2B2ABEE500615505 /* ProfileViewModel.swift */; };
+		931475902B2ABF0D00615505 /* CommentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314758F2B2ABF0D00615505 /* CommentInfoViewModel.swift */; };
+		931475922B2ABF6200615505 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475912B2ABF6200615505 /* InformationView.swift */; };
+		931475942B2ABFA300615505 /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475932B2ABFA300615505 /* AddInfoView.swift */; };
+		931475962B2AC00D00615505 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475952B2AC00D00615505 /* ProfileView.swift */; };
+		931475982B2AC03100615505 /* CommentButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475972B2AC03100615505 /* CommentButtonView.swift */; };
+		9314759A2B2AC05100615505 /* CommentairesInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475992B2AC05100615505 /* CommentairesInfoView.swift */; };
+		9314759C2B2AC06600615505 /* CommentairesInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314759B2B2AC06600615505 /* CommentairesInfoCardView.swift */; };
+		9314759E2B2AC09700615505 /* CommentButton1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314759D2B2AC09700615505 /* CommentButton1View.swift */; };
+		931475A02B2AC0CF00615505 /* CommentairesInfoView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314759F2B2AC0CF00615505 /* CommentairesInfoView1.swift */; };
+		931475A22B2AC0EC00615505 /* CommentairesInfoCardView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931475A12B2AC0EC00615505 /* CommentairesInfoCardView1.swift */; };
 		931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1622B1C362E006EA625 /* Navigation2.swift */; };
 		931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */; };
 		931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */; };
@@ -45,12 +64,6 @@
 		933A30B82B1802D2006D69DB /* Commentaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30B72B1802D2006D69DB /* Commentaire.swift */; };
 		933A30BA2B180EFF006D69DB /* CommentaireInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30B92B180EFF006D69DB /* CommentaireInfo.swift */; };
 		933A30BC2B180F26006D69DB /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30BB2B180F26006D69DB /* Information.swift */; };
-		933A30BF2B180F66006D69DB /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30BE2B180F66006D69DB /* InformationView.swift */; };
-		933A30C12B180F85006D69DB /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30C02B180F85006D69DB /* InformationCardView.swift */; };
-		933A30C32B180F9F006D69DB /* AddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30C22B180F9F006D69DB /* AddInfoView.swift */; };
-		933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30C42B180FBC006D69DB /* DetailsInfoView.swift */; };
-		933A30C72B180FE4006D69DB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30C62B180FE4006D69DB /* ProfileView.swift */; };
-		933A30C92B180FF7006D69DB /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30C82B180FF7006D69DB /* ProfileCardView.swift */; };
 		933A30CB2B1811B0006D69DB /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30CA2B1811B0006D69DB /* Catastrophe.swift */; };
 		933A30CD2B18121A006D69DB /* CatastropheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30CC2B18121A006D69DB /* CatastropheRepository.swift */; };
 		933A30CF2B18124E006D69DB /* CatastropheEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A30CE2B18124E006D69DB /* CatastropheEndpoint.swift */; };
@@ -117,6 +130,24 @@
 		930F49AB2AFCD52B0094A97E /* IOS_SafeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITests.swift; sourceTree = "<group>"; };
 		930F49AD2AFCD52B0094A97E /* IOS_SafeGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_SafeGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		931475792B2A763800615505 /* ZoneDeDanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDanger.swift; sourceTree = "<group>"; };
+		9314757B2B2A768000615505 /* ZoneDeDangerEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerEndpoint.swift; sourceTree = "<group>"; };
+		9314757D2B2A76A800615505 /* ZoneDeDangerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerRepository.swift; sourceTree = "<group>"; };
+		9314757F2B2A76C700615505 /* ZoneDeDangerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerRepositoryImpl.swift; sourceTree = "<group>"; };
+		931475822B2A775500615505 /* ZoneDeDangerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDeDangerViewModel.swift; sourceTree = "<group>"; };
+		931475882B2AA6C400615505 /* ImageUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadResponse.swift; sourceTree = "<group>"; };
+		9314758B2B2ABEC900615505 /* AddInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewModel.swift; sourceTree = "<group>"; };
+		9314758D2B2ABEE500615505 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		9314758F2B2ABF0D00615505 /* CommentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInfoViewModel.swift; sourceTree = "<group>"; };
+		931475912B2ABF6200615505 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		931475932B2ABFA300615505 /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
+		931475952B2AC00D00615505 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		931475972B2AC03100615505 /* CommentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButtonView.swift; sourceTree = "<group>"; };
+		931475992B2AC05100615505 /* CommentairesInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoView.swift; sourceTree = "<group>"; };
+		9314759B2B2AC06600615505 /* CommentairesInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoCardView.swift; sourceTree = "<group>"; };
+		9314759D2B2AC09700615505 /* CommentButton1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButton1View.swift; sourceTree = "<group>"; };
+		9314759F2B2AC0CF00615505 /* CommentairesInfoView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoView1.swift; sourceTree = "<group>"; };
+		931475A12B2AC0EC00615505 /* CommentairesInfoCardView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentairesInfoCardView1.swift; sourceTree = "<group>"; };
 		931BE1622B1C362E006EA625 /* Navigation2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
 		931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
@@ -145,12 +176,6 @@
 		933A30B72B1802D2006D69DB /* Commentaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentaire.swift; sourceTree = "<group>"; };
 		933A30B92B180EFF006D69DB /* CommentaireInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaireInfo.swift; sourceTree = "<group>"; };
 		933A30BB2B180F26006D69DB /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
-		933A30BE2B180F66006D69DB /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		933A30C02B180F85006D69DB /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
-		933A30C22B180F9F006D69DB /* AddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoView.swift; sourceTree = "<group>"; };
-		933A30C42B180FBC006D69DB /* DetailsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoView.swift; sourceTree = "<group>"; };
-		933A30C62B180FE4006D69DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		933A30C82B180FF7006D69DB /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		933A30CA2B1811B0006D69DB /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
 		933A30CC2B18121A006D69DB /* CatastropheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheRepository.swift; sourceTree = "<group>"; };
 		933A30CE2B18124E006D69DB /* CatastropheEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastropheEndpoint.swift; sourceTree = "<group>"; };
@@ -191,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E9CF262B15103A007A147E /* Kingfisher in Frameworks */,
+				931475782B2A6AED00615505 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +316,8 @@
 				939108CB2B1CEAB7002AE6A6 /* CPass.swift */,
 				93FDF1732B1EA205003F91D9 /* CatastropheAnnotation.swift */,
 				93BA8CDF2B21646E001A02E8 /* Favorie.swift */,
+				931475792B2A763800615505 /* ZoneDeDanger.swift */,
+				931475882B2AA6C400615505 /* ImageUploadResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,20 +325,13 @@
 		930F49BB2AFCD7FC0094A97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				931475862B2A7FF200615505 /* Catastrophe */,
+				931475852B2A7FBE00615505 /* User */,
 				933A30D42B1812F1006D69DB /* Map */,
 				933A30BD2B180F48006D69DB /* Information */,
 				933A309E2B1801BF006D69DB /* Programme */,
-				93DA559C2B13C6720046548B /* SignInView.swift */,
-				93DA55A42B1402B30046548B /* SignUpView.swift */,
-				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
 				93E9CF222B15081D007A147E /* SplashScreenView.swift */,
-				93E9CF272B152138007A147E /* ForgotPasswordView.swift */,
-				932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */,
 				933A309C2B17EE7E006D69DB /* HomePageView.swift */,
-				931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */,
-				9304824D2B21D02C00DC2253 /* CatastropheListView.swift */,
-				9304824F2B21D04900DC2253 /* CatastropheRow.swift */,
-				930482512B21D07200DC2253 /* ContentViewCatastrophe.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,17 +339,14 @@
 		930F49BC2AFCD8020094A97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9314758A2B2ABEB900615505 /* Information */,
+				931475872B2A802600615505 /* User */,
+				931475842B2A778000615505 /* Catastrophe */,
+				931475812B2A773C00615505 /* ZoneDeDanger */,
 				93BA8CE12B2164A4001A02E8 /* Programme */,
-				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
-				93E9CF292B1531F0007A147E /* SignInViewModel.swift */,
 				93E9CF2B2B155E4B007A147E /* AppViewModel.swift */,
-				93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */,
-				933A30D02B181296006D69DB /* CatastropheViewModel.swift */,
 				932EFFCC2B1A85E700FB62EF /* Navigation.swift */,
-				932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */,
-				932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */,
 				931BE1622B1C362E006EA625 /* Navigation2.swift */,
-				931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -343,8 +361,71 @@
 				93DA55B22B1420D70046548B /* APIService.swift */,
 				93DA55BC2B1451380046548B /* WebServiceProvider.swift */,
 				933A30CE2B18124E006D69DB /* CatastropheEndpoint.swift */,
+				9314757B2B2A768000615505 /* ZoneDeDangerEndpoint.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		931475812B2A773C00615505 /* ZoneDeDanger */ = {
+			isa = PBXGroup;
+			children = (
+				931475822B2A775500615505 /* ZoneDeDangerViewModel.swift */,
+			);
+			path = ZoneDeDanger;
+			sourceTree = "<group>";
+		};
+		931475842B2A778000615505 /* Catastrophe */ = {
+			isa = PBXGroup;
+			children = (
+				933A30D02B181296006D69DB /* CatastropheViewModel.swift */,
+			);
+			path = Catastrophe;
+			sourceTree = "<group>";
+		};
+		931475852B2A7FBE00615505 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				93DA559C2B13C6720046548B /* SignInView.swift */,
+				93DA55A42B1402B30046548B /* SignUpView.swift */,
+				93E9CF202B14FF87007A147E /* DisplayUserProfileView.swift */,
+				93E9CF272B152138007A147E /* ForgotPasswordView.swift */,
+				932EFFD02B1AA88500FB62EF /* OtpValidationView.swift */,
+				931BE1662B1CC06B006EA625 /* ChangePasswordView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		931475862B2A7FF200615505 /* Catastrophe */ = {
+			isa = PBXGroup;
+			children = (
+				9304824F2B21D04900DC2253 /* CatastropheRow.swift */,
+				9304824D2B21D02C00DC2253 /* CatastropheListView.swift */,
+				930482512B21D07200DC2253 /* ContentViewCatastrophe.swift */,
+			);
+			path = Catastrophe;
+			sourceTree = "<group>";
+		};
+		931475872B2A802600615505 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				930F49C22AFCD9CC0094A97E /* SignUpViewModel.swift */,
+				93E9CF292B1531F0007A147E /* SignInViewModel.swift */,
+				93E9CF2D2B1584E4007A147E /* DisplayUserProfileViewModel.swift */,
+				932EFFD42B1AD78200FB62EF /* RecEmailViewModel.swift */,
+				932EFFE02B1BFF4A00FB62EF /* RecNumTelViewModel.swift */,
+				931BE1682B1CC5B4006EA625 /* ChangePasswordViewModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		9314758A2B2ABEB900615505 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				9314758B2B2ABEC900615505 /* AddInfoViewModel.swift */,
+				9314758D2B2ABEE500615505 /* ProfileViewModel.swift */,
+				9314758F2B2ABF0D00615505 /* CommentInfoViewModel.swift */,
+			);
+			path = Information;
 			sourceTree = "<group>";
 		};
 		933A309E2B1801BF006D69DB /* Programme */ = {
@@ -367,12 +448,15 @@
 		933A30BD2B180F48006D69DB /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				933A30BE2B180F66006D69DB /* InformationView.swift */,
-				933A30C02B180F85006D69DB /* InformationCardView.swift */,
-				933A30C22B180F9F006D69DB /* AddInfoView.swift */,
-				933A30C42B180FBC006D69DB /* DetailsInfoView.swift */,
-				933A30C62B180FE4006D69DB /* ProfileView.swift */,
-				933A30C82B180FF7006D69DB /* ProfileCardView.swift */,
+				931475912B2ABF6200615505 /* InformationView.swift */,
+				931475932B2ABFA300615505 /* AddInfoView.swift */,
+				931475952B2AC00D00615505 /* ProfileView.swift */,
+				931475972B2AC03100615505 /* CommentButtonView.swift */,
+				931475992B2AC05100615505 /* CommentairesInfoView.swift */,
+				9314759B2B2AC06600615505 /* CommentairesInfoCardView.swift */,
+				9314759D2B2AC09700615505 /* CommentButton1View.swift */,
+				9314759F2B2AC0CF00615505 /* CommentairesInfoView1.swift */,
+				931475A12B2AC0EC00615505 /* CommentairesInfoCardView1.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -404,6 +488,8 @@
 				93DA55BA2B142D230046548B /* UserRepositoryImpl.swift */,
 				933A30CC2B18121A006D69DB /* CatastropheRepository.swift */,
 				933A30D92B1819DC006D69DB /* CatastropheRepositoryImpl.swift */,
+				9314757D2B2A76A800615505 /* ZoneDeDangerRepository.swift */,
+				9314757F2B2A76C700615505 /* ZoneDeDangerRepositoryImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -426,6 +512,7 @@
 			name = IOS_SafeGuard;
 			packageProductDependencies = (
 				93E9CF252B15103A007A147E /* Kingfisher */,
+				931475772B2A6AED00615505 /* Alamofire */,
 			);
 			productName = IOS_SafeGuard;
 			productReference = 930F498D2AFCD52A0094A97E /* IOS_SafeGuard.app */;
@@ -502,6 +589,7 @@
 			packageReferences = (
 				93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				930482532B21D50500DC2253 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				931475A32B2AC2D600615505 /* XCRemoteSwiftPackageReference "url-image-demo" */,
 			);
 			productRefGroup = 930F498E2AFCD52A0094A97E /* Products */;
 			projectDirPath = "";
@@ -546,10 +634,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				930482522B21D07200DC2253 /* ContentViewCatastrophe.swift in Sources */,
-				933A30C32B180F9F006D69DB /* AddInfoView.swift in Sources */,
 				933A30D82B181317006D69DB /* MapView.swift in Sources */,
 				933A30B42B1802BB006D69DB /* Program.swift in Sources */,
-				933A30BF2B180F66006D69DB /* InformationView.swift in Sources */,
 				93DA55B92B142D040046548B /* UserRepository.swift in Sources */,
 				93DA55BD2B1451390046548B /* WebServiceProvider.swift in Sources */,
 				931BE1672B1CC06B006EA625 /* ChangePasswordView.swift in Sources */,
@@ -563,39 +649,48 @@
 				933A30AC2B18026E006D69DB /* CommentsView.swift in Sources */,
 				93BA8CE72B216527001A02E8 /* FavorieViewModel.swift in Sources */,
 				93E9CF212B14FF87007A147E /* DisplayUserProfileView.swift in Sources */,
+				931475942B2ABFA300615505 /* AddInfoView.swift in Sources */,
 				933A30AA2B180248006D69DB /* ContenuView.swift in Sources */,
-				933A30C72B180FE4006D69DB /* ProfileView.swift in Sources */,
 				93E9CF2E2B1584E4007A147E /* DisplayUserProfileViewModel.swift in Sources */,
+				931475A02B2AC0CF00615505 /* CommentairesInfoView1.swift in Sources */,
 				933A30B22B1802A0006D69DB /* FavoriCardView.swift in Sources */,
 				932EFFD32B1AC72A00FB62EF /* OtpResponse.swift in Sources */,
-				933A30C92B180FF7006D69DB /* ProfileCardView.swift in Sources */,
 				93DA55AD2B1415A00046548B /* Login.swift in Sources */,
 				9304824E2B21D02C00DC2253 /* CatastropheListView.swift in Sources */,
 				93DA55A72B1411CB0046548B /* NetworkConstants.swift in Sources */,
 				933A30A22B180201006D69DB /* ProgramCardView.swift in Sources */,
 				933A30B02B180293006D69DB /* FavoriView.swift in Sources */,
+				931475A22B2AC0EC00615505 /* CommentairesInfoCardView1.swift in Sources */,
 				933A30B82B1802D2006D69DB /* Commentaire.swift in Sources */,
 				932EFFDF2B1BF8CD00FB62EF /* NumTelRec.swift in Sources */,
+				9314759E2B2AC09700615505 /* CommentButton1View.swift in Sources */,
 				93BA8CE92B216543001A02E8 /* CommentaireViewModel.swift in Sources */,
+				931475902B2ABF0D00615505 /* CommentInfoViewModel.swift in Sources */,
 				933A30BC2B180F26006D69DB /* Information.swift in Sources */,
+				9314757E2B2A76A800615505 /* ZoneDeDangerRepository.swift in Sources */,
 				932EFFD12B1AA88500FB62EF /* OtpValidationView.swift in Sources */,
-				933A30C52B180FBC006D69DB /* DetailsInfoView.swift in Sources */,
 				933A30A82B180231006D69DB /* ContenuCardView.swift in Sources */,
 				930482502B21D04900DC2253 /* CatastropheRow.swift in Sources */,
 				93BA8CE52B2164FC001A02E8 /* CoursViewModel.swift in Sources */,
 				932EFFE12B1BFF4A00FB62EF /* RecNumTelViewModel.swift in Sources */,
+				9314758C2B2ABEC900615505 /* AddInfoViewModel.swift in Sources */,
 				931BE1692B1CC5B4006EA625 /* ChangePasswordViewModel.swift in Sources */,
 				932EFFCD2B1A85E700FB62EF /* Navigation.swift in Sources */,
+				931475892B2AA6C400615505 /* ImageUploadResponse.swift in Sources */,
 				933A30AE2B180282006D69DB /* CommentCardView.swift in Sources */,
 				932EFFDD2B1BF8B800FB62EF /* EmailRec.swift in Sources */,
 				93E9CF232B15081D007A147E /* SplashScreenView.swift in Sources */,
 				93DA55B32B1420D70046548B /* APIService.swift in Sources */,
+				9314759A2B2AC05100615505 /* CommentairesInfoView.swift in Sources */,
 				933A30CD2B18121A006D69DB /* CatastropheRepository.swift in Sources */,
+				931475922B2ABF6200615505 /* InformationView.swift in Sources */,
+				9314757C2B2A768000615505 /* ZoneDeDangerEndpoint.swift in Sources */,
+				9314759C2B2AC06600615505 /* CommentairesInfoCardView.swift in Sources */,
+				931475832B2A775500615505 /* ZoneDeDangerViewModel.swift in Sources */,
 				933A30CB2B1811B0006D69DB /* Catastrophe.swift in Sources */,
 				931BE1632B1C362E006EA625 /* Navigation2.swift in Sources */,
 				939108CC2B1CEAB7002AE6A6 /* CPass.swift in Sources */,
 				93F3921C2B12C85D00A63B62 /* APIManager.swift in Sources */,
-				933A30C12B180F85006D69DB /* InformationCardView.swift in Sources */,
 				930F49C32AFCD9CC0094A97E /* SignUpViewModel.swift in Sources */,
 				933A30D62B1812FF006D69DB /* LocationDetailsView.swift in Sources */,
 				93F3921A2B12C83700A63B62 /* UserEndPoint.swift in Sources */,
@@ -604,6 +699,7 @@
 				93DA55A52B1402B30046548B /* SignUpView.swift in Sources */,
 				933A30CF2B18124E006D69DB /* CatastropheEndpoint.swift in Sources */,
 				93E9CF2A2B1531F0007A147E /* SignInViewModel.swift in Sources */,
+				9314757A2B2A763800615505 /* ZoneDeDanger.swift in Sources */,
 				93BA8CE02B21646E001A02E8 /* Favorie.swift in Sources */,
 				933A30DA2B1819DC006D69DB /* CatastropheRepositoryImpl.swift in Sources */,
 				93E9CF282B152138007A147E /* ForgotPasswordView.swift in Sources */,
@@ -612,9 +708,13 @@
 				933A309D2B17EE7E006D69DB /* HomePageView.swift in Sources */,
 				930F49912AFCD52A0094A97E /* IOS_SafeGuardApp.swift in Sources */,
 				933A30A62B180221006D69DB /* CoursView.swift in Sources */,
+				931475982B2AC03100615505 /* CommentButtonView.swift in Sources */,
 				933A30A42B180217006D69DB /* CoursCardView.swift in Sources */,
+				9314758E2B2ABEE500615505 /* ProfileViewModel.swift in Sources */,
 				93FDF1742B1EA205003F91D9 /* CatastropheAnnotation.swift in Sources */,
+				931475802B2A76C700615505 /* ZoneDeDangerRepositoryImpl.swift in Sources */,
 				932EFFDB2B1BE8C900FB62EF /* OtpCode.swift in Sources */,
+				931475962B2AC00D00615505 /* ProfileView.swift in Sources */,
 				933A30B62B1802C8006D69DB /* Cours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +1049,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		931475A32B2AC2D600615505 /* XCRemoteSwiftPackageReference "url-image-demo" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image-demo";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -960,6 +1068,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		931475772B2A6AED00615505 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 930482532B21D50500DC2253 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		93E9CF252B15103A007A147E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 93E9CF242B15103A007A147E /* XCRemoteSwiftPackageReference "Kingfisher" */;

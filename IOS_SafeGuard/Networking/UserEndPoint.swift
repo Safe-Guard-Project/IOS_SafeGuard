@@ -9,13 +9,15 @@ enum UserEndpoints {
     case recoverPasswordByEmail
     case recoverPasswordByPhone
     case changePassword
-
+    case uploadImage
     var path: String {
         switch self {
         case .signIn:
             return "user/loginClient"
         case .signUp:
             return "user/registerClient"
+        case .uploadImage:
+            return "user/upload"
         case .displayUserProfile(let userId):
             return "user/profile/\(userId)"
         case .recoverPasswordByEmail:

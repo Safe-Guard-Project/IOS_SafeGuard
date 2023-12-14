@@ -9,5 +9,6 @@ protocol UserRepository {
     func recoverPasswordByEmail(email: String) -> AnyPublisher<OtpResponse?, Error>
     func recoverPasswordByPhone(numeroTel: String) -> AnyPublisher<OtpCode?, Error>
     func changePassword(cPass:CPass) -> AnyPublisher<CPassRes?, Error>
+    func saveUserProfileImage(imageData: Data) -> AnyPublisher<ImageUploadResponse?, Error> 
 
     }

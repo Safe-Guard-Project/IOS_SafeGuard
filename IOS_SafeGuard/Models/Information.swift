@@ -57,11 +57,11 @@ struct Information: Identifiable, Codable {
         etat = try container.decode(String.self, forKey: .etat)
     }*/}
 */
-/*import SwiftUI
+import SwiftUI
 
 struct Information: Identifiable, Decodable {
     var id: String?
-    var titre: String? // Make this optional
+    var titre: String
     var typeCatastrophe: String
     var pays: String
     var region: String
@@ -78,5 +78,22 @@ struct Information: Identifiable, Decodable {
         case id = "_id"
         case titre, typeCatastrophe, pays, region, descriptionInformation, dateDePrevention, image, pourcentageFiabilite, etat, createdAt, updatedAt, __v
     }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decodeIfPresent(String.self, forKey: .id)
+        titre = try container.decode(String.self, forKey: .titre)
+        typeCatastrophe = try container.decode(String.self, forKey: .typeCatastrophe)
+        pays = try container.decode(String.self, forKey: .pays)
+        region = try container.decode(String.self, forKey: .region)
+        descriptionInformation = try container.decode(String.self, forKey: .descriptionInformation)
+        dateDePrevention = try container.decode(Date.self, forKey: .dateDePrevention)
+        image = try container.decode(String.self, forKey: .image) // No need for nil-coalescing, as image is not optional in the struct
+        pourcentageFiabilite = try container.decode(Int.self, forKey: .pourcentageFiabilite)
+        etat = try container.decode(String.self, forKey: .etat)
+        createdAt = try container.decode(Date.self, forKey: .createdAt)
+        updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        __v = try container.decode(Int.self, forKey: .__v)
+    }
 }
-*/

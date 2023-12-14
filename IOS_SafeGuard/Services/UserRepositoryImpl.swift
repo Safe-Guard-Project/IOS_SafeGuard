@@ -141,5 +141,19 @@ class UserRepositoryImpl: UserRepository {
         }
         .eraseToAnyPublisher()
     }
+    func saveUserProfileImage(imageData: Data) -> AnyPublisher<ImageUploadResponse?, Error> {
+           let uploadImageEndpoint = UserEndpoints.uploadImage.path.description
+
+           // Adjust headers, parameters, etc., based on your API
+           let headers: [String: String] = [:]
+           let params: [String: Any] = [:]
+
+           let url = URL(string: NetworkConstants.baseURL + uploadImageEndpoint)!
+
+           return webServiceProvider.uploadFile(url: url, fileData: imageData, fileName: "defaultFileName", fileKey: "image")
+               .decode(type: ImageUploadResponse?.self, decoder: JSONDecoder())
+               .eraseToAnyPublisher()
+       }
+
 
 }

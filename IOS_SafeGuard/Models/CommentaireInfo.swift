@@ -6,7 +6,23 @@
 //
 
 import Foundation
-struct CommentaireInfo: Identifiable{
-    let id = UUID()
-    let textComment: String
+
+struct CommentaireInfo: Codable , Identifiable {
+    let idInformation: String
+    let descriptionCommentaire: String
+    let id: String
+
+    enum CodingKeys: String, CodingKey {
+        case idInformation
+        case descriptionCommentaire
+        case id = "_id"
+    }
+
+    /*init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        // Decode idInformation directly as String
+        idInformation = try container.decode(String.self, forKey: .idInformation)
+        descriptionCommentaire = try container.decode(String.self, forKey: .descriptionCommentaire)
+    }*/
 }
